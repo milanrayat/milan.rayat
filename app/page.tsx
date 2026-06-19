@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, Mail, ExternalLink, Calendar } from 'lucide-react'
+import { ArrowRight, Mail, ExternalLink, Calendar, Briefcase, GraduationCap } from 'lucide-react'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { MetricCard } from '@/components/metric-card'
@@ -121,7 +121,7 @@ export default async function HomePage() {
               </div>
 
               {/* Headshot */}
-              <div className="lg:col-span-4 flex justify-center lg:justify-end">
+              <div className="lg:col-span-4 flex flex-col items-center lg:items-end gap-4">
                 <div className="relative w-64 h-64 lg:w-72 lg:h-72 rounded-2xl overflow-hidden border border-border/50 bg-card">
                   <Image
                     src="/milan-rayat.png"
@@ -130,6 +130,25 @@ export default async function HomePage() {
                     className="object-cover"
                     priority
                   />
+                </div>
+
+                {/* Snapshot: experience + education */}
+                <div className="w-64 lg:w-72 rounded-xl border border-border/50 bg-card p-4 flex flex-col gap-3">
+                  <div className="flex items-start gap-3">
+                    <Briefcase size={16} className="text-accent mt-0.5 shrink-0" aria-hidden="true" />
+                    <div>
+                      <p className="text-sm font-medium text-foreground">Senior Product Manager</p>
+                      <p className="text-xs text-muted-foreground">Sprinklr &middot; 2020 — Present</p>
+                    </div>
+                  </div>
+                  <div className="h-px bg-border/50" aria-hidden="true" />
+                  <div className="flex items-start gap-3">
+                    <GraduationCap size={16} className="text-accent mt-0.5 shrink-0" aria-hidden="true" />
+                    <div>
+                      <p className="text-sm font-medium text-foreground">B.Tech, Mechanical Engineering</p>
+                      <p className="text-xs text-muted-foreground">IIT Guwahati &middot; 2015 — 2019</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
