@@ -1,0 +1,102 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-inter), 'Inter', sans-serif;
+  --font-heading: var(--font-outfit), 'Outfit', sans-serif;
+  --font-mono: var(--font-geist-mono), 'Geist Mono', monospace;
+
+  /* Enterprise color tokens */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-electric-blue: var(--electric-blue);
+  --color-electric-blue-foreground: var(--electric-blue-foreground);
+  --color-slate-mid: var(--slate-mid);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  color-scheme: dark;
+
+  /* Deep Navy #0F172A as primary background */
+  --background: oklch(0.13 0.021 252);
+  /* Off-white foreground */
+  --foreground: oklch(0.96 0.005 250);
+
+  /* Card: slightly lighter than bg */
+  --card: oklch(0.17 0.018 252);
+  --card-foreground: oklch(0.96 0.005 250);
+
+  --popover: oklch(0.17 0.018 252);
+  --popover-foreground: oklch(0.96 0.005 250);
+
+  /* Primary: bright white-ish for primary actions */
+  --primary: oklch(0.96 0.005 250);
+  --primary-foreground: oklch(0.13 0.021 252);
+
+  /* Secondary: slate card surface */
+  --secondary: oklch(0.21 0.018 252);
+  --secondary-foreground: oklch(0.96 0.005 250);
+
+  /* Muted: Slate Gray #64748B */
+  --muted: oklch(0.21 0.018 252);
+  --muted-foreground: oklch(0.56 0.022 252);
+
+  /* Accent: Electric Blue #2563EB */
+  --accent: oklch(0.51 0.22 262);
+  --accent-foreground: oklch(0.98 0 0);
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.51 0.22 262);
+  --radius: 0.5rem;
+
+  /* Custom: Electric Blue */
+  --electric-blue: oklch(0.51 0.22 262);
+  --electric-blue-foreground: oklch(0.98 0 0);
+  /* Slate mid for dividers / labels */
+  --slate-mid: oklch(0.56 0.022 252);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  html {
+    @apply bg-background font-sans;
+    scroll-behavior: smooth;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+}
