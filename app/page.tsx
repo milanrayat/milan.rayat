@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Mail, ExternalLink, Calendar } from 'lucide-react'
 import { Navbar } from '@/components/navbar'
@@ -118,23 +119,14 @@ export default async function HomePage() {
 
               {/* Headshot */}
               <div className="lg:col-span-4 flex justify-center lg:justify-end">
-                <div
-                  className="relative w-64 h-64 lg:w-72 lg:h-72 rounded-2xl overflow-hidden border border-border/50 bg-card flex items-center justify-center"
-                  role="img"
-                  aria-label="Milan Rayat — Senior PM at Sprinklr"
-                >
-                  <div className="flex flex-col items-center gap-3 text-center p-6">
-                    <div className="w-20 h-20 rounded-full bg-accent/20 border border-accent/30 flex items-center justify-center">
-                      <span className="font-heading font-bold text-2xl text-accent" aria-hidden="true">
-                        MR
-                      </span>
-                    </div>
-                    <div>
-                      <p className="font-heading font-semibold text-foreground text-sm">{PERSON.name}</p>
-                      <p className="text-xs text-muted-foreground mt-1">Senior PM &middot; {PERSON.company}</p>
-                      <p className="text-xs text-muted-foreground">IIT Guwahati</p>
-                    </div>
-                  </div>
+                <div className="relative w-64 h-64 lg:w-72 lg:h-72 rounded-2xl overflow-hidden border border-border/50 bg-card">
+                  <Image
+                    src="/milan-rayat.png"
+                    alt="Milan Rayat — Senior PM at Sprinklr"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
                 </div>
               </div>
             </div>
