@@ -51,9 +51,11 @@ export default async function HomePage() {
               {/* Text content */}
               <div className="lg:col-span-8 flex flex-col gap-6">
                 <div>
+                  {/* Tagline — archived, re-enable when needed.
                   <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">
                     {PERSON.tagline}
                   </p>
+                  */}
                   <h1
                     id="hero-heading"
                     className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-foreground leading-tight text-balance"
@@ -66,7 +68,7 @@ export default async function HomePage() {
                   {PERSON.uvp}
                 </p>
 
-                {/* Social links */}
+                {/* Social links + CTAs — archived, re-enable when needed.
                 <div className="flex flex-wrap items-center gap-4 pt-2">
                   <a
                     href={`mailto:${PERSON.email}`}
@@ -100,7 +102,6 @@ export default async function HomePage() {
                   </a>
                 </div>
 
-                {/* CTAs */}
                 <div className="flex flex-col sm:flex-row gap-4 pt-2">
                   <Link
                     href="/case-studies"
@@ -116,6 +117,7 @@ export default async function HomePage() {
                     About Me
                   </Link>
                 </div>
+                */}
               </div>
 
               {/* Headshot */}
