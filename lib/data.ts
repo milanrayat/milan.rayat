@@ -2,7 +2,7 @@ export const PERSON = {
   name: 'Milan Rayat',
   title: 'Senior Product Manager · AI & Enterprise B2B SaaS',
   tagline: 'IIT Guwahati Engineer turned Product Manager.',
-  uvp: 'I build B2B SaaS products that make contact centers smarter — from AI-quality monitoring to call analytics. 4+ years shipping enterprise solutions adopted by 100+ customers, generating $20M+ ARR across global markets.',
+  uvp: 'From 0 to 1 to global scale — I discover the right problems, align teams around solutions, and ship products businesses rely on to grow.',
   email: 'milanrayat99@gmail.com',
   linkedin: 'https://www.linkedin.com/in/milan-rayat/',
   calendly: 'https://calendly.com/milanrayat99/30min',
