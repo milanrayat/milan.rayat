@@ -26,3 +26,4 @@ prisma/*.db-journal
 # Local dev tooling config
 .claude/
 tsconfig.tsbuildinfo
+.vercel
