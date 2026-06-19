@@ -137,11 +137,25 @@ export default async function HomePage() {
                   <div className="flex items-start gap-3">
                     <Briefcase size={16} className="text-accent mt-0.5 shrink-0" aria-hidden="true" />
                     <div>
-                      <p className="text-sm font-medium text-foreground">Senior Product Manager</p>
-                      <p className="text-xs text-muted-foreground">Sprinklr &middot; 2020 — Present</p>
+                      <p className="text-sm font-medium text-foreground">Product Manager</p>
+                      <p className="text-xs text-muted-foreground">Sprinklr &middot; 2022 — Present</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Briefcase size={16} className="text-accent mt-0.5 shrink-0" aria-hidden="true" />
+                    <div>
+                      <p className="text-sm font-medium text-foreground">Consultant</p>
+                      <p className="text-xs text-muted-foreground">EXL &middot; 2021 — 2022</p>
                     </div>
                   </div>
                   <div className="h-px bg-border/50" aria-hidden="true" />
+                  <div className="flex items-start gap-3">
+                    <GraduationCap size={16} className="text-accent mt-0.5 shrink-0" aria-hidden="true" />
+                    <div>
+                      <p className="text-sm font-medium text-foreground">MBA</p>
+                      <p className="text-xs text-muted-foreground">HEC Paris &middot; 2026 — Present</p>
+                    </div>
+                  </div>
                   <div className="flex items-start gap-3">
                     <GraduationCap size={16} className="text-accent mt-0.5 shrink-0" aria-hidden="true" />
                     <div>
