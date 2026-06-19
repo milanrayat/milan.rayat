@@ -14,11 +14,6 @@ __v0_jsx-dev-runtime.ts
 node_modules
 .next/
 .DS_Store
-/lib/generated/prisma
-
-# Local SQLite database
-prisma/*.db
-prisma/*.db-journal
 
 # Local bundled node runtime
 .node-runtime/

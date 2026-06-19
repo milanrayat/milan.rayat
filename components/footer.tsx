@@ -29,7 +29,7 @@ export async function Footer() {
             <ul className="flex flex-col gap-2" role="list">
               {[
                 { href: '/', label: 'Home' },
-                { href: '/about', label: 'About' },
+                { href: '/about', label: 'My Story' },
                 { href: '/case-studies', label: 'Case Studies' },
                 { href: '/contact', label: 'Contact' },
               ].map(({ href, label }) => (

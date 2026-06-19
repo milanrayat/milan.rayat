@@ -1,7 +1,6 @@
 import { Mail, ExternalLink, Calendar, MapPin, ArrowUpRight } from 'lucide-react'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
-import { ContactForm } from '@/components/contact-form'
 import { getProfile } from '@/lib/db'
 import type { Metadata } from 'next'
 
@@ -125,25 +124,6 @@ export default async function ContactPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* Direct Message Form */}
-        <section
-          className="py-16 px-6 lg:px-8 border-b border-border/30"
-          aria-labelledby="message-heading"
-        >
-          <div className="max-w-6xl mx-auto">
-            <h2
-              id="message-heading"
-              className="font-heading font-semibold text-xl text-foreground mb-2"
-            >
-              Send a direct message
-            </h2>
-            <p className="text-sm text-muted-foreground mb-8">
-              Prefer a form? Your message gets saved and I&apos;ll follow up by email.
-            </p>
-            <ContactForm />
           </div>
         </section>
 
