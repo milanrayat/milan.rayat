@@ -3,9 +3,9 @@ export const PERSON = {
   title: 'Senior Product Manager · AI & Enterprise B2B SaaS',
   tagline: 'IIT Guwahati Engineer turned Product Manager.',
   uvp: 'I build B2B SaaS products that make contact centers smarter — from AI-quality monitoring to call analytics. 4+ years shipping enterprise solutions adopted by 100+ customers, generating $20M+ ARR across global markets.',
-  email: 'milan@example.com',
-  linkedin: 'https://linkedin.com/in/milanrayat',
-  calendly: 'https://calendly.com/milanrayat',
+  email: 'milanrayat99@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/milan-rayat/',
+  calendly: 'https://calendly.com/milanrayat99/30min',
   company: 'Sprinklr',
 }
 
