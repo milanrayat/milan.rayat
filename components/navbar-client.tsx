@@ -76,16 +76,6 @@ export function NavbarClient({ name }: { name: string }) {
           })}
         </ul>
 
-        {/* CTA — desktop */}
-        <div className="hidden md:flex items-center gap-4">
-          <Link
-            href="/contact"
-            className="text-sm font-medium bg-accent text-accent-foreground px-4 py-2 rounded-md hover:bg-accent/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          >
-            {"Let's Connect"}
-          </Link>
-        </div>
-
         {/* Mobile hamburger */}
         <button
           className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
@@ -126,14 +116,6 @@ export function NavbarClient({ name }: { name: string }) {
                 </li>
               )
             })}
-            <li>
-              <Link
-                href="/contact"
-                className="inline-block text-sm font-medium bg-accent text-accent-foreground px-4 py-2 rounded-md hover:bg-accent/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              >
-                {"Let's Connect"}
-              </Link>
-            </li>
           </ul>
         </div>
       )}
