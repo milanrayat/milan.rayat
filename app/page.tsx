@@ -35,7 +35,7 @@ export default async function HomePage() {
           />
 
           <div className="max-w-6xl mx-auto w-full">
-            {/* Status badge */}
+            {/* Status badge — archived, not currently looking for opportunities. Re-enable when needed.
             <div className="flex items-center gap-2 mb-8">
               <span className="relative flex h-2 w-2" aria-hidden="true">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
@@ -45,6 +45,7 @@ export default async function HomePage() {
                 Open to Senior PM &middot; AI PM Opportunities
               </span>
             </div>
+            */}
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               {/* Text content */}
