@@ -159,7 +159,7 @@ export default async function HomePage() {
                   <div className="flex items-start gap-3">
                     <GraduationCap size={16} className="text-accent mt-0.5 shrink-0" aria-hidden="true" />
                     <div>
-                      <p className="text-sm font-medium text-foreground">B.Tech, Mechanical Engineering</p>
+                      <p className="text-sm font-medium text-foreground">Bachelors of Engineering</p>
                       <p className="text-xs text-muted-foreground">IIT Guwahati &middot; 2015 — 2019</p>
                     </div>
                   </div>
