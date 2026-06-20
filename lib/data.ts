@@ -227,9 +227,9 @@ export const CASE_STUDIES = [
           },
           {
             category: 'Adoption',
-            value: '8 + 3',
-            label: 'enterprise clients',
-            description: '8 live in first release cycle · 3 more in active onboarding · all adopted a capability that did not exist in Sprinklr before this work',
+            value: '10+',
+            label: 'enterprise clients onboarded',
+            description: 'All adopted a capability that did not exist in Sprinklr before this work · delivered within the first release cycle',
           },
           {
             category: 'Reliability',
