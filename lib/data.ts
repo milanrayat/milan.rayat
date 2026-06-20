@@ -210,7 +210,7 @@ export const CASE_STUDIES = [
           { role: 'PM', count: '1 partner PM', body: 'Owned the screen capture infrastructure as a parallel workstream. Collaborated on feature scoping, edge case coverage, and integration hand-offs throughout the project.' },
           { role: 'ENG', count: '6 engineers (India and Singapore)', body: 'Split across two product pods. Covered frontend playback integration, backend combining pipeline, permissions logic, and the reporting data foundation.' },
           { role: 'DES', count: '1 designer (US)', body: 'Designed the playback interface inside the review workflow, the multi-screen toggle layout, and the access configuration screens.' },
-          { role: 'QA', count: '2 QA engineers (India and Singapore)', body: 'End-to-end testing across phone and digital recording paths, multi-agent transfer scenarios, and all permission combinations.' },
+          { role: 'QA', count: '2 QA engineers', body: 'End-to-end testing across phone and digital recording paths, multi-agent transfer scenarios, and all permission combinations.' },
         ],
       },
       {
