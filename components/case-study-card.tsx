@@ -67,10 +67,6 @@ export function CaseStudyCard({
               </div>
             )}
           </div>
-          <div className="absolute top-5 right-5 inline-flex items-center gap-1.5 rounded-full bg-background/85 backdrop-blur px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-foreground">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent" aria-hidden="true" />
-            Case Study
-          </div>
         </div>
 
         {/* Body */}

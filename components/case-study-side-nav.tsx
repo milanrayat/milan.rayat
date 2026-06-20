@@ -7,7 +7,7 @@ interface CaseStudySideNavProps {
 }
 
 export function CaseStudySideNav({ sections }: CaseStudySideNavProps) {
-  const [activeId, setActiveId] = useState(sections[0]?.id)
+  const [activeId, setActiveId] = useState<string | undefined>(undefined)
 
   useEffect(() => {
     const observer = new IntersectionObserver(

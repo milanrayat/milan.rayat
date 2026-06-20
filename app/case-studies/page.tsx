@@ -1,8 +1,7 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { CaseStudyCard } from '@/components/case-study-card'
-import { ComingSoonCard } from '@/components/coming-soon-card'
-import { getCaseStudies, getComingSoonCaseStudies } from '@/lib/db'
+import { getCaseStudies } from '@/lib/db'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -13,7 +12,6 @@ export const metadata: Metadata = {
 
 export default async function CaseStudiesPage() {
   const CASE_STUDIES = await getCaseStudies()
-  const COMING_SOON = await getComingSoonCaseStudies()
 
   return (
     <>
@@ -61,17 +59,6 @@ export default async function CaseStudiesPage() {
                     outcomeStat={cs.outcomeStat}
                     coverImage={cs.coverImage}
                     index={i}
-                  />
-                </div>
-              ))}
-              {COMING_SOON.map((cs, i) => (
-                <div key={cs.id} role="listitem">
-                  <ComingSoonCard
-                    company={cs.company}
-                    title={cs.title}
-                    tagline={cs.tagline}
-                    outcomeStat={cs.outcomeStat}
-                    index={CASE_STUDIES.length + i}
                   />
                 </div>
               ))}

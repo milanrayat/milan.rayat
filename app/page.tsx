@@ -6,15 +6,13 @@ import { Footer } from '@/components/footer'
 import { MetricCard } from '@/components/metric-card'
 import { HighlightCard } from '@/components/highlight-card'
 import { CaseStudyCard } from '@/components/case-study-card'
-import { ComingSoonCard } from '@/components/coming-soon-card'
-import { getProfile, getMetrics, getHighlights, getCaseStudies, getComingSoonCaseStudies } from '@/lib/db'
+import { getProfile, getMetrics, getHighlights, getCaseStudies } from '@/lib/db'
 
 export default async function HomePage() {
   const PERSON = await getProfile()
   const METRICS = await getMetrics()
   const HIGHLIGHTS = await getHighlights()
   const CASE_STUDIES = await getCaseStudies()
-  const COMING_SOON = await getComingSoonCaseStudies()
 
   return (
     <>
@@ -289,17 +287,6 @@ export default async function HomePage() {
                     outcomeStat={cs.outcomeStat}
                     coverImage={cs.coverImage}
                     index={i}
-                  />
-                </div>
-              ))}
-              {COMING_SOON.map((cs, i) => (
-                <div key={cs.id} role="listitem">
-                  <ComingSoonCard
-                    company={cs.company}
-                    title={cs.title}
-                    tagline={cs.tagline}
-                    outcomeStat={cs.outcomeStat}
-                    index={CASE_STUDIES.length + i}
                   />
                 </div>
               ))}

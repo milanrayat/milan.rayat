@@ -127,62 +127,106 @@ export const CASE_STUDIES = [
     ],
     sections: [
       {
-        id: 'summary',
+        id: 'overview',
         number: '01',
-        label: 'Executive Summary',
-        heading: 'Zero to fully shipped, in three connected capabilities.',
+        label: 'Overview',
+        heading: 'A 0-to-1 build, end to end.',
         paragraphs: [
-          "Sprinklr is a B2B software platform used by large organisations to manage their customer service operations. Inside those organisations, quality review teams are responsible for evaluating recorded agent interactions and scoring how well each agent performed.",
-          'As Product Manager, I led the integration of screen recording into this review process. Before this work, screen recording did not exist anywhere in Sprinklr. I scoped and delivered three tightly connected capabilities across three quarters: a playback viewer that lets reviewers watch screen recordings alongside the voice call inside their existing workflow, a role-based access system that controls who can see each recording, and a reporting dashboard that tracks whether recordings are being captured successfully.',
-          "While competing platforms offered screen recording as a standalone capability, Sprinklr's approach was built for how enterprise quality teams actually work. Reviewers stay in a single workspace, seeing the screen recording alongside the call transcript, CSAT scores, conversation moments such as transfers, contact intent signals, and audit history for the same interaction. When a conversation spans multiple channels, such as a voice call that continues over email or chat, the reviewer stays on the same page throughout, with screen recording tied to the relevant channel automatically.",
+          "As Product Manager at Sprinklr, I owned the integration of screen recording into the platform's quality review system — from the playback viewer to access controls to reporting. This was a 0-to-1 build, coordinated across two product pods over three quarters.",
         ],
-      },
-      {
-        id: 'context',
-        number: '02',
-        label: 'Context',
-        heading: 'What I walked into.',
-        paragraphs: [
-          "Sprinklr's platform is used by large companies to run their customer service teams: the people who answer phone calls, live chats, and emails when customers need help. These companies also employ quality reviewers whose job is to regularly evaluate how well each agent handled their interactions and provide coaching based on what they observe.",
-          'When reviewing a phone interaction, a quality reviewer had the audio recording of the call along with a text transcript automatically generated from it. For chat or email conversations, they had the message log. In both situations, there was one complete blind spot. They could not see what the agent was doing on their computer screen during the interaction. What did the agent look up? What did they click? Did they navigate to the right resources? None of that was visible.',
-        ],
-        quote: 'Screen recording as a capability did not exist anywhere in Sprinklr when this work started in 2024. Competing platforms had it. Customers were asking for it. The gap was clear.',
+        beforeAfter: {
+          beforeTitle: 'Before',
+          beforeItems: [
+            'Reviewers had audio recordings and auto-generated transcripts for voice calls only',
+            'Chat and email conversations had message logs with no visual context',
+            'No visibility into what agents did on screen during any interaction',
+            'No way to verify compliance steps, help article lookups, or navigation decisions',
+            'Competing platforms offered screen recording. Sprinklr did not.',
+          ],
+          afterTitle: 'What I Built',
+          afterItems: [
+            'Synchronised screen and audio playback inside the existing review workflow, across voice and digital channels',
+            "Role-based access controls tied to each reviewer's team reporting structure",
+            'Omnichannel continuity — screen recording follows a conversation across voice, chat, and email without the reviewer leaving the page',
+            'Reporting dashboard tracking recording coverage and failure reasons from day one',
+          ],
+        },
       },
       {
         id: 'problem',
-        number: '03',
+        number: '02',
         label: 'The Problem',
-        heading: 'Customer pain, business pain, and a hard technical constraint.',
+        heading: 'Customer pain, business pain, and compliance pain.',
         pills: [
           {
-            title: 'Customer pain',
-            body: 'Quality reviewers could not verify on-screen agent behaviour. Did the agent look up the right help article? Did they follow the required compliance process? Did they take the correct next steps? All of this was invisible with audio-only review.',
+            title: 'Customer Pain',
+            items: [
+              'Could not verify on-screen agent behaviour',
+              'No way to confirm help article lookups',
+              'No way to confirm compliance steps were followed',
+              'No way to confirm correct next steps were taken',
+              'Invisible with audio-only review',
+            ],
           },
           {
-            title: 'Business pain',
-            body: 'Sprinklr was losing competitive evaluations to platforms that already offered screen recording. For customers who required it, there was no workaround. It was a hard product gap with no substitute.',
+            title: 'Business Pain',
+            items: [
+              'Losing competitive evaluations to platforms with screen recording',
+              'No workaround for customers who required it',
+              'Hard product gap, no substitute',
+            ],
           },
           {
-            title: 'Compliance constraint',
-            body: 'Enterprise contact centres handle sensitive interactions, including calls where personal financial details are discussed on screen. In calls involving multiple agents, each reviewer could only be permitted to see recordings of agents within their own reporting structure. This was a hard compliance requirement, not a configuration option.',
+            title: 'Compliance Pain',
+            items: [
+              'Sensitive interactions, including on-screen financial details',
+              'Multi-agent calls required strict reviewer-level access boundaries',
+              'Hard compliance requirement, not configurable',
+            ],
           },
         ],
       },
       {
         id: 'discovery',
-        number: '04',
+        number: '03',
         label: 'Discovery & Insights',
-        heading: 'The edge cases were bigger than expected — and reliability was non-negotiable.',
+        heading: 'Three realities that reshaped the build.',
         paragraphs: [
-          'We ran competitive analysis, mapping how competing customer service platforms handled screen recording — what they captured, how reviewers accessed it, and what access controls they offered. We also ran customer sessions directly with the companies who had requested this feature, sharing early design concepts to validate the workflow before committing to build.',
-          'Quality review is rarely a single-channel activity. Customer sessions revealed that a conversation might begin as a voice call, transfer to a different agent, and then continue over chat or email. Each channel transition produced a distinct recording context with its own access rules and display logic. The scenarios multiplied because enterprise workflows multiplied, not because the feature was technically complex in isolation, but because it had to reflect how contact centres actually operate.',
-          'Silent failures were more damaging than visible ones. For voice calls, the screen recording had to be combined with the audio file to produce a single synchronised playback. If that combining step failed without any visible signal, reviewers had no way to know. They would assume no recording existed for that interaction and move on, leaving a gap in quality coverage with no alert triggered. This specific failure mode shaped how we designed failure states and was the direct reason we built a reporting dashboard from day one rather than as a later addition.',
-          'Access control was significantly more complex than initially scoped. When a customer call is transferred between multiple agents, the recording captures all of them in sequence. Ensuring each reviewer could only see recordings within their own team structure, and not those of agents belonging to other supervisors, was a firm compliance requirement that had to be met before any customer could go live.',
+          'Competitive benchmarking and co-design sessions with the enterprise clients who requested this feature rewrote our initial assumptions in three ways.',
+        ],
+        insightShifts: [
+          {
+            number: '01',
+            title: 'The Cross-Channel Reality',
+            insight:
+              'Quality review is rarely linear — a single interaction often starts as a voice call, transfers to a second agent, and concludes over chat.',
+            shiftTitle: 'Architected omnichannel playback',
+            shift:
+              'Pivoted from a standalone screen recorder to a recording context that maps display logic across every channel transition.',
+          },
+          {
+            number: '02',
+            title: 'The Danger of "Silent Failures"',
+            insight:
+              'When screen and audio failed to stitch together, it failed silently — reviewers assumed no recording existed, creating undetected compliance gaps.',
+            shiftTitle: 'Prioritised system health UI',
+            shift:
+              'Re-prioritised the roadmap to ship a real-time reporting dashboard from day one, not as a post-launch fast-follow.',
+          },
+          {
+            number: '03',
+            title: 'High-Stakes Access Control',
+            insight:
+              'When a call transfers across teams, one continuous recording captures multiple agents — risking supervisor-level data privacy violations.',
+            shiftTitle: 'Injected role-based playback gates',
+            shift:
+              'Built access controls directly into the playback player, so supervisors only see segments filmed within their own team hierarchy.',
+          },
         ],
       },
       {
         id: 'decisions',
-        number: '05',
+        number: '04',
         label: 'Key Decisions',
         heading: 'The work — key decisions and trade-offs.',
         decisions: [
@@ -206,7 +250,7 @@ export const CASE_STUDIES = [
       },
       {
         id: 'team',
-        number: '06',
+        number: '05',
         label: 'The Partners',
         heading: 'Six teams, four disciplines, two pods.',
         team: [
@@ -218,7 +262,7 @@ export const CASE_STUDIES = [
       },
       {
         id: 'outcome',
-        number: '07',
+        number: '06',
         label: 'The Outcome',
         heading: 'A hard competitive gap, closed.',
         impactCards: [
@@ -243,24 +287,5 @@ export const CASE_STUDIES = [
         ],
       },
     ],
-  },
-]
-
-export const COMING_SOON_CASE_STUDIES = [
-  {
-    id: 'redaction-compliance-coming-soon',
-    company: 'Sprinklr',
-    title: 'Redaction & Compliance Tools for Regulatory Requirements',
-    tagline:
-      'End-to-end delivery of redaction tools for regulatory compliance, onboarding 30 enterprise clients and generating $40M ARR across global markets.',
-    outcomeStat: { value: '$40M', label: 'ARR across 30 enterprise clients' },
-  },
-  {
-    id: 'telecom-deal-coming-soon',
-    company: 'Sprinklr',
-    title: 'Winning a $10M Telecom Deal Through EU Compliance Integration',
-    tagline:
-      "Led EU compliance integration for Europe's largest telecom provider in an 18-member India-UAE team, directly winning a $10M deal and a CTO Award.",
-    outcomeStat: { value: '$10M', label: 'Deal won · CTO Award' },
   },
 ]
