@@ -1,7 +1,8 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { CaseStudyCard } from '@/components/case-study-card'
-import { getCaseStudies } from '@/lib/db'
+import { ComingSoonCard } from '@/components/coming-soon-card'
+import { getCaseStudies, getComingSoonCaseStudies } from '@/lib/db'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 
 export default async function CaseStudiesPage() {
   const CASE_STUDIES = await getCaseStudies()
+  const COMING_SOON = await getComingSoonCaseStudies()
 
   return (
     <>
@@ -42,7 +44,7 @@ export default async function CaseStudiesPage() {
         <section className="py-16 px-6 lg:px-8" aria-label="Case studies list">
           <div className="max-w-6xl mx-auto">
             <div
-              className="grid grid-cols-1 max-w-2xl"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
               role="list"
               aria-label="Case studies"
             >
@@ -53,10 +55,23 @@ export default async function CaseStudiesPage() {
                     title={cs.title}
                     tagline={cs.tagline}
                     company={cs.company}
-                    duration={cs.duration}
-                    heroStats={cs.heroStats}
+                    role={cs.role}
+                    teamSize={cs.teamSize}
+                    tags={cs.tags}
+                    outcomeStat={cs.outcomeStat}
                     coverImage={cs.coverImage}
                     index={i}
+                  />
+                </div>
+              ))}
+              {COMING_SOON.map((cs, i) => (
+                <div key={cs.id} role="listitem">
+                  <ComingSoonCard
+                    company={cs.company}
+                    title={cs.title}
+                    tagline={cs.tagline}
+                    outcomeStat={cs.outcomeStat}
+                    index={CASE_STUDIES.length + i}
                   />
                 </div>
               ))}

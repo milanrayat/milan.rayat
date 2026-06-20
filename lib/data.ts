@@ -110,6 +110,9 @@ export const CASE_STUDIES = [
     year: '2024',
     role: 'Product Manager',
     duration: '3 quarters',
+    teamSize: '6 teams · 2 pods',
+    tags: ['Access Control', 'Compliance', 'Reporting'],
+    outcomeStat: { value: '$5M', label: 'Contract value tied to feature' },
     title: 'Screen Recording for Customer Service Quality Review',
     tagline:
       'Customer service agents handle thousands of calls and chats every day. When quality teams reviewed those interactions, they had audio and message logs but no way to see what the agent was doing on screen. I led product strategy and delivery for the feature that changed that.',
@@ -240,5 +243,24 @@ export const CASE_STUDIES = [
         ],
       },
     ],
+  },
+]
+
+export const COMING_SOON_CASE_STUDIES = [
+  {
+    id: 'redaction-compliance-coming-soon',
+    company: 'Sprinklr',
+    title: 'Redaction & Compliance Tools for Regulatory Requirements',
+    tagline:
+      'End-to-end delivery of redaction tools for regulatory compliance, onboarding 30 enterprise clients and generating $40M ARR across global markets.',
+    outcomeStat: { value: '$40M', label: 'ARR across 30 enterprise clients' },
+  },
+  {
+    id: 'telecom-deal-coming-soon',
+    company: 'Sprinklr',
+    title: 'Winning a $10M Telecom Deal Through EU Compliance Integration',
+    tagline:
+      "Led EU compliance integration for Europe's largest telecom provider in an 18-member India-UAE team, directly winning a $10M deal and a CTO Award.",
+    outcomeStat: { value: '$10M', label: 'Deal won · CTO Award' },
   },
 ]
