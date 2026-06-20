@@ -81,7 +81,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
             </p>
 
             <div
-              className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10"
               role="list"
               aria-label="Headline stats"
             >
@@ -104,6 +104,14 @@ export default async function CaseStudyDetailPage({ params }: Props) {
                   priority
                 />
               </div>
+            )}
+
+            {cs.heroQuote && (
+              <blockquote className="border-l-2 border-accent pl-6 mt-10">
+                <p className="text-base lg:text-lg text-foreground/90 leading-relaxed text-pretty">
+                  {cs.heroQuote}
+                </p>
+              </blockquote>
             )}
           </div>
         </section>
