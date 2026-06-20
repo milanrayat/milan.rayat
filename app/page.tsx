@@ -124,7 +124,7 @@ export default async function HomePage() {
               <div className="lg:col-span-4 flex flex-col items-center lg:items-end gap-4">
                 <div className="relative w-64 h-64 lg:w-72 lg:h-72 rounded-2xl overflow-hidden border border-border/50 bg-card">
                   <Image
-                    src="/milan-rayat.png"
+                    src="/milan-rayat.jpg"
                     alt="Milan Rayat — Senior PM at Sprinklr"
                     fill
                     className="object-cover"
