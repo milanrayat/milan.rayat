@@ -238,10 +238,6 @@ export const CASE_STUDIES = [
             description: 'Up from 0% before launch · active work continues toward full coverage',
           },
         ],
-        bullets: [
-          'Quality reviewers now work in a single workspace, seeing screen recording alongside call transcript, CSAT scores, conversation moments, and audit history for the same interaction, across any channel the conversation passed through.',
-          'The feature closed a hard competitive gap that had previously blocked certain contract evaluations from progressing, enabling sales conversations that were not possible before.',
-        ],
       },
     ],
   },
