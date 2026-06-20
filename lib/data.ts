@@ -218,10 +218,27 @@ export const CASE_STUDIES = [
         number: '07',
         label: 'The Outcome',
         heading: 'A hard competitive gap, closed.',
+        impactCards: [
+          {
+            category: 'Revenue',
+            value: '$5M',
+            label: 'in contract value',
+            description: '$3M renewal secured with key existing client · $2M from new enterprise contracts where screen recording was a stated requirement',
+          },
+          {
+            category: 'Adoption',
+            value: '8 + 3',
+            label: 'enterprise clients',
+            description: '8 live in first release cycle · 3 more in active onboarding · all adopted a capability that did not exist in Sprinklr before this work',
+          },
+          {
+            category: 'Reliability',
+            value: '93%',
+            label: 'recording capture rate',
+            description: 'Up from 0% before launch · active work continues toward full coverage',
+          },
+        ],
         bullets: [
-          '$5M in contract value is directly tied to this feature. $3M came from securing a renewal with a key existing client where screen recording was central to their continued investment. $2M came from new enterprise contracts where screen recording was a stated evaluation requirement.',
-          '8 enterprise organisations are live on screen recording within the first release cycle, with 3 more in active onboarding. All 8 adopted a capability that did not exist in Sprinklr before this work began.',
-          '93% of eligible agent interactions now have a screen recording captured and available for quality review, up from 0% before the feature launched. Active work continues toward full coverage.',
           'Quality reviewers now work in a single workspace, seeing screen recording alongside call transcript, CSAT scores, conversation moments, and audit history for the same interaction, across any channel the conversation passed through.',
           'The feature closed a hard competitive gap that had previously blocked certain contract evaluations from progressing, enabling sales conversations that were not possible before.',
         ],

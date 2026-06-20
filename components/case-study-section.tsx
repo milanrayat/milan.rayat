@@ -9,6 +9,13 @@ interface TeamRow {
   body: string
 }
 
+interface ImpactCard {
+  category: string
+  value: string
+  label: string
+  description: string
+}
+
 export interface CaseStudySectionData {
   id: string
   number: string
@@ -19,11 +26,12 @@ export interface CaseStudySectionData {
   pills?: Pill[]
   decisions?: Pill[]
   team?: TeamRow[]
+  impactCards?: ImpactCard[]
   bullets?: string[]
 }
 
 export function CaseStudySection({ section }: { section: CaseStudySectionData }) {
-  const { id, number, label, heading, paragraphs, quote, pills, decisions, team, bullets } = section
+  const { id, number, label, heading, paragraphs, quote, pills, decisions, team, impactCards, bullets } = section
 
   return (
     <section
@@ -96,8 +104,28 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
           </div>
         )}
 
+        {impactCards && (
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
+            {impactCards.map(({ category, value, label: cardLabel, description }) => (
+              <div
+                key={category}
+                className="flex flex-col gap-2 rounded-lg border border-border/50 bg-card p-6"
+              >
+                <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                  {category}
+                </span>
+                <p className="font-heading font-bold text-3xl lg:text-4xl text-accent leading-none mt-2">
+                  {value}
+                </p>
+                <p className="text-sm font-semibold text-foreground mt-1">{cardLabel}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mt-1">{description}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
         {bullets && (
-          <ul className="flex flex-col gap-3 mt-2" role="list">
+          <ul className={`flex flex-col gap-3 ${impactCards ? 'mt-6' : 'mt-2'}`} role="list">
             {bullets.map((b, i) => (
               <li key={i} className="flex items-start gap-3 text-base text-muted-foreground leading-relaxed">
                 <span className="text-accent mt-1.5 shrink-0 text-xs" aria-hidden="true">
