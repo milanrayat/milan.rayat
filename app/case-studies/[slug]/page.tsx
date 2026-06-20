@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { Navbar } from '@/components/navbar'
@@ -91,6 +92,19 @@ export default async function CaseStudyDetailPage({ params }: Props) {
                 </div>
               ))}
             </div>
+
+            {cs.coverImage && (
+              <div className="relative w-full mt-10 rounded-xl border border-border/50 overflow-hidden">
+                <Image
+                  src={cs.coverImage}
+                  alt={`${cs.title} — product screenshot`}
+                  width={1920}
+                  height={1080}
+                  className="w-full h-auto"
+                  priority
+                />
+              </div>
+            )}
           </div>
         </section>
 

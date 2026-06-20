@@ -55,6 +55,7 @@ export default async function CaseStudiesPage() {
                     company={cs.company}
                     duration={cs.duration}
                     heroStats={cs.heroStats}
+                    coverImage={cs.coverImage}
                     index={i}
                   />
                 </div>

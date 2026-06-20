@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowUpRight, MonitorPlay } from 'lucide-react'
@@ -11,6 +12,7 @@ interface CaseStudyCardProps {
   company: string
   duration: string
   heroStats: { value: string; label: string }[]
+  coverImage?: string
   index?: number
 }
 
@@ -21,6 +23,7 @@ export function CaseStudyCard({
   company,
   duration,
   heroStats,
+  coverImage,
   index = 0,
 }: CaseStudyCardProps) {
   const headline = heroStats[0]
@@ -39,18 +42,30 @@ export function CaseStudyCard({
       >
         {/* Banner */}
         <div className="relative h-48 lg:h-56 bg-gradient-to-br from-accent/90 to-accent/40 overflow-hidden">
-          <div className="absolute top-5 left-6 text-accent-foreground font-heading font-bold text-lg tracking-tight">
-            {company}
-          </div>
+          {coverImage ? (
+            <Image
+              src={coverImage}
+              alt={`${title} — product screenshot`}
+              fill
+              className="object-cover object-top"
+            />
+          ) : (
+            <MonitorPlay
+              size={120}
+              className="absolute -bottom-6 -right-6 text-foreground/15"
+              aria-hidden="true"
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/0 to-background/0" aria-hidden="true" />
+          {!coverImage && (
+            <div className="absolute top-5 left-6 text-foreground font-heading font-bold text-lg tracking-tight drop-shadow">
+              {company}
+            </div>
+          )}
           <div className="absolute top-5 right-5 inline-flex items-center gap-1.5 rounded-full bg-background/80 backdrop-blur px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-foreground">
             <span className="w-1.5 h-1.5 rounded-full bg-accent" aria-hidden="true" />
             Case Study
           </div>
-          <MonitorPlay
-            size={120}
-            className="absolute -bottom-6 -right-6 text-accent-foreground/15"
-            aria-hidden="true"
-          />
         </div>
 
         {/* Body */}

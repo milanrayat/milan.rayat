@@ -113,6 +113,7 @@ export const CASE_STUDIES = [
     title: 'Screen Recording for Customer Service Quality Review',
     tagline:
       'Customer service agents handle thousands of calls and chats every day. When quality teams reviewed those interactions, they had audio and message logs but no way to see what the agent was doing on screen. I built the feature that changed that.',
+    coverImage: '/screen-recording-case-study.png',
     heroStats: [
       { value: '3 quarters', label: 'End-to-end delivery' },
       { value: '6 teams', label: 'Coordinated across 2 pods' },
