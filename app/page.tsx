@@ -270,19 +270,19 @@ export default async function HomePage() {
             </div>
 
             <div
-              className="grid grid-cols-1 lg:grid-cols-3 gap-6"
+              className="grid grid-cols-1 max-w-xl"
               role="list"
               aria-label="Case studies"
             >
               {CASE_STUDIES.map((cs, i) => (
                 <div key={cs.id} role="listitem">
                   <CaseStudyCard
-                    id={cs.id}
                     slug={cs.slug}
                     title={cs.title}
                     tagline={cs.tagline}
-                    tags={cs.tags}
-                    metrics={cs.metrics}
+                    company={cs.company}
+                    duration={cs.duration}
+                    heroStats={cs.heroStats}
                     index={i}
                   />
                 </div>

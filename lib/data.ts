@@ -104,75 +104,131 @@ export const SKILLS = {
 
 export const CASE_STUDIES = [
   {
-    id: 'quality-monitoring-20m-arr',
-    slug: 'quality-monitoring-20m-arr',
-    title: 'Scaling Quality Monitoring to Drive $20M ARR',
-    tagline: '10x customer growth · 120% YoY revenue · Org-wide adoption at Sprinklr',
-    tags: ['Quality Monitoring', 'Enterprise Scale', 'B2B SaaS', 'Cross-functional'],
-    metrics: [
-      { value: '$20M', label: 'Incremental ARR' },
-      { value: '10x', label: 'Customer Growth' },
-      { value: '120%', label: 'YoY Revenue Growth' },
-      { value: '14', label: 'Member Cross-functional Team' },
+    id: 'screen-recording-quality-review',
+    slug: 'screen-recording-quality-review',
+    company: 'Sprinklr',
+    year: '2024',
+    role: 'Product Manager',
+    duration: '3 quarters',
+    title: 'Screen Recording for Customer Service Quality Review',
+    tagline:
+      'Customer service agents handle thousands of calls and chats every day. When quality teams reviewed those interactions, they had audio and message logs but no way to see what the agent was doing on screen. I built the feature that changed that.',
+    heroStats: [
+      { value: '3 quarters', label: 'End-to-end delivery' },
+      { value: '6 teams', label: 'Coordinated across 2 pods' },
+      { value: '3 capabilities', label: 'Playback · Access · Reporting' },
     ],
-    situation:
-      "Sprinklr's contact center customers lacked a scalable way to monitor and evaluate call quality across large volumes of interactions. Quality management was manual, inconsistent, and not built for enterprise scale. Customers were losing operational efficiency and struggling to surface actionable coaching insights from thousands of daily calls.",
-    task: 'As PM, own the end-to-end strategy and delivery of a quality monitoring product for a 14-member cross-functional team across India and the US. The scope included discovery, roadmap definition, stakeholder alignment, and shipping a scalable evaluation platform to production.',
-    actions: [
-      'Defined product vision and multi-quarter roadmap for quality monitoring tooling, anchored on the top pain points surfaced from 20+ enterprise customer interviews.',
-      'Partnered with engineering and design to architect scalable evaluation workflows supporting custom scoring rubrics, auto-assignment, and calibration sessions.',
-      'Drove org-wide adoption by building a joint GTM plan with sales, solutions, and customer success — including an enablement playbook and internal champion program.',
-      'Ran weekly sprint reviews and stakeholder readouts with the India-US leadership team to maintain velocity and surface blockers early.',
+    sections: [
+      {
+        id: 'summary',
+        number: '01',
+        label: 'Executive Summary',
+        heading: 'Zero to fully shipped, in three connected capabilities.',
+        paragraphs: [
+          "Sprinklr is a B2B software platform used by large organisations to manage their customer service operations. Inside those organisations, quality review teams are responsible for listening to recorded agent interactions and scoring how well each agent performed.",
+          'As Product Manager, I led the integration of screen recording into this review process. Before this work, screen recording did not exist anywhere in Sprinklr. I scoped and delivered three tightly connected capabilities across three quarters: a playback viewer that lets reviewers watch screen recordings alongside the voice call inside their existing workflow, a role-based access system that controls who can see each recording, and a reporting dashboard that tracks whether recordings are being captured successfully. The work was driven by direct customer requests and the need to match capabilities that competing platforms were already offering.',
+        ],
+      },
+      {
+        id: 'context',
+        number: '02',
+        label: 'Context',
+        heading: 'What I walked into.',
+        paragraphs: [
+          "Sprinklr's platform is used by large companies to run their customer service teams: the people who answer phone calls, live chats, and emails when customers need help. These companies also employ quality reviewers whose job is to regularly evaluate how well each agent handled their interactions and provide coaching based on what they observe.",
+          'When reviewing a phone interaction, a quality reviewer had one thing to work with: the audio recording of the call, along with a text transcript that was automatically generated from it. For chat or email conversations, they had the message log. In both situations, there was one complete blind spot. They could not see what the agent was doing on their computer screen during the interaction. What did the agent look up? What did they click? Did they navigate to the right resources? None of that was visible.',
+        ],
+        quote: 'Screen recording did not exist anywhere in Sprinklr. Competing platforms had it. Customers were asking for it.',
+      },
+      {
+        id: 'problem',
+        number: '03',
+        label: 'The Problem',
+        heading: 'Customer pain, business pain, and a hard technical constraint.',
+        pills: [
+          {
+            title: 'Customer pain',
+            body: 'Quality reviewers could not verify on-screen agent behaviour. Did the agent look up the right help article? Did they follow the required compliance process? All of this was invisible with audio-only review.',
+          },
+          {
+            title: 'Business pain',
+            body: 'Sprinklr was losing competitive evaluations to platforms that already offered screen recording. For customers who required it, there was no workaround — a hard product gap with no substitute.',
+          },
+          {
+            title: 'Technical constraint',
+            body: "Any solution had to fit within Sprinklr's existing permission and visibility architecture, and had to be built in parallel with a separate team responsible for the screen capture infrastructure itself.",
+          },
+        ],
+      },
+      {
+        id: 'discovery',
+        number: '04',
+        label: 'Discovery & Insights',
+        heading: 'The edge cases were bigger than expected — and reliability was non-negotiable.',
+        paragraphs: [
+          'We ran competitive analysis, mapping how competing customer service platforms handled screen recording — what they captured, how reviewers accessed it, and what access controls they offered. We also ran customer sessions directly with the companies who had requested this feature, sharing early design concepts to validate the workflow before committing to build.',
+          'The number of scenarios we had to cover was far larger than expected. Phone call recordings and chat or email conversation recordings each had their own distinct set of edge cases — what to show, what to hide, and what should happen when a recording partially fails. Every scenario needed a clearly defined expected outcome before we could begin building.',
+          'Reliability had to be treated as a core requirement, not an assumption. For phone calls, the screen recording needed to be combined with the audio file to produce a single synchronised playback. If this combining step failed without any visible indication, reviewers would assume no recording existed and move on — getting this to succeed consistently was not optional.',
+          'Access control was significantly more complex than initially scoped. When a customer call is transferred between multiple agents, the recording captures all of them in sequence. Each quality reviewer could only see the portion of the recording belonging to agents within their own team reporting structure — a firm compliance requirement that had to be met before any customer could go live.',
+        ],
+      },
+      {
+        id: 'decisions',
+        number: '05',
+        label: 'Key Decisions',
+        heading: 'The work — key decisions and trade-offs.',
+        decisions: [
+          {
+            title: 'Building permissions that worked without breaking what existed',
+            body: "The hardest design challenge was determining how detailed the access controls needed to be. Too fine-grained and the new rules would conflict with Sprinklr's existing voice recording permission system. Too loose and recordings would be accessible to people who had no business seeing them. The solution was to extend the existing case visibility framework rather than introduce a new one, with team hierarchy rules layered on top for calls involving multiple agents.",
+          },
+          {
+            title: 'Launching with single-screen recording before expanding to multiple screens',
+            body: 'Many agents work across more than one monitor at a time. We deliberately scoped the first version to single-screen recording only — we needed to prove the full end-to-end flow, from capture through combining to playback, was reliable before adding the complexity of multiple simultaneous screens. A risk-reduction choice, not a permanent capability limit.',
+          },
+          {
+            title: 'Choosing toggling over simultaneous multi-screen playback',
+            body: "When we did build multi-screen support, our engineers identified that playing all screens at exactly the same time would cause meaningful performance issues. Rather than accept degraded playback quality, we redesigned the experience so reviewers see the primary screen with the ability to switch between the agent's other monitors on demand.",
+          },
+          {
+            title: 'Shipping reporting on day one rather than as a follow-up',
+            body: 'There was no pre-existing way to track whether screen recordings were actually being captured correctly. Rather than treating a reporting dashboard as a phase-two addition, I scoped it as part of the initial launch — giving operations teams immediate visibility into recording coverage and failure reasons from day one.',
+          },
+        ],
+      },
+      {
+        id: 'team',
+        number: '06',
+        label: 'The Partners',
+        heading: 'Six teams, four disciplines, two pods.',
+        team: [
+          { role: 'PM', count: '1 partner PM', body: 'Owned the screen capture infrastructure as a parallel workstream. We collaborated on feature scoping, edge case coverage, and integration hand-offs throughout the project.' },
+          { role: 'ENG', count: '6 engineers (India and Singapore)', body: 'Split across my product pod and the partner PM’s pod. Covered frontend playback integration, backend combining pipeline, permissions logic, and the reporting data foundation.' },
+          { role: 'DES', count: '1 designer (US)', body: 'Designed the playback interface inside the review workflow, the multi-screen toggle layout, and the access configuration screens.' },
+          { role: 'QA', count: '2 QA engineers (India and Singapore)', body: 'End-to-end testing across phone and digital recording paths, multi-agent transfer scenarios, and all permission combinations.' },
+        ],
+      },
+      {
+        id: 'outcome',
+        number: '07',
+        label: 'The Outcome',
+        heading: 'A hard competitive gap, closed.',
+        bullets: [
+          'Sprinklr went from zero screen recording capability to a fully shipped feature covering playback, access control, and reporting across all supported interaction types.',
+          'Quality reviewers can now play back synchronised voice and screen recordings directly inside their existing review workflow, with support for agents working across up to four monitors simultaneously.',
+          'The feature closed a hard competitive gap that had previously blocked certain customer conversations from progressing.',
+        ],
+      },
+      {
+        id: 'reflection',
+        number: '08',
+        label: 'Reflection',
+        heading: 'What I would do differently.',
+        paragraphs: [
+          'The testing phase was the biggest drag on delivery speed. This feature required coordination across two product pods, the voice infrastructure team, and our QA engineers, and getting all the prerequisite system configurations in place before testing could begin took longer than it needed to.',
+          'Looking back, I would have mapped every dependency with the QA team and the partner PM much earlier, and made sure the baseline environment was fully validated before any feature work entered the testing queue. Getting ahead of setup blockers rather than unblocking them reactively would have saved two to three weeks.',
+        ],
+      },
     ],
-    result:
-      'Product was adopted org-wide at Sprinklr and became the primary quality monitoring offering in the contact center suite. Achieved 10x customer growth, $20M incremental ARR, and 120% YoY revenue growth within 18 months of launch.',
-  },
-  {
-    id: 'telecom-eu-compliance-10m-deal',
-    slug: 'telecom-eu-compliance-10m-deal',
-    title: 'Winning a $10M Telecom Deal Through EU Compliance Integration',
-    tagline: "Europe's largest telecom · $10M deal · CTO Award among 30 competing teams",
-    tags: ['EU Compliance', 'GDPR', 'Regulatory', 'Enterprise Deal', 'Cross-geo'],
-    metrics: [
-      { value: '$10M', label: 'Deal Value' },
-      { value: '18', label: 'Member India-UAE Team' },
-      { value: '#1', label: 'CTO Award — 30 Teams' },
-      { value: '4', label: 'Developers Coordinated' },
-    ],
-    situation:
-      "Europe's largest telecom provider needed their contact center platform to comply with strict EU regulatory guidelines before committing to a major deal. No existing Sprinklr product configuration met their requirements, creating a hard technical and legal blocker that risked losing the deal entirely.",
-    task: 'Lead the compliance integration workstream within an 18-member India-UAE cross-functional team to meet EU guidelines and close the deal within a fixed client deadline.',
-    actions: [
-      'Collaborated with 4 developers and the legal team to systematically map every regulatory gap against the existing product architecture.',
-      'Defined a prioritized compliance feature set that balanced regulatory coverage with engineering feasibility under deadline constraints.',
-      'Coordinated delivery across geographies and time zones using async standups, a shared risk register, and biweekly client alignment calls.',
-      'Created detailed acceptance criteria and testing checklists to ensure zero compliance defects at handoff to the client.',
-    ],
-    result:
-      'Successfully integrated EU guidelines into the product on schedule. Directly contributed to a $10M deal win for Sprinklr. Earned the CTO Award among 30 competing teams for execution quality and cross-functional coordination.',
-  },
-  {
-    id: 'call-analytics-20k-daily',
-    slug: 'call-analytics-20k-daily',
-    title: 'Automating 20,000 Daily Calls for a Global Consumer Electronics Leader',
-    tagline: '20K daily calls automated · $6M in EU sales · Expanded US → Europe → Korea',
-    tags: ['Call Analytics', 'Speech Intelligence', 'Global Expansion', 'Automation'],
-    metrics: [
-      { value: '20K', label: 'Daily Calls Automated' },
-      { value: '$6M', label: 'EU Market Sales' },
-      { value: '3', label: 'Markets: US, Europe, Korea' },
-      { value: '9', label: 'Member Product Team' },
-    ],
-    situation:
-      'A global consumer electronics company operating in the US was manually reviewing customer support calls — a process that was slow, inconsistent, and impossible to scale across markets. With expansion into Europe and Asia on the roadmap, they needed an automated analytics solution before manual processes became a critical bottleneck.',
-    task: 'Design and ship a call analytics product capable of automating analysis at enterprise scale (~20,000 daily calls), with architecture built for global market expansion from day one.',
-    actions: [
-      'Spearheaded collaboration across a 9-member team to design the product architecture and analytics workflows with multi-region, multi-language support in scope from the outset.',
-      'Defined the core analytics taxonomy — including call categorization, sentiment scoring, and agent performance metrics — through iterative workshops with the client.',
-      'Ensured multi-region readiness by designing configurable data residency controls and language model integrations for English, German, French, and Korean.',
-      'Ran phased rollout: US pilot → EU validation → Korean market entry, with iterative feedback loops at each stage.',
-    ],
-    result:
-      'Product successfully deployed in the US and expanded to Europe and Korea. EU market alone generated approximately $6M in sales. Demonstrated the value of multi-region-first architecture in reducing time-to-market for each new geography.',
   },
 ]
