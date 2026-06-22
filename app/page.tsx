@@ -61,22 +61,6 @@ export default async function HomePage() {
                 <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl text-pretty">
                   {PERSON.uvp}
                 </p>
-
-                <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                  <Link
-                    href="/case-studies"
-                    className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground text-sm font-semibold px-6 py-3 rounded-md hover:bg-accent/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  >
-                    View Case Studies
-                    <ArrowRight size={16} aria-hidden="true" />
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center justify-center gap-2 border border-border text-foreground text-sm font-semibold px-6 py-3 rounded-md hover:border-accent/50 hover:bg-card transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  >
-                    Get in Touch
-                  </Link>
-                </div>
               </div>
 
               {/* Headshot */}
