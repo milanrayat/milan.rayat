@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, Mail, Calendar } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { CaseStudyCard } from '@/components/case-study-card'
@@ -243,25 +243,14 @@ export default async function HomePage() {
             <p className="text-muted-foreground text-base max-w-xl mx-auto mb-8 text-pretty">
               {"I'm actively exploring Senior PM and AI PM roles at AI-first B2B SaaS companies. Let's talk about how I can drive impact on your team."}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href={PERSON.calendly}
-                target="_blank"
-                rel="noopener noreferrer"
+            <div className="flex justify-center">
+              <Link
+                href="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground text-sm font-semibold px-6 py-3 rounded-md hover:bg-accent/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                aria-label="Schedule a meeting on Calendly (opens in new tab)"
               >
-                <Calendar size={16} aria-hidden="true" />
-                Schedule a Call
-              </a>
-              <a
-                href={`mailto:${PERSON.email}`}
-                className="inline-flex items-center justify-center gap-2 border border-border text-foreground text-sm font-semibold px-6 py-3 rounded-md hover:border-accent/50 hover:bg-card transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                aria-label="Send an email"
-              >
-                <Mail size={16} aria-hidden="true" />
-                Send an Email
-              </a>
+                {"Let's Connect"}
+                <ArrowRight size={16} aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </section>

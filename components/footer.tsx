@@ -1,100 +1,54 @@
 import Link from 'next/link'
-import { Mail, ExternalLink, Calendar } from 'lucide-react'
 import { getProfile } from '@/lib/db'
+
+const FOOTER_LINKS = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'My Story' },
+  { href: '/case-studies', label: 'Case Studies' },
+  { href: '/contact', label: 'Contact' },
+]
 
 export async function Footer() {
   const PERSON = await getProfile()
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-border/50 bg-card/30" role="contentinfo">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Brand */}
-          <div className="flex flex-col gap-3">
-            <p className="font-heading font-semibold text-foreground text-lg">
-              {PERSON.name}
-            </p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Senior PM &amp; AI PM · Enterprise B2B SaaS<br />
-              Sprinklr · IIT Guwahati
-            </p>
-          </div>
-
-          {/* Links */}
-          <nav aria-label="Footer navigation">
-            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">
-              Navigation
-            </p>
-            <ul className="flex flex-col gap-2" role="list">
-              {[
-                { href: '/', label: 'Home' },
-                { href: '/about', label: 'My Story' },
-                { href: '/case-studies', label: 'Case Studies' },
-                { href: '/contact', label: 'Contact' },
-              ].map(({ href, label }) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          {/* Contact */}
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">
-              {"Let's Connect"}
-            </p>
-            <ul className="flex flex-col gap-3" role="list">
-              <li>
-                <a
-                  href={`mailto:${PERSON.email}`}
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
-                  aria-label="Send an email"
+    <footer className="border-t border-border/50" role="contentinfo">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 py-10 flex flex-col items-center gap-6">
+        <nav aria-label="Footer navigation">
+          <ul
+            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-widest text-muted-foreground"
+            role="list"
+          >
+            {FOOTER_LINKS.map(({ href, label }) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
                 >
-                  <Mail size={14} aria-hidden="true" />
-                  {PERSON.email}
-                </a>
+                  {label}
+                </Link>
               </li>
-              <li>
-                <a
-                  href={PERSON.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
-                  aria-label="LinkedIn profile (opens in new tab)"
-                >
-                    <ExternalLink size={14} aria-hidden="true" />
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a
-                  href={PERSON.calendly}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
-                  aria-label="Schedule a meeting on Calendly (opens in new tab)"
-                >
-                  <Calendar size={14} aria-hidden="true" />
-                  Schedule a Call
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+            ))}
+          </ul>
+        </nav>
 
-        <div className="mt-10 pt-6 border-t border-border/30 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">
-            &copy; {currentYear} {PERSON.name}. All rights reserved.
+        <a
+          href={PERSON.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+          aria-label="LinkedIn profile (opens in new tab)"
+        >
+          LinkedIn &#8599;
+        </a>
+
+        <div className="flex flex-col items-center gap-1 pt-2">
+          <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground/70">
+            Designed and built solo by {PERSON.name} &middot; Shipped via Claude Code
           </p>
-          <p className="text-xs text-muted-foreground">
-            Senior PM · AI Products · Enterprise B2B SaaS
+          <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground/70">
+            &copy; {currentYear} &middot; Paris
           </p>
         </div>
       </div>
