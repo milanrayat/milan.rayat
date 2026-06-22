@@ -122,7 +122,7 @@ export const CASE_STUDIES = [
     heroStats: [
       { value: '3 quarters', label: 'End-to-end delivery' },
       { value: '6 teams', label: 'Coordinated across 2 pods' },
-      { value: '8 clients', label: 'Live, 3 more in pipeline' },
+      { value: '10+', label: 'Customers onboarded' },
       { value: '$5M', label: 'In contract value tied to feature' },
     ],
     sections: [
@@ -231,20 +231,35 @@ export const CASE_STUDIES = [
         heading: 'The work — key decisions and trade-offs.',
         decisions: [
           {
-            title: 'Building permissions that worked without breaking what already existed',
-            body: "The hardest design challenge was determining how detailed the access controls needed to be. Too fine-grained and the new rules would conflict with Sprinklr's existing voice recording permission system. Too loose and recordings would be visible to people who had no business seeing them. The solution was to extend the existing case visibility framework rather than introduce a new one, with team hierarchy rules layered on top for calls involving multiple agents. This kept complexity minimal while covering all required scenarios.",
+            number: '01',
+            tag: 'Control vs. compatibility',
+            title: "Extend the existing permissions framework — don't build a new one",
+            chose:
+              "Extended Sprinklr's existing case visibility system with team hierarchy rules layered on top for multi-agent calls",
+            result: 'Minimal new complexity, no conflicts with existing systems, full compliance coverage',
           },
           {
-            title: 'Launching with single-screen recording before expanding to multiple screens',
-            body: 'Many agents work across more than one monitor at a time. We scoped the first version to single-screen recording only. Of the 4 enterprise customers in the initial rollout, 3 had entirely single-monitor setups with no multi-screen requirement. The one customer that needed multi-screen had it deployed for only a portion of their agents, with roughly 40% still operating on single monitors. Single-screen coverage addressed the clear majority of the rollout while we validated the full end-to-end flow from capture through combining to playback. This was a data-backed scoping decision, not a conservative default.',
+            number: '02',
+            tag: 'Coverage vs. reliability',
+            title: 'Scope v1 to single-screen only — backed by customer data, not caution',
+            chose:
+              '3 of 4 initial customers had single-monitor setups. Validated the full pipeline before adding multi-screen complexity',
+            result: 'Covered 75% of rollout needs while proving end-to-end reliability',
           },
           {
-            title: 'Choosing a toggle approach over simultaneous multi-screen playback',
-            body: "When we built multi-screen support, engineers identified that playing all screens at exactly the same time would cause meaningful performance issues for end users. Rather than accept degraded playback quality, we redesigned the experience so reviewers see the primary screen with the ability to switch between the agent's other monitors on demand. The technical constraint was absorbed into the design rather than passed on to the user.",
+            number: '03',
+            tag: 'Performance vs. completeness',
+            title: "Absorb the engineering constraint into the design — don't pass it to the user",
+            chose:
+              'Toggle between screens on demand instead of simultaneous playback, which caused performance issues',
+            result: 'Full multi-screen access, zero performance cost to the reviewer',
           },
           {
-            title: 'Shipping reporting on day one rather than as a follow-up',
-            body: 'There was no pre-existing way to track whether screen recordings were actually being captured correctly. Rather than treating a reporting dashboard as a phase-two addition, it was scoped as part of the initial launch. This gave operations teams immediate visibility into recording coverage and failure reasons from the first day the feature was live, rather than requiring a separate project to add observability later.',
+            number: '04',
+            tag: 'Speed vs. visibility',
+            title: 'Ship reporting on day one — observability is not a follow-up project',
+            chose: 'Scoped the reporting dashboard as part of the initial launch, not phase two',
+            result: 'Ops teams had immediate visibility into coverage and failures from day one',
           },
         ],
       },
@@ -254,10 +269,28 @@ export const CASE_STUDIES = [
         label: 'The Partners',
         heading: 'Six teams, four disciplines, two pods.',
         team: [
-          { role: 'PM', count: '1 partner PM', body: 'Owned the screen capture infrastructure as a parallel workstream. Collaborated on feature scoping, edge case coverage, and integration hand-offs throughout the project.' },
-          { role: 'ENG', count: '6 engineers (India and Singapore)', body: 'Split across two product pods. Covered frontend playback integration, backend combining pipeline, permissions logic, and the reporting data foundation.' },
-          { role: 'DES', count: '1 designer (US)', body: 'Designed the playback interface inside the review workflow, the multi-screen toggle layout, and the access configuration screens.' },
-          { role: 'QA', count: '2 QA engineers', body: 'End-to-end testing across phone and digital recording paths, multi-agent transfer scenarios, and all permission combinations.' },
+          {
+            role: 'Partner PM',
+            count: 1,
+            body: 'Owned the screen capture infrastructure as a parallel workstream. Collaborated on feature scoping, edge case coverage, and integration hand-offs throughout the project.',
+          },
+          {
+            role: 'Engineers',
+            count: 6,
+            location: 'India & Singapore',
+            body: 'Split across two product pods. Covered frontend playback integration, backend combining pipeline, permissions logic, and the reporting data foundation.',
+          },
+          {
+            role: 'Designer',
+            count: 1,
+            location: 'US',
+            body: 'Designed the playback interface inside the review workflow, the multi-screen toggle layout, and the access configuration screens.',
+          },
+          {
+            role: 'QA Engineers',
+            count: 2,
+            body: 'End-to-end testing across phone and digital recording paths, multi-agent transfer scenarios, and all permission combinations.',
+          },
         ],
       },
       {

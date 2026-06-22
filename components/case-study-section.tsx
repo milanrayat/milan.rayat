@@ -1,12 +1,23 @@
+import { MapPin } from 'lucide-react'
+
 interface Pill {
   title: string
   body?: string
   items?: string[]
 }
 
-interface TeamRow {
+interface Decision {
+  number: string
+  tag: string
+  title: string
+  chose: string
+  result: string
+}
+
+interface TeamMember {
   role: string
-  count: string
+  count: number
+  location?: string
   body: string
 }
 
@@ -41,8 +52,8 @@ export interface CaseStudySectionData {
   quote?: string
   beforeAfter?: BeforeAfter
   pills?: Pill[]
-  decisions?: Pill[]
-  team?: TeamRow[]
+  decisions?: Decision[]
+  team?: TeamMember[]
   insightShifts?: InsightShift[]
   impactCards?: ImpactCard[]
   bullets?: string[]
@@ -153,26 +164,52 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
 
         {decisions && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-            {decisions.map(({ title, body }) => (
-              <div key={title} className="flex flex-col gap-2 rounded-lg border border-border/50 bg-card p-5">
-                <p className="font-heading font-semibold text-foreground text-sm">{title}</p>
-                <p className="text-sm text-muted-foreground leading-relaxed">{body}</p>
+            {decisions.map(({ number: n, tag, title, chose, result }) => (
+              <div key={n} className="flex flex-col gap-3 rounded-lg border border-border/50 bg-card p-5">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="text-xs font-semibold text-muted-foreground tracking-wide">{n}</span>
+                  <span className="inline-flex items-center rounded-full border border-accent/20 bg-accent/10 px-2.5 py-1 text-[11px] font-medium text-accent">
+                    {tag}
+                  </span>
+                </div>
+                <p className="font-heading font-semibold text-foreground text-base leading-snug text-pretty">
+                  {title}
+                </p>
+                <div className="flex flex-col gap-1.5 pt-3 border-t border-border/30">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                    Chose
+                  </span>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{chose}</p>
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-accent">
+                    Result
+                  </span>
+                  <p className="text-sm text-foreground/90 leading-relaxed italic">{result}</p>
+                </div>
               </div>
             ))}
           </div>
         )}
 
         {team && (
-          <div className="flex flex-col gap-5 mt-2">
-            {team.map(({ role, count, body }) => (
-              <div key={role} className="flex items-start gap-4">
-                <span className="shrink-0 inline-flex items-center justify-center w-12 h-8 rounded-md bg-accent/15 border border-accent/25 text-xs font-bold text-accent">
-                  {role}
-                </span>
-                <div>
-                  <p className="font-heading font-semibold text-foreground text-sm">{count}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed mt-1">{body}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+            {team.map(({ role, count, location, body }) => (
+              <div key={role} className="flex flex-col gap-3 rounded-lg border border-border/50 bg-card p-5">
+                <p className="font-heading font-bold text-3xl text-accent leading-none">{count}</p>
+                <div className="flex gap-1" role="img" aria-label={`${count} people`}>
+                  {Array.from({ length: Math.min(count, 8) }).map((_, i) => (
+                    <span key={i} className="w-1.5 h-1.5 rounded-full bg-accent" aria-hidden="true" />
+                  ))}
                 </div>
+                <p className="font-heading font-semibold text-foreground text-sm mt-1">{role}</p>
+                {location && (
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <MapPin size={12} aria-hidden="true" />
+                    {location}
+                  </div>
+                )}
+                <p className="text-sm text-muted-foreground leading-relaxed">{body}</p>
               </div>
             ))}
           </div>
