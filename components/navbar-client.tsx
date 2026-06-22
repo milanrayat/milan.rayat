@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'My Story' },
   { href: '/case-studies', label: 'Case Studies' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/contact', label: "Let's Connect" },
 ]
 
 export function NavbarClient({ name }: { name: string }) {
