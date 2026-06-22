@@ -1,12 +1,22 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, Mail, ExternalLink, Calendar, Briefcase, GraduationCap } from 'lucide-react'
+import { ArrowRight, Mail, Calendar } from 'lucide-react'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { MetricCard } from '@/components/metric-card'
 import { HighlightCard } from '@/components/highlight-card'
 import { CaseStudyCard } from '@/components/case-study-card'
+import { RotatingWord } from '@/components/rotating-word'
+import { ScrollProgressDots } from '@/components/scroll-progress-dots'
 import { getProfile, getMetrics, getHighlights, getCaseStudies } from '@/lib/db'
+
+const SECTIONS = [
+  { id: 'hero', label: 'Home' },
+  { id: 'metrics', label: 'Impact at a Glance' },
+  { id: 'highlights', label: 'Executive Highlights' },
+  { id: 'case-studies', label: 'Case Studies' },
+  { id: 'cta', label: 'Get in Touch' },
+]
 
 export default async function HomePage() {
   const PERSON = await getProfile()
@@ -17,10 +27,12 @@ export default async function HomePage() {
   return (
     <>
       <Navbar />
+      <ScrollProgressDots sections={SECTIONS} />
       <main>
         {/* ── HERO ──────────────────────────────────────────── */}
         <section
-          className="relative min-h-screen flex flex-col justify-center pt-24 pb-20 px-6 lg:px-8"
+          id="hero"
+          className="relative min-h-[90vh] flex flex-col justify-center pt-20 pb-16 px-6 lg:px-8"
           aria-labelledby="hero-heading"
         >
           {/* Subtle grid pattern */}
@@ -35,72 +47,26 @@ export default async function HomePage() {
           />
 
           <div className="max-w-6xl mx-auto w-full">
-            {/* Status badge — archived, not currently looking for opportunities. Re-enable when needed.
-            <div className="flex items-center gap-2 mb-8">
-              <span className="relative flex h-2 w-2" aria-hidden="true">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
-              </span>
-              <span className="text-xs font-medium text-muted-foreground tracking-widest uppercase">
-                Open to Senior PM &middot; AI PM Opportunities
-              </span>
-            </div>
-            */}
-
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               {/* Text content */}
               <div className="lg:col-span-8 flex flex-col gap-6">
                 <div>
-                  {/* Tagline — archived, re-enable when needed.
                   <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">
-                    {PERSON.tagline}
+                    {PERSON.title}
                   </p>
-                  */}
                   <h1
                     id="hero-heading"
                     className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-foreground leading-tight text-balance"
                   >
-                    Building Enterprise AI Products That Move the Needle.
+                    Building Enterprise{' '}
+                    <RotatingWord words={['AI Products', 'B2B SaaS Products', '0→1 Products']} /> That
+                    Move the Needle.
                   </h1>
                 </div>
 
                 <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl text-pretty">
                   {PERSON.uvp}
                 </p>
-
-                {/* Social links + CTAs — archived, re-enable when needed.
-                <div className="flex flex-wrap items-center gap-4 pt-2">
-                  <a
-                    href={`mailto:${PERSON.email}`}
-                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
-                    aria-label="Send email"
-                  >
-                    <Mail size={15} aria-hidden="true" />
-                    Email
-                  </a>
-                  <span className="w-px h-4 bg-border hidden sm:block" aria-hidden="true" />
-                  <a
-                    href={PERSON.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
-                    aria-label="LinkedIn profile (opens in new tab)"
-                  >
-                    <ExternalLink size={15} aria-hidden="true" />
-                    LinkedIn
-                  </a>
-                  <span className="w-px h-4 bg-border hidden sm:block" aria-hidden="true" />
-                  <a
-                    href={PERSON.calendly}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
-                    aria-label="Schedule a meeting (opens in new tab)"
-                  >
-                    <Calendar size={15} aria-hidden="true" />
-                    Schedule a Call
-                  </a>
-                </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-2">
                   <Link
@@ -111,13 +77,12 @@ export default async function HomePage() {
                     <ArrowRight size={16} aria-hidden="true" />
                   </Link>
                   <Link
-                    href="/about"
+                    href="/contact"
                     className="inline-flex items-center justify-center gap-2 border border-border text-foreground text-sm font-semibold px-6 py-3 rounded-md hover:border-accent/50 hover:bg-card transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
-                    About Me
+                    Get in Touch
                   </Link>
                 </div>
-                */}
               </div>
 
               {/* Headshot */}
@@ -127,37 +92,70 @@ export default async function HomePage() {
                     src="/milan-rayat.jpg"
                     alt="Milan Rayat — Senior PM at Sprinklr"
                     fill
+                    sizes="(max-width: 1024px) 256px, 288px"
                     className="object-cover"
                     priority
                   />
                 </div>
 
                 {/* Snapshot: experience + education */}
-                <div className="w-64 lg:w-72 rounded-xl border border-border/50 bg-card p-4 flex flex-col gap-3">
-                  <div className="flex items-start gap-3">
-                    <Briefcase size={16} className="text-accent mt-0.5 shrink-0" aria-hidden="true" />
+                <div className="w-64 lg:w-72 rounded-xl border border-border/50 bg-card p-4 flex flex-col gap-3 transition-all duration-200 hover:border-accent/30 hover:-translate-y-0.5">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-md bg-secondary flex items-center justify-center shrink-0 p-1.5">
+                      <Image
+                        src="/logos/sprinklr.png"
+                        alt="Sprinklr logo"
+                        width={32}
+                        height={32}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                     <div>
                       <p className="text-sm font-medium text-foreground">Product Manager</p>
                       <p className="text-xs text-muted-foreground">Sprinklr &middot; 2022 — Present</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <Briefcase size={16} className="text-accent mt-0.5 shrink-0" aria-hidden="true" />
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-md bg-secondary flex items-center justify-center shrink-0 p-1.5">
+                      <Image
+                        src="/logos/exl.svg"
+                        alt="EXL logo"
+                        width={32}
+                        height={32}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                     <div>
                       <p className="text-sm font-medium text-foreground">Consultant</p>
                       <p className="text-xs text-muted-foreground">EXL &middot; 2021 — 2022</p>
                     </div>
                   </div>
                   <div className="h-px bg-border/50" aria-hidden="true" />
-                  <div className="flex items-start gap-3">
-                    <GraduationCap size={16} className="text-accent mt-0.5 shrink-0" aria-hidden="true" />
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-md bg-secondary flex items-center justify-center shrink-0 p-1.5">
+                      <Image
+                        src="/logos/hec-paris.svg"
+                        alt="HEC Paris logo"
+                        width={32}
+                        height={32}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                     <div>
                       <p className="text-sm font-medium text-foreground">MBA</p>
                       <p className="text-xs text-muted-foreground">HEC Paris &middot; 2026 — 2028</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <GraduationCap size={16} className="text-accent mt-0.5 shrink-0" aria-hidden="true" />
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-md bg-secondary flex items-center justify-center shrink-0 p-1 overflow-hidden">
+                      <Image
+                        src="/logos/iit-guwahati.png"
+                        alt="IIT Guwahati logo"
+                        width={32}
+                        height={32}
+                        className="w-full h-full object-contain rounded-full"
+                      />
+                    </div>
                     <div>
                       <p className="text-sm font-medium text-foreground">Bachelors of Engineering</p>
                       <p className="text-xs text-muted-foreground">IIT Guwahati &middot; 2015 — 2019</p>
@@ -171,7 +169,8 @@ export default async function HomePage() {
 
         {/* ── METRICS GRID ──────────────────────────────────── */}
         <section
-          className="py-20 px-6 lg:px-8 border-t border-border/30"
+          id="metrics"
+          className="py-16 px-6 lg:px-8 border-t border-border/30"
           aria-labelledby="metrics-heading"
         >
           <div className="max-w-6xl mx-auto">
@@ -208,7 +207,8 @@ export default async function HomePage() {
 
         {/* ── EXECUTIVE HIGHLIGHTS ──────────────────────────── */}
         <section
-          className="py-20 px-6 lg:px-8 border-t border-border/30"
+          id="highlights"
+          className="py-16 px-6 lg:px-8 border-t border-border/30"
           aria-labelledby="highlights-heading"
         >
           <div className="max-w-6xl mx-auto">
@@ -244,7 +244,8 @@ export default async function HomePage() {
 
         {/* ── CASE STUDIES PREVIEW ──────────────────────────── */}
         <section
-          className="py-20 px-6 lg:px-8 border-t border-border/30"
+          id="case-studies"
+          className="py-16 px-6 lg:px-8 border-t border-border/30"
           aria-labelledby="case-studies-heading"
         >
           <div className="max-w-6xl mx-auto">
@@ -306,7 +307,8 @@ export default async function HomePage() {
 
         {/* ── FINAL CTA ─────────────────────────────────────── */}
         <section
-          className="py-20 px-6 lg:px-8 border-t border-border/30"
+          id="cta"
+          className="py-16 px-6 lg:px-8 border-t border-border/30"
           aria-labelledby="cta-heading"
         >
           <div className="max-w-6xl mx-auto text-center">

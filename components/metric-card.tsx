@@ -23,7 +23,7 @@ export function MetricCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.4, delay: index * 0.07, ease: 'easeOut' }}
-      className="group relative flex flex-col gap-2 rounded-lg border border-border/50 bg-card p-6 hover:border-accent/30 hover:bg-card/80 transition-all duration-200"
+      className="group relative flex flex-col gap-2 rounded-lg border border-border/50 bg-card p-6 hover:border-accent/30 hover:bg-card/80 hover:-translate-y-1 transition-all duration-200"
       role="figure"
       aria-label={`${value} — ${label}`}
     >

@@ -16,7 +16,7 @@ export function HighlightCard({ category, headline, body, index = 0 }: Highlight
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-30px' }}
       transition={{ duration: 0.35, delay: index * 0.06, ease: 'easeOut' }}
-      className="flex flex-col gap-3 rounded-lg border border-border/50 bg-card p-6 hover:border-border hover:bg-card/80 transition-all duration-200"
+      className="flex flex-col gap-3 rounded-lg border border-border/50 bg-card p-6 hover:border-border hover:bg-card/80 hover:-translate-y-1 transition-all duration-200"
     >
       <span className="text-xs font-semibold uppercase tracking-widest text-accent">
         {category}

@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Inter, Outfit, Geist_Mono } from 'next/font/google'
+import { PersonSchema } from '@/components/person-schema'
 import './globals.css'
 
 const inter = Inter({
@@ -41,6 +42,14 @@ export const metadata: Metadata = {
     description:
       'Building enterprise contact center solutions. $20M+ ARR. 10x customer growth. AI-powered QA.',
     type: 'website',
+    url: 'https://milanrayat.vercel.app',
+    siteName: 'Milan Rayat',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Milan Rayat — Senior AI Product Manager',
+    description:
+      'Building enterprise contact center solutions. $20M+ ARR. 10x customer growth. AI-powered QA.',
   },
 }
 
@@ -60,6 +69,7 @@ export default function RootLayout({
       className={`${inter.variable} ${outfit.variable} ${geistMono.variable} bg-background`}
     >
       <body className="font-sans antialiased">
+        <PersonSchema />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

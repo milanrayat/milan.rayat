@@ -1,4 +1,14 @@
+'use client'
+
 import { MapPin } from 'lucide-react'
+import { motion } from 'framer-motion'
+
+const fadeInUp = (index: number) => ({
+  initial: { opacity: 0, y: 16 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-30px' },
+  transition: { duration: 0.35, delay: index * 0.06, ease: 'easeOut' as const },
+})
 
 interface Pill {
   title: string
@@ -142,8 +152,12 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
 
         {pills && (
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            {pills.map(({ title, body, items }) => (
-              <div key={title} className="flex flex-col gap-2 rounded-lg border border-border/50 bg-card p-5">
+            {pills.map(({ title, body, items }, i) => (
+              <motion.div
+                key={title}
+                {...fadeInUp(i)}
+                className="flex flex-col gap-2 rounded-lg border border-border/50 bg-card p-5 transition-all duration-200 hover:border-accent/40 hover:-translate-y-1"
+              >
                 <p className="font-heading font-semibold text-accent text-sm mb-1">{title}</p>
                 {items ? (
                   <ul className="flex flex-col gap-2" role="list">
@@ -157,15 +171,19 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
                 ) : (
                   <p className="text-sm text-muted-foreground leading-relaxed">{body}</p>
                 )}
-              </div>
+              </motion.div>
             ))}
           </div>
         )}
 
         {decisions && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-            {decisions.map(({ number: n, tag, title, chose, result }) => (
-              <div key={n} className="flex flex-col gap-3 rounded-lg border border-border/50 bg-card p-5">
+            {decisions.map(({ number: n, tag, title, chose, result }, i) => (
+              <motion.div
+                key={n}
+                {...fadeInUp(i)}
+                className="flex flex-col gap-3 rounded-lg border border-border/50 bg-card p-5 transition-all duration-200 hover:border-accent/40 hover:-translate-y-1"
+              >
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-xs font-semibold text-muted-foreground tracking-wide">{n}</span>
                   <span className="inline-flex items-center rounded-full border border-accent/20 bg-accent/10 px-2.5 py-1 text-[11px] font-medium text-accent">
@@ -187,15 +205,19 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
                   </span>
                   <p className="text-sm text-foreground/90 leading-relaxed italic">{result}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         )}
 
         {team && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-            {team.map(({ role, count, location, body }) => (
-              <div key={role} className="flex flex-col gap-3 rounded-lg border border-border/50 bg-card p-5">
+            {team.map(({ role, count, location, body }, i) => (
+              <motion.div
+                key={role}
+                {...fadeInUp(i)}
+                className="flex flex-col gap-3 rounded-lg border border-border/50 bg-card p-5 transition-all duration-200 hover:border-accent/40 hover:-translate-y-1"
+              >
                 <p className="font-heading font-bold text-3xl text-accent leading-none">{count}</p>
                 <div className="flex gap-1" role="img" aria-label={`${count} people`}>
                   {Array.from({ length: Math.min(count, 8) }).map((_, i) => (
@@ -210,15 +232,19 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
                   </div>
                 )}
                 <p className="text-sm text-muted-foreground leading-relaxed">{body}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         )}
 
         {insightShifts && (
           <div className="flex flex-col gap-4 mt-2">
-            {insightShifts.map(({ number: n, title, insight, shiftTitle, shift }) => (
-              <div key={n} className="rounded-lg border border-border/50 bg-card p-5 lg:p-6">
+            {insightShifts.map(({ number: n, title, insight, shiftTitle, shift }, i) => (
+              <motion.div
+                key={n}
+                {...fadeInUp(i)}
+                className="rounded-lg border border-border/50 bg-card p-5 lg:p-6 transition-all duration-200 hover:border-accent/40 hover:-translate-y-1"
+              >
                 <p className="text-xs font-semibold text-muted-foreground tracking-wide mb-3">
                   {n} &middot; {title}
                 </p>
@@ -238,17 +264,18 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         )}
 
         {impactCards && (
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            {impactCards.map(({ category, value, label: cardLabel, description }) => (
-              <div
+            {impactCards.map(({ category, value, label: cardLabel, description }, i) => (
+              <motion.div
                 key={category}
-                className="flex flex-col gap-2 rounded-lg border border-border/50 bg-card p-6"
+                {...fadeInUp(i)}
+                className="flex flex-col gap-2 rounded-lg border border-border/50 bg-card p-6 transition-all duration-200 hover:border-accent/40 hover:-translate-y-1"
               >
                 <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   {category}
@@ -258,7 +285,7 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
                 </p>
                 <p className="text-sm font-semibold text-foreground mt-1">{cardLabel}</p>
                 <p className="text-sm text-muted-foreground leading-relaxed mt-1">{description}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         )}

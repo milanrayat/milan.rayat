@@ -41,7 +41,7 @@ export function CaseStudyCard({
     >
       <Link
         href={`/case-studies/${slug}`}
-        className="group flex flex-col h-full rounded-xl border border-border/50 bg-card overflow-hidden transition-all duration-300 hover:border-accent/50 hover:shadow-[0_0_0_1px_rgba(59,130,246,0.15),0_8px_30px_-8px_rgba(59,130,246,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        className="group flex flex-col h-full rounded-xl border border-border/50 bg-card overflow-hidden transition-all duration-300 hover:border-accent/50 hover:-translate-y-1 hover:shadow-[0_0_0_1px_rgba(59,130,246,0.15),0_8px_30px_-8px_rgba(59,130,246,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         aria-label={`Read case study: ${title}`}
       >
         {/* Banner */}
