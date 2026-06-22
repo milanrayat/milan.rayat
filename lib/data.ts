@@ -6,6 +6,7 @@ export const PERSON = {
   email: 'milanrayat99@gmail.com',
   linkedin: 'https://www.linkedin.com/in/milan-rayat/',
   calendly: 'https://calendly.com/milanrayat99/30min',
+  resumeUrl: '/resume.pdf',
   company: 'Sprinklr',
 }
 
