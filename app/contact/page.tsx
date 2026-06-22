@@ -22,7 +22,6 @@ export default async function ContactPage() {
       action: 'Open Calendly',
       href: PERSON.calendly,
       external: true,
-      primary: true,
     },
     {
       icon: ExternalLink,
@@ -31,7 +30,6 @@ export default async function ContactPage() {
       action: 'View LinkedIn Profile',
       href: PERSON.linkedin,
       external: true,
-      primary: false,
     },
   ]
 
@@ -77,23 +75,17 @@ export default async function ContactPage() {
               role="list"
               aria-label="Contact options"
             >
-              {CONTACT_OPTIONS.map(({ icon: Icon, label, description, action, href, external, primary }) => (
+              {CONTACT_OPTIONS.map(({ icon: Icon, label, description, action, href, external }) => (
                 <div
                   key={label}
                   role="listitem"
-                  className={`flex flex-col gap-4 rounded-lg border p-6 transition-all duration-200 ${
-                    primary
-                      ? 'border-accent/40 bg-accent/5 hover:border-accent/60'
-                      : 'border-border/50 bg-card hover:border-border'
-                  }`}
+                  className="flex flex-col gap-4 rounded-lg border border-border/50 bg-card p-6 transition-all duration-200 hover:border-border"
                 >
                   <div
-                    className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                      primary ? 'bg-accent/20' : 'bg-secondary'
-                    }`}
+                    className="w-10 h-10 rounded-lg flex items-center justify-center bg-secondary"
                     aria-hidden="true"
                   >
-                    <Icon size={18} className={primary ? 'text-accent' : 'text-muted-foreground'} />
+                    <Icon size={18} className="text-muted-foreground" />
                   </div>
                   <div className="flex flex-col gap-1">
                     <h3 className="font-heading font-semibold text-foreground text-base">{label}</h3>
@@ -103,11 +95,7 @@ export default async function ContactPage() {
                     href={href}
                     target={external ? '_blank' : undefined}
                     rel={external ? 'noopener noreferrer' : undefined}
-                    className={`inline-flex items-center gap-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm ${
-                      primary
-                        ? 'text-accent hover:text-accent/80'
-                        : 'text-muted-foreground hover:text-foreground'
-                    }`}
+                    className="inline-flex items-center gap-2 text-sm font-medium transition-colors text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
                     aria-label={`${label}${external ? ' (opens in new tab)' : ''}`}
                   >
                     {action}
