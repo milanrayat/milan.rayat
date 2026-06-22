@@ -3,25 +3,19 @@ import Link from 'next/link'
 import { ArrowRight, Mail, Calendar } from 'lucide-react'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
-import { MetricCard } from '@/components/metric-card'
-import { HighlightCard } from '@/components/highlight-card'
 import { CaseStudyCard } from '@/components/case-study-card'
 import { RotatingWord } from '@/components/rotating-word'
 import { ScrollProgressDots } from '@/components/scroll-progress-dots'
-import { getProfile, getMetrics, getHighlights, getCaseStudies } from '@/lib/db'
+import { getProfile, getCaseStudies } from '@/lib/db'
 
 const SECTIONS = [
   { id: 'hero', label: 'Home' },
-  { id: 'metrics', label: 'Impact at a Glance' },
-  { id: 'highlights', label: 'Executive Highlights' },
   { id: 'case-studies', label: 'Case Studies' },
   { id: 'cta', label: 'Get in Touch' },
 ]
 
 export default async function HomePage() {
   const PERSON = await getProfile()
-  const METRICS = await getMetrics()
-  const HIGHLIGHTS = await getHighlights()
   const CASE_STUDIES = await getCaseStudies()
 
   return (
@@ -163,81 +157,6 @@ export default async function HomePage() {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── METRICS GRID ──────────────────────────────────── */}
-        <section
-          id="metrics"
-          className="py-16 px-6 lg:px-8 border-t border-border/30"
-          aria-labelledby="metrics-heading"
-        >
-          <div className="max-w-6xl mx-auto">
-            <div className="mb-10">
-              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">
-                Impact at a Glance
-              </p>
-              <h2
-                id="metrics-heading"
-                className="font-heading font-bold text-2xl lg:text-3xl text-foreground"
-              >
-                Numbers that matter.
-              </h2>
-            </div>
-            <div
-              className="grid grid-cols-2 md:grid-cols-3 gap-4"
-              role="list"
-              aria-label="Key performance metrics"
-            >
-              {METRICS.map((metric, i) => (
-                <div key={metric.value + metric.label} role="listitem">
-                  <MetricCard
-                    value={metric.value}
-                    label={metric.label}
-                    category={metric.category}
-                    index={i}
-                    size={i < 2 ? 'lg' : 'md'}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── EXECUTIVE HIGHLIGHTS ──────────────────────────── */}
-        <section
-          id="highlights"
-          className="py-16 px-6 lg:px-8 border-t border-border/30"
-          aria-labelledby="highlights-heading"
-        >
-          <div className="max-w-6xl mx-auto">
-            <div className="mb-10">
-              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">
-                Executive Highlights
-              </p>
-              <h2
-                id="highlights-heading"
-                className="font-heading font-bold text-2xl lg:text-3xl text-foreground"
-              >
-                Delivered outcomes, not activities.
-              </h2>
-            </div>
-            <div
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
-              role="list"
-              aria-label="Executive highlights"
-            >
-              {HIGHLIGHTS.map((h, i) => (
-                <div key={h.id} role="listitem">
-                  <HighlightCard
-                    category={h.category}
-                    headline={h.headline}
-                    body={h.body}
-                    index={i}
-                  />
-                </div>
-              ))}
             </div>
           </div>
         </section>
