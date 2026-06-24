@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { MapPin } from 'lucide-react'
 import { motion } from 'framer-motion'
 
@@ -53,11 +54,18 @@ interface InsightShift {
   shift: string
 }
 
+interface SectionImage {
+  src: string
+  alt: string
+  caption?: string
+}
+
 export interface CaseStudySectionData {
   id: string
   number: string
   label: string
   heading: string
+  image?: SectionImage
   paragraphs?: string[]
   quote?: string
   beforeAfter?: BeforeAfter
@@ -75,6 +83,7 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
     number,
     label,
     heading,
+    image,
     paragraphs,
     quote,
     beforeAfter,
@@ -111,6 +120,25 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
               </p>
             ))}
           </div>
+        )}
+
+        {image && (
+          <figure className={paragraphs ? 'mt-8 mb-8' : 'mt-2 mb-8'}>
+            <div className="relative w-full rounded-xl border border-border/50 overflow-hidden bg-card">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={1024}
+                height={592}
+                className="w-full h-auto"
+              />
+            </div>
+            {image.caption && (
+              <figcaption className="text-sm text-muted-foreground mt-3 text-pretty">
+                {image.caption}
+              </figcaption>
+            )}
+          </figure>
         )}
 
         {quote && (

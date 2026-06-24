@@ -117,6 +117,8 @@ export const CASE_STUDIES = [
     title: 'Screen Recording for Customer Service Quality Review',
     tagline:
       'Customer service agents handle thousands of calls and chats every day. When quality teams reviewed those interactions, they had audio and message logs but no way to see what the agent was doing on screen. I led product strategy and delivery for the feature that changed that.',
+    metaDescription:
+      'Customer service agents handle thousands of calls and chats every day. When quality teams reviewed those interactions, they had audio and message logs but no way to see what the agent was doing on screen. I led product strategy and delivery for the feature that changed that.',
     coverImage: '/screen-recording-case-study.png',
     heroQuote:
       'A quality reviewer would open an interaction, listen to the audio of the call, read through the transcript, and score the agent. But if the agent had navigated to the wrong help article, skipped a required compliance step, or spent three minutes on the wrong screen entirely, the reviewer had no way of knowing. The call audio sounded fine. The problem was invisible.',
@@ -317,6 +319,257 @@ export const CASE_STUDIES = [
             value: '93%',
             label: 'recording capture rate',
             description: 'Up from 0% before launch · active work continues toward full coverage',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'pii-data-masking',
+    slug: 'pii-data-masking',
+    company: 'Sprinklr',
+    year: '2023–2024',
+    role: 'Product Manager',
+    duration: '2 quarters',
+    teamSize: '5 people · 3 pods',
+    tags: ['30+ Customers Live', 'Compliance', 'AI-Powered', '0 Incidents'],
+    outcomeStat: { value: '0', label: 'Compliance issues after launch' },
+    title: 'Building Privacy Protection That Scales',
+    tagline:
+      "Customers share sensitive details — card numbers, addresses, health info — on every support call and chat. One slip, and that's a legal problem for the company. I led the product work that closed the gap: turning a manual, error-prone process into an automatic safety net.",
+    metaDescription:
+      "Support teams handle sensitive customer details every day — card numbers, addresses, health info. I led the build of an AI-powered system that protects it automatically. 30+ customers live, 50+ data types covered, zero compliance issues.",
+    coverImage: '/pii-masking-case-study.png',
+    heroQuote:
+      "Old way: an admin writes a rule by hand for every type of sensitive detail, then hopes the customer's words match it exactly. Say a card number with a pause in the wrong place, and it slips through. Names and addresses? No rule could catch those at all. Hours of setup — and still no real way to know what was actually being protected.",
+    heroStats: [
+      { value: '2 quarters', label: 'End-to-end delivery' },
+      { value: '30+', label: 'Customers live within 8 months' },
+      { value: '50+', label: 'Types of sensitive info covered' },
+      { value: '0', label: 'Compliance issues after launch' },
+    ],
+    sections: [
+      {
+        id: 'overview',
+        number: '01',
+        label: 'Overview',
+        heading: 'From manual rules to automatic protection.',
+        paragraphs: [
+          "As Product Manager at Sprinklr, I led the build of a tool that lets admins set up and test data-protection rules themselves — no engineers needed. I worked with legal and customer teams from day one, then rolled it out across three teams over two quarters.",
+        ],
+        beforeAfter: {
+          beforeTitle: 'Before',
+          beforeItems: [
+            'Manual, hand-written rules for every type of sensitive detail',
+            'Rules only worked if the data matched an exact format',
+            'No way to catch names or addresses at all',
+            'No way to test a rule before turning it on',
+            'Four teams, four different homemade fixes — no shared standard',
+          ],
+          afterTitle: 'What I Built',
+          afterItems: [
+            'A no-code tool for setting up and testing data-protection rules',
+            'AI that spots 50+ types of sensitive info, even outside fixed patterns',
+            'Flexible timing — protect data the moment it arrives, or once a call wraps up',
+            'One shared system any team at Sprinklr can plug into',
+          ],
+        },
+      },
+      {
+        id: 'problem',
+        number: '02',
+        label: 'The Problem',
+        heading: 'The cost of getting this wrong.',
+        pills: [
+          {
+            title: 'For New Customers',
+            items: [
+              'Gaps kept surfacing during onboarding — friction on every rollout',
+              "Sales couldn't confidently answer questions about voice-call protection",
+              'No simple setup made it hard to hand off to customers cleanly',
+              'Same problem, every time — not a one-off',
+            ],
+          },
+          {
+            title: 'For Compliance Teams',
+            items: [
+              'Legal rules (like PCI and HIPAA) required this data to stay protected — no exceptions',
+              'Names and addresses had zero coverage',
+              "No way to confirm what was actually protected, channel by channel",
+              'Nothing to show auditors or legal teams on request',
+            ],
+          },
+          {
+            title: 'Under the Hood',
+            items: [
+              'Rules only matched exact, predictable formats',
+              "Names and addresses can't be captured by a fixed pattern",
+              'No interface — every change needed an engineer',
+              'Four teams, four workarounds, zero consistency',
+            ],
+          },
+        ],
+      },
+      {
+        id: 'discovery',
+        number: '03',
+        label: 'Discovery & Insights',
+        heading: 'Four things that changed how we built this.',
+        paragraphs: [
+          'Talking to admins, reviewing the legal requirements, and studying competitors surfaced four realities that turned a small fix into a company-wide rebuild.',
+        ],
+        image: {
+          src: '/pii-masking-architecture.png',
+          alt: 'Diagram showing how a sensitive phrase on a call is detected and muted in the recording',
+          caption:
+            'How it works, simplified: a call gets transcribed, AI flags the sensitive parts, and the matching moment in the recording is muted automatically.',
+        },
+        insightShifts: [
+          {
+            number: '01',
+            title: 'Wide Open by Default',
+            insight:
+              "Out of 32,000+ daily conversations, about 1 in 10 had something sensitive in it — card numbers, home addresses. Yet over 3,000 people had open access to recordings and most chats, with no restrictions at all.",
+            shiftTitle: 'Made privacy the default',
+            shift:
+              "The riskiest categories are now hidden automatically for everyone. Teams that genuinely need to see it can switch it back on with one toggle. Nothing about the underlying data changes — just who can see it.",
+          },
+          {
+            number: '02',
+            title: 'A Rule That Broke Real Work',
+            insight:
+              "Legal wanted everything hidden before an agent ever saw it. Made sense on paper. But agents told us they often need to read sensitive details back to a customer mid-call to do their job — and the rule blocked that outright.",
+            shiftTitle: 'Gave teams control over timing',
+            shift:
+              'Admins can now choose: hide it the moment it comes in, or hide it once the conversation wraps up. Compliance stays the default. Teams that need a live read-back can have it.',
+          },
+          {
+            number: '03',
+            title: "Sound Can't Be Edited Like Text",
+            insight:
+              "You can't edit an audio file directly — you can only act on the transcript made from it. A transcript can point to one exact word. Audio can't be trimmed that precisely; muting it means losing a few seconds, not just a word.",
+            shiftTitle: 'Shipped a working version, queued the upgrade',
+            shift:
+              "For now, muting covers the few-second window around a flagged moment. A more precise, word-level version needs its own AI model — that's scoped as a next step, not dropped.",
+          },
+          {
+            number: '04',
+            title: 'One Problem, Four Different Fixes',
+            insight:
+              "This wasn't a missing feature — it was a scattered one. Four teams at Sprinklr had each quietly built their own version of the same fix, with no shared standard and nothing a fifth team could reuse.",
+            shiftTitle: 'Built it once, for everyone',
+            shift:
+              'The scope grew from "fix one team\'s gap" to "build the one system every team plugs into." A single setup, reusable everywhere — not another one-off fix.',
+          },
+        ],
+      },
+      {
+        id: 'decisions',
+        number: '04',
+        label: 'Key Decisions',
+        heading: 'The calls that shaped the build.',
+        decisions: [
+          {
+            number: '01',
+            tag: 'Safety vs. Convenience',
+            title: 'Protect everything by default. Make turning it off easy, not turning it on.',
+            chose:
+              'Set the riskiest categories to hidden out of the box, with a single toggle for teams that genuinely need to turn it off.',
+            result:
+              "Zero compliance issues after launch. The only flags were for languages outside our AI's current range — already on the roadmap.",
+          },
+          {
+            number: '02',
+            tag: 'Rules vs. Real Workflows',
+            title: 'Let teams choose when protection kicks in — not just whether it does.',
+            chose:
+              'Built timing as a setting, not a fixed rule: protect the moment data arrives, or once the conversation ends.',
+            result:
+              'Agents who need to read details back mid-call could keep doing their job — without lowering the compliance bar.',
+          },
+          {
+            number: '03',
+            tag: 'Perfect vs. Shipped',
+            title: 'Ship a good-enough fix now. Build the precise version next.',
+            chose:
+              'Released muting at the few-second level instead of waiting on a more precise, AI-heavy version.',
+            result:
+              'Voice protection shipped on time. The more precise version is scoped and queued, not abandoned.',
+          },
+          {
+            number: '04',
+            tag: 'Spread Thin vs. Focused',
+            title: "Give this its own team, instead of squeezing it into someone else's roadmap.",
+            chose:
+              'Since no existing team owned this or had room for it, pulled together a dedicated group with engineering, AI, and design — focused on just this.',
+            result:
+              'Shipped clean, with no rework. All three disciplines stayed aligned the whole way through.',
+          },
+          {
+            number: '05',
+            tag: 'Quick Fix vs. Built to Last',
+            title: 'Build one system everyone can use — not another one-off patch.',
+            chose:
+              "Widened the scope from fixing one team's gap to building a shared system every team at Sprinklr could plug into.",
+            result:
+              '30+ teams now use it directly. 20+ more run on it without knowing it. About 10 hours a week, company-wide, no longer spent maintaining duplicate fixes.',
+          },
+        ],
+      },
+      {
+        id: 'team',
+        number: '05',
+        label: 'The Partners',
+        heading: 'Five people. One system built to last.',
+        team: [
+          {
+            role: 'Engineers',
+            count: 2,
+            body: 'Built the whole thing end to end — the screen admins use to set up rules, and the system underneath that makes those rules actually work.',
+          },
+          {
+            role: 'ML Engineer',
+            count: 1,
+            body: 'Built the AI from the ground up to recognize 50+ types of sensitive info, and the pipeline that runs it at scale across calls and chats.',
+          },
+          {
+            role: 'Designer',
+            count: 1,
+            body: "Designed the setup screen to work for one team today and scale to the whole company tomorrow — no redesign needed later.",
+          },
+          {
+            role: 'QA Engineer',
+            count: 1,
+            body: 'Pushed the system to its limits before anything shipped — real-world scenarios, heavy load, edge cases, across every channel.',
+          },
+        ],
+      },
+      {
+        id: 'outcome',
+        number: '06',
+        label: 'The Outcome',
+        heading: 'Zero incidents. Thirty-plus customers. One system.',
+        impactCards: [
+          {
+            category: 'Adoption',
+            value: '30+',
+            label: 'customers live within 8 months',
+            description:
+              'Running across teams handling 32,000+ conversations a day · Covers calls, chats, and transcripts alike',
+          },
+          {
+            category: 'Risk Eliminated',
+            value: '0',
+            label: 'compliance issues after launch',
+            description:
+              "AI covers 50+ types of sensitive info · Only open item: languages outside the AI's current range — already known and planned for",
+          },
+          {
+            category: 'Scale',
+            value: '4 teams',
+            label: 'now running on one shared system',
+            description:
+              'Two more Sprinklr teams adopted it as-is, no custom work needed · Saves roughly 10 hours a week once spent on duplicate fixes',
           },
         ],
       },

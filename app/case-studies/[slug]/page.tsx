@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const PERSON = await getProfile()
   return {
     title: `${cs.title} — ${PERSON.name}`,
-    description: cs.tagline,
+    description: cs.metaDescription,
   }
 }
 
