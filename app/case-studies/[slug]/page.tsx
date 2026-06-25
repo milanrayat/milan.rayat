@@ -94,16 +94,23 @@ export default async function CaseStudyDetailPage({ params }: Props) {
             </div>
 
             {cs.coverImage && (
-              <div className="relative w-full mt-10 rounded-xl border border-border/50 overflow-hidden">
-                <Image
-                  src={cs.coverImage}
-                  alt={`${cs.title} — product screenshot`}
-                  width={1920}
-                  height={1080}
-                  className="w-full h-auto"
-                  priority
-                />
-              </div>
+              <figure className="mt-10">
+                <div className="relative w-full rounded-xl border border-border/50 overflow-hidden">
+                  <Image
+                    src={cs.coverImage}
+                    alt={`${cs.title} — product screenshot`}
+                    width={1920}
+                    height={1080}
+                    className="w-full h-auto"
+                    priority
+                  />
+                </div>
+                {cs.coverImageCaption && (
+                  <figcaption className="text-sm text-muted-foreground mt-3 text-pretty">
+                    {cs.coverImageCaption}
+                  </figcaption>
+                )}
+              </figure>
             )}
 
             {cs.heroQuote && (

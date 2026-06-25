@@ -122,25 +122,6 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
           </div>
         )}
 
-        {image && (
-          <figure className={paragraphs ? 'mt-8 mb-8' : 'mt-2 mb-8'}>
-            <div className="relative w-full rounded-xl border border-border/50 overflow-hidden bg-card">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={1024}
-                height={592}
-                className="w-full h-auto"
-              />
-            </div>
-            {image.caption && (
-              <figcaption className="text-sm text-muted-foreground mt-3 text-pretty">
-                {image.caption}
-              </figcaption>
-            )}
-          </figure>
-        )}
-
         {quote && (
           <p className="text-xl lg:text-2xl font-heading text-foreground/80 leading-snug text-pretty mt-8 text-balance">
             &ldquo;{quote}&rdquo;
@@ -295,6 +276,25 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
               </motion.div>
             ))}
           </div>
+        )}
+
+        {image && (
+          <figure className="mt-8 mb-2">
+            <div className="relative w-full rounded-xl border border-border/50 overflow-hidden bg-card">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={1024}
+                height={592}
+                className="w-full h-auto"
+              />
+            </div>
+            {image.caption && (
+              <figcaption className="text-sm text-muted-foreground mt-3 text-pretty">
+                {image.caption}
+              </figcaption>
+            )}
+          </figure>
         )}
 
         {impactCards && (

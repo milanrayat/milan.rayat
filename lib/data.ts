@@ -340,6 +340,8 @@ export const CASE_STUDIES = [
     metaDescription:
       "Support teams handle sensitive customer details every day — card numbers, addresses, health info. I led the build of an AI-powered system that protects it automatically. 30+ customers live, 50+ data types covered, zero compliance issues.",
     coverImage: '/pii-masking-case-study.png',
+    coverImageCaption:
+      'The masking template builder — where admins set up and test data-protection rules before turning them on.',
     heroQuote:
       "The old approach: hand-written rules, one for every kind of sensitive detail, built to match an exact format. A card number read out with a slight pause could slip past it. Names and addresses were never something a rule like that could catch — that's simply outside what pattern-matching can do.",
     heroStats: [
@@ -355,7 +357,7 @@ export const CASE_STUDIES = [
         label: 'Overview',
         heading: 'From manual rules to automatic protection.',
         paragraphs: [
-          "As Product Manager at Sprinklr, I led the build of a tool that lets admins set up and test data-protection rules themselves — no engineers needed. I worked with legal and customer teams from day one, then rolled it out across three teams over two quarters.",
+          "As Product Manager at Sprinklr, I led the build of a tool that lets admins set up and test data-protection rules themselves — no engineers needed. I scoped the solution end-to-end, from discovery with legal and implementation teams through to customer rollout, coordinating across three cross-functional pods over two quarters.",
         ],
         beforeAfter: {
           beforeTitle: 'Before',
@@ -364,7 +366,6 @@ export const CASE_STUDIES = [
             'Rules only worked if the data matched an exact format',
             'No way to catch names or addresses at all',
             'No way to test a rule before turning it on',
-            'Four teams, four different homemade fixes — no shared standard',
           ],
           afterTitle: 'What I Built',
           afterItems: [
@@ -395,8 +396,7 @@ export const CASE_STUDIES = [
             items: [
               'Legal rules (like PCI and HIPAA) required this data to stay protected — no exceptions',
               'Names and addresses had zero coverage',
-              "No way to confirm what was actually protected, channel by channel",
-              'Nothing to show auditors or legal teams on request',
+              'Proving exactly what was protected, channel by channel, wasn\'t straightforward — making it hard to give auditors or legal teams a clear answer',
             ],
           },
           {
@@ -404,8 +404,7 @@ export const CASE_STUDIES = [
             items: [
               'Rules only matched exact, predictable formats',
               "Names and addresses can't be captured by a fixed pattern",
-              'No interface — every change needed an engineer',
-              'Four teams, four workarounds, zero consistency',
+              'Every small tweak — even a single regex change — meant re-testing the whole rule by hand, and it was easy to get wrong',
             ],
           },
         ],
@@ -422,23 +421,23 @@ export const CASE_STUDIES = [
           src: '/pii-masking-architecture.png',
           alt: 'Diagram showing how a sensitive phrase on a call is detected and muted in the recording',
           caption:
-            'How it works, simplified: a call gets transcribed, AI flags the sensitive parts, and the matching moment in the recording is muted automatically.',
+            "Here's the actual mechanism: each call is transcribed, AI flags anything sensitive, and that exact moment in the recording gets muted automatically.",
         },
         insightShifts: [
           {
             number: '01',
             title: 'Wide Open by Default',
             insight:
-              "Out of 32,000+ daily conversations, about 1 in 10 had something sensitive in it — card numbers, home addresses. Yet over 3,000 people had open access to recordings and most chats, with no restrictions at all.",
-            shiftTitle: 'Made privacy the default',
+              "At one customer alone, out of 32,000+ daily conversations, roughly 1 in 10 contained something sensitive — card numbers, home addresses. Whatever slipped past the existing rules wasn't just sitting there unseen: over 3,000 people on that customer's platform had open access to recordings and most chats, with no restrictions at all.",
+            shiftTitle: 'Made privacy the default, everywhere',
             shift:
-              "The riskiest categories are now hidden automatically for everyone. Teams that genuinely need to see it can switch it back on with one toggle. Nothing about the underlying data changes — just who can see it.",
+              "This wasn't unique to one customer — the same exposure existed across the board. So instead of fixing it case by case, we made the riskiest categories hidden by default for everyone, with a single toggle for teams that genuinely need to turn it off.",
           },
           {
             number: '02',
             title: 'A Rule That Broke Real Work',
             insight:
-              "Legal wanted everything hidden before an agent ever saw it. Made sense on paper. But agents told us they often need to read sensitive details back to a customer mid-call to do their job — and the rule blocked that outright.",
+              "Legal's rule: hide every flagged sensitive detail before anyone on the platform could see it — reasonable on paper. But agents told us they often need to read those same details back to a customer mid-call to do their job, and the rule blocked that outright.",
             shiftTitle: 'Gave teams control over timing',
             shift:
               'Admins can now choose: hide it the moment it comes in, or hide it once the conversation wraps up. Compliance stays the default. Teams that need a live read-back can have it.',
@@ -456,7 +455,7 @@ export const CASE_STUDIES = [
             number: '04',
             title: 'One Problem, Four Different Fixes',
             insight:
-              "This wasn't a missing feature — it was a scattered one. Four teams at Sprinklr had each quietly built their own version of the same fix, with no shared standard and nothing a fifth team could reuse.",
+              "This wasn't a missing feature — it was a scattered one. Four product suites had each quietly built their own version of the same fix, with no shared standard and nothing another suite could reuse.",
             shiftTitle: 'Built it once, for everyone',
             shift:
               'The scope grew from "fix one team\'s gap" to "build the one system every team plugs into." A single setup, reusable everywhere — not another one-off fix.',
