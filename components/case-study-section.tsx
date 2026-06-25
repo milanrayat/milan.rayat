@@ -68,6 +68,7 @@ export interface CaseStudySectionData {
   image?: SectionImage
   paragraphs?: string[]
   quote?: string
+  quoteAttribution?: string
   beforeAfter?: BeforeAfter
   pills?: Pill[]
   decisions?: Decision[]
@@ -86,6 +87,7 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
     image,
     paragraphs,
     quote,
+    quoteAttribution,
     beforeAfter,
     pills,
     decisions,
@@ -123,9 +125,16 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
         )}
 
         {quote && (
-          <p className="text-xl lg:text-2xl font-heading text-foreground/80 leading-snug text-pretty mt-8 text-balance">
-            &ldquo;{quote}&rdquo;
-          </p>
+          <div className="mt-8">
+            <p className="text-xl lg:text-2xl font-heading text-foreground/80 leading-snug text-pretty text-balance">
+              &ldquo;{quote}&rdquo;
+            </p>
+            {quoteAttribution && (
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mt-4">
+                {quoteAttribution}
+              </p>
+            )}
+          </div>
         )}
 
         {beforeAfter && (

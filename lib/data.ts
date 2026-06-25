@@ -574,4 +574,257 @@ export const CASE_STUDIES = [
       },
     ],
   },
+  {
+    id: 'calibration',
+    slug: 'calibration',
+    company: 'Sprinklr',
+    year: '2024',
+    role: 'Product Manager',
+    duration: '0-to-1 build',
+    teamSize: '7 people · India',
+    tags: ['60+ Customers Live', '0-to-1 Build', 'QM Add-on', '~20K Sessions/Month'],
+    outcomeStat: { value: '60+', label: 'Enterprise customers active' },
+    title: 'Making Evaluator Scores Consistent, At Scale',
+    tagline:
+      "Quality evaluations in contact centers shape coaching plans, performance reviews, and careers. But there was no way to check if the evaluators themselves were scoring consistently. I built Calibration from zero — giving quality teams a way to audit their own auditors and turn evaluator consistency into something measurable.",
+    metaDescription:
+      "Contact center quality scores shape agent careers, but evaluators were never checked for consistency. I led the 0-to-1 build of a tool that audits the auditors — 60+ customers live, ~20K sessions run monthly.",
+    coverImage: '/calibration-case-study.png',
+    coverImageCaption:
+      "ATA in practice — a QM Lead's audit of the same call, broken down section by section against the original evaluation, with score gaps flagged at every level.",
+    heroQuote:
+      "Before this existed, a quality team had no way to know if their evaluators were aligned. Supervisors ran monthly sessions where QMs scored the same agent call on paper, compared notes, and debated differences out loud. None of it was recorded — no data on which criteria caused friction, no way to tell whether a score reflected an agent's work or just which manager happened to review it that week.",
+    heroStats: [
+      { value: '60+', label: 'Enterprise customers active' },
+      { value: '~20K', label: 'Monthly calibration sessions' },
+      { value: '40%', label: 'QM client adoption rate' },
+      { value: '~5%', label: 'Reduction in agent disputes' },
+    ],
+    sections: [
+      {
+        id: 'overview',
+        number: '01',
+        label: 'Overview',
+        heading: 'What changed, and what I owned.',
+        paragraphs: [
+          "As the sole PM, I owned Calibration end-to-end — growing from a supporting analyst role during early discovery into full ownership across a 7-person team. This was a 0-to-1 build with no prior foundation in the platform, shipped in two phases: ATA (Audit the Auditor) first, then P2P (Peer-to-Peer) calibration.",
+        ],
+        beforeAfter: {
+          beforeTitle: 'Before',
+          beforeItems: [
+            'No way to check if QM managers were scoring consistently',
+            'Evaluator alignment handled offline — spreadsheets, monthly sessions, ad hoc reviews',
+            'Score variance between evaluators invisible in the product — no data, no trend',
+            "Agent scores varied depending on which QM happened to evaluate them",
+            "No structured way for a QM to dispute a calibrator's assessment",
+          ],
+          afterTitle: 'What I Built',
+          afterItems: [
+            'ATA: QM Leads score the same interaction as their QMs, then see exactly where their scores diverge',
+            'P2P: QMs score the same interaction independently, blinded to each other, against a reference evaluator',
+            'Configurable score correction — overwrite the score, exclude it from metrics, or leave it untouched',
+            'Calibration reporting — alignment %, question-level variance, deviation trends, session volumes',
+          ],
+        },
+      },
+      {
+        id: 'problem',
+        number: '02',
+        label: 'The Problem',
+        heading: 'Three pressures pointing at the same gap.',
+        pills: [
+          {
+            title: 'For Agents',
+            items: [
+              'Same interaction, different evaluator, different score — no way to flag it',
+              'No visibility into evaluator consistency — couldn\'t tell a fair score from a biased one',
+              'Disputed evaluations resolved by manager discretion, not by process',
+              'Coaching plans built on inconsistent scores misdirected agent development',
+            ],
+          },
+          {
+            title: 'For the Business',
+            items: [
+              'As QM adoption grew, so did the scale of undetected scoring inconsistency',
+              'No credible link between QM activity and agent quality if scoring standards were unverified',
+              'Enterprise clients expected calibration as a baseline QM capability',
+              'Performance actions on biased evaluations created legal and compliance exposure',
+            ],
+          },
+          {
+            title: 'Under the Hood',
+            items: [
+              'Manual workarounds — spreadsheets, offline sessions — left no auditable trail',
+              'No standard industry definition of calibration metrics; every customer measured it differently',
+              'No data model or workflow support for multi-party blinded evaluation sessions',
+            ],
+          },
+        ],
+      },
+      {
+        id: 'discovery',
+        number: '03',
+        label: 'Discovery & Insights',
+        heading: 'What research revealed.',
+        paragraphs: [
+          "Competitive analysis across QM vendors, structured interviews with QM leads and supervisors, and platform data on scoring drift surfaced four realities that shaped the build.",
+        ],
+        insightShifts: [
+          {
+            number: '01',
+            title: 'The Offline Workaround Was Universal — and Invisible',
+            insight:
+              "Calibration was already happening at every customer we talked to — just outside the product. One ran monthly paper-scoring sessions and debated differences out loud. Others used 1-on-1 reviews. Some did nothing. None of it left a record, and none of it showed whether alignment improved over time.",
+            shiftTitle: 'Brought an existing practice into the product',
+            shift:
+              "Customers didn't need to be taught what calibration was — they'd already built workarounds around its absence. The job was to bring an established practice into the platform and give it the data layer offline sessions never had.",
+          },
+          {
+            number: '02',
+            title: 'Competitors Had Half the Picture',
+            insight:
+              "Most QM vendors offered either ATA-style or P2P-style calibration, not both — and the ones with P2P often didn't enforce blinding rigorously. Across the board, the UIs were complex enough to create real adoption friction.",
+            shiftTitle: 'Made calibration feel native, not bolted on',
+            shift:
+              "The gap wasn't in the individual capabilities — it was in how disconnected they felt. A QM manager already using the platform daily should meet calibration as an extension of that workflow, not a separate system to learn.",
+          },
+          {
+            number: '03',
+            title: 'One Metric Broke on Non-Scoring Forms',
+            insight:
+              "After the reporting design was finalized, a customer flagged that their evaluation forms used response-based criteria with no numeric scoring — so the core metric (% alignment, computed by comparing scores) had nothing to compare. This wasn't an edge case; it broke reporting for any customer using checklist-style forms.",
+            shiftTitle: 'Made the metric configurable, not fixed',
+            shift:
+              "Alignment doesn't mean the same thing across every evaluation form — the product couldn't impose one fixed definition. A single hard-coded metric was the wrong answer; a configurable one was the right one.",
+          },
+          {
+            number: '04',
+            title: 'QM Leads Wanted to Coach, Not Catch People Out',
+            insight:
+              "Platform data showed some QM managers consistently scored higher or lower than their peers, but that pattern was invisible in standard QM reporting. In interviews, QM leads described the goal not as catching a wrong score, but as knowing which evaluators needed coaching on which criteria.",
+            shiftTitle: 'Reframed it as coaching, not a verdict',
+            shift:
+              "This changed what kind of product Calibration needed to be — not a system for ruling an evaluator right or wrong, but the same coaching loop the QM product already ran between managers and agents, just applied one level up.",
+          },
+        ],
+      },
+      {
+        id: 'decisions',
+        number: '04',
+        label: 'Key Decisions',
+        heading: 'Five choices that shaped what shipped.',
+        decisions: [
+          {
+            number: '01',
+            tag: 'Continuity vs. Differentiation',
+            title: 'Anchor calibration to the existing QM evaluation screen.',
+            chose:
+              'Built both calibration modes inside the same QM interface, with distinct visual cues to set calibration sessions apart — instead of a separate module. Reasoning: no one navigating a new platform should face a second learning curve for a closely related workflow.',
+            result:
+              'The first customers onboarded to P2P reported minimal ramp-up time, citing direct continuity with the evaluation flow they already knew.',
+          },
+          {
+            number: '02',
+            tag: 'Standard Metrics vs. Form Diversity',
+            title: 'Make alignment metrics configurable, not fixed.',
+            chose:
+              "After a customer's non-scoring forms broke the score-based % alignment metric, rebuilt reporting so alignment can be computed by score comparison, response comparison, or both.",
+            result:
+              'Removed a hard adoption blocker for non-scoring customers — Calibration Reporting now works across every evaluation form configuration on the platform.',
+          },
+          {
+            number: '03',
+            tag: 'Score Integrity vs. Flexibility',
+            title: 'Let clients decide what calibration does to the original score.',
+            chose:
+              'Built three options instead of one fixed behavior: overwrite the original score, exclude the interaction from performance metrics, or leave the original score untouched. Different clients had very different stakes riding on agent scores.',
+            result:
+              'Clients with performance-linked compensation used score correction; coaching-focused clients used non-destructive calibration. One product, both use cases, no compromise.',
+          },
+          {
+            number: '04',
+            tag: 'Statistical Rigor vs. Social Pressure',
+            title: 'Enforce blinding through group completion, not individual submission.',
+            chose:
+              "In P2P, results become visible to the group only once every participant has submitted independently — enforced by a group-level completion flag. Participants also can't see who else is in the group until results are revealed.",
+            result:
+              "Each score reflected independent judgment against the reference evaluator, making the variance a clean signal of where standards drifted — not a socially-influenced consensus.",
+          },
+          {
+            number: '05',
+            tag: 'Accountability vs. Adoption Risk',
+            title: 'Ship the dispute flow as opt-in, not default-on.',
+            chose:
+              "Built the ability to formally dispute a calibrator's assessment as a configurable toggle, not a default. A default-on dispute mechanism would introduce conflict right when a new team most needs to build trust in the process.",
+            result:
+              'Clients could roll out Calibration as a pure coaching tool first, then turn on formal dispute accountability once the practice was established — minimizing friction at launch.',
+          },
+        ],
+        image: {
+          src: '/calibration-p2p-results.png',
+          alt: 'Peer-to-peer calibration results screen showing auditor scores compared against a reference evaluator, with the call transcript alongside',
+          caption:
+            "Decision 04 in practice — auditor scores compared against the reference evaluator only after every participant has submitted independently, with the original call transcript shown alongside for context.",
+        },
+      },
+      {
+        id: 'team',
+        number: '05',
+        label: 'The Partners',
+        heading: 'Seven people. One geography. One PM.',
+        team: [
+          {
+            role: 'Engineers',
+            count: 4,
+            location: 'India',
+            body: 'Built both calibration modes end to end — the blinding mechanism for group-completion, configurable score correction, the dispute flow, and the reporting infrastructure behind all of it.',
+          },
+          {
+            role: 'Product Designer',
+            count: 1,
+            location: 'India',
+            body: 'Designed calibration inside the existing QM interface — keeping visual continuity with regular evaluations while making calibration sessions clearly distinct.',
+          },
+          {
+            role: 'QA Engineers',
+            count: 2,
+            location: 'India',
+            body: 'Covered both calibration modes, blinding enforcement, every score-correction behavior, and edge cases in the opt-in dispute flow.',
+          },
+        ],
+      },
+      {
+        id: 'outcome',
+        number: '06',
+        label: 'The Outcome',
+        heading: 'Sixty-plus enterprise teams. One consistent standard.',
+        impactCards: [
+          {
+            category: 'Adoption',
+            value: '60+',
+            label: 'enterprise customers active on Calibration',
+            description:
+              '40% of all QM clients, spanning retail, telecom, and financial services · Shipped as a default QM feature, no extra licensing required',
+          },
+          {
+            category: 'Scale',
+            value: '~20K',
+            label: 'monthly calibration sessions run in-platform',
+            description:
+              'Replaced offline spreadsheets and verbal reviews that left no record and no way to track improvement over time',
+          },
+          {
+            category: 'Quality Impact',
+            value: '~5%',
+            label: 'reduction in agent dispute rates',
+            description:
+              'At customers with high Calibration adoption — consistent evaluator standards linked to fewer contested assessments downstream',
+          },
+        ],
+        quote:
+          'The Calibration functionality has been extremely helpful — working without any issues to coach our QMs and improve our internal audit processes.',
+        quoteAttribution: 'QM Lead, US Enterprise Retail Client · Internal QBR',
+      },
+    ],
+  },
 ]
