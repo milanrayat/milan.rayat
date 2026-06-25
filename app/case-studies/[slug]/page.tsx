@@ -65,7 +65,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
         <section className="py-12 px-6 lg:px-8 border-b border-border/30" aria-labelledby="cs-heading">
           <div className="max-w-3xl mx-auto">
             <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-3">
-              {cs.company} &middot; Case Study &middot; {cs.year}
+              {cs.company} &middot; Case Study
             </p>
             <h1
               id="cs-heading"
