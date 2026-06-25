@@ -554,7 +554,7 @@ export const CASE_STUDIES = [
             value: '30+',
             label: 'customers live within 8 months',
             description:
-              'Running across teams handling 32,000+ conversations a day · Covers calls, chats, and transcripts alike',
+              'All onboarded within the first release cycle · voice recordings, transcripts, and digital conversations protected across the board',
           },
           {
             category: 'Risk Eliminated',
@@ -564,11 +564,11 @@ export const CASE_STUDIES = [
               "AI covers 50+ types of sensitive info · Only open item: languages outside the AI's current range — already known and planned for",
           },
           {
-            category: 'Scale',
-            value: '4 teams',
-            label: 'now running on one shared system',
+            category: 'Internal Adoption',
+            value: '2',
+            label: 'internal product teams onboarded',
             description:
-              'Two more Sprinklr teams adopted it as-is, no custom work needed · Saves roughly 10 hours a week once spent on duplicate fixes',
+              'Both teams integrated the redaction framework directly into their own products · No custom builds, no duplicated engineering effort',
           },
         ],
       },
