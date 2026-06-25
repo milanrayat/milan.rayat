@@ -341,7 +341,7 @@ export const CASE_STUDIES = [
       "Support teams handle sensitive customer details every day — card numbers, addresses, health info. I led the build of an AI-powered system that protects it automatically. 30+ customers live, 50+ data types covered, zero compliance issues.",
     coverImage: '/pii-masking-case-study.png',
     heroQuote:
-      "Old way: an admin writes a rule by hand for every type of sensitive detail, then hopes the customer's words match it exactly. Say a card number with a pause in the wrong place, and it slips through. Names and addresses? No rule could catch those at all. Hours of setup — and still no real way to know what was actually being protected.",
+      "The old approach: hand-written rules, one for every kind of sensitive detail, built to match an exact format. A card number read out with a slight pause could slip past it. Names and addresses were never something a rule like that could catch — that's simply outside what pattern-matching can do.",
     heroStats: [
       { value: '2 quarters', label: 'End-to-end delivery' },
       { value: '30+', label: 'Customers live within 8 months' },
