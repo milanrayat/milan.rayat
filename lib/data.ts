@@ -431,7 +431,7 @@ export const CASE_STUDIES = [
               "At one customer alone, out of 32,000+ daily conversations, roughly 1 in 10 contained something sensitive — card numbers, home addresses. Whatever slipped past the existing rules wasn't just sitting there unseen: over 3,000 people on that customer's platform had open access to recordings and most chats, with no restrictions at all.",
             shiftTitle: 'Made privacy the default, everywhere',
             shift:
-              "This wasn't unique to one customer — the same exposure existed across the board. So instead of fixing it case by case, we made the riskiest categories hidden by default for everyone, with a single toggle for teams that genuinely need to turn it off.",
+              "This changed how we framed the baseline state of the platform. Protection could not be opt-in when most users had no awareness of their own exposure. The default had to flip — open access needed to become the exception that required justification, not the norm.",
           },
           {
             number: '02',
@@ -440,7 +440,7 @@ export const CASE_STUDIES = [
               "Legal's rule: hide every flagged sensitive detail before anyone on the platform could see it — reasonable on paper. But agents told us they often need to read those same details back to a customer mid-call to do their job, and the rule blocked that outright.",
             shiftTitle: 'Gave teams control over timing',
             shift:
-              'Admins can now choose: hide it the moment it comes in, or hide it once the conversation wraps up. Compliance stays the default. Teams that need a live read-back can have it.',
+              'This reframed the compliance requirement itself. The question was no longer whether data should be masked. It was when in the interaction lifecycle masking should happen. Compliance and operational utility were not opposing forces; they needed different execution points, not different rules.',
           },
           {
             number: '03',
@@ -449,7 +449,7 @@ export const CASE_STUDIES = [
               "You can't edit an audio file directly — you can only act on the transcript made from it. A transcript can point to one exact word. Audio can't be trimmed that precisely; muting it means losing a few seconds, not just a word.",
             shiftTitle: 'Shipped a working version, queued the upgrade',
             shift:
-              "For now, muting covers the few-second window around a flagged moment. A more precise, word-level version needs its own AI model — that's scoped as a next step, not dropped.",
+              "This reframed the audio redaction problem from a filtering challenge to a synchronisation challenge. The transcript is the source of truth for what was said, but the audio operates at a coarser level of granularity. Any muting strategy had to be designed around segments, not words, and the definition of accurate enough to ship had to account for that gap rather than pretend it did not exist.",
           },
           {
             number: '04',
@@ -458,7 +458,7 @@ export const CASE_STUDIES = [
               "This wasn't a missing feature — it was a scattered one. Four product suites had each quietly built their own version of the same fix, with no shared standard and nothing another suite could reuse.",
             shiftTitle: 'Built it once, for everyone',
             shift:
-              'The scope grew from "fix one team\'s gap" to "build the one system every team plugs into." A single setup, reusable everywhere — not another one-off fix.',
+              'This changed what kind of problem we were actually solving. It was not a product gap in one suite. It was an organisational coordination failure that had been silently multiplying. Building another point solution would have added a fifth workaround, not solved the problem. The right frame was infrastructure, not feature.',
           },
         ],
       },
@@ -473,16 +473,16 @@ export const CASE_STUDIES = [
             tag: 'Safety vs. Convenience',
             title: 'Protect everything by default. Make turning it off easy, not turning it on.',
             chose:
-              'Set the riskiest categories to hidden out of the box, with a single toggle for teams that genuinely need to turn it off.',
+              'Made platform-level masking the out-of-the-box default for seven to eight high-risk sensitive data categories, with a single configuration toggle to disable it for teams with a legitimate operational need. No underlying customer data is altered by this setting.',
             result:
               "Zero compliance issues after launch. The only flags were for languages outside our AI's current range — already on the roadmap.",
           },
           {
             number: '02',
-            tag: 'Rules vs. Real Workflows',
+            tag: 'Compliance timing vs. Workflow continuity',
             title: 'Let teams choose when protection kicks in — not just whether it does.',
             chose:
-              'Built timing as a setting, not a fixed rule: protect the moment data arrives, or once the conversation ends.',
+              "Moved away from a fixed pre-display masking trigger and built a user-configurable model. Admins set redaction to execute either at data ingestion or after an agent closes a query, depending on their team's live interaction requirements.",
             result:
               'Agents who need to read details back mid-call could keep doing their job — without lowering the compliance bar.',
           },
@@ -511,7 +511,7 @@ export const CASE_STUDIES = [
             chose:
               "Widened the scope from fixing one team's gap to building a shared system every team at Sprinklr could plug into.",
             result:
-              '30+ teams now use it directly. 20+ more run on it without knowing it. About 10 hours a week, company-wide, no longer spent maintaining duplicate fixes.',
+              'Two Sprinklr product teams adopted the framework independently with no custom builds. Twenty-plus customers now run on the base architecture. Approximately ten hours per week previously lost to maintaining isolated workarounds were reclaimed across support, product, and engineering teams.',
           },
         ],
       },
