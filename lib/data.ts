@@ -105,6 +105,280 @@ export const SKILLS = {
 
 export const CASE_STUDIES = [
   {
+    id: 'ai-quality-management',
+    slug: 'ai-quality-management',
+    company: 'Sprinklr',
+    year: '2022–2026',
+    role: 'Product Manager',
+    duration: '0-to-1 build',
+    teamSize: '12 people · India',
+    tags: ['50+ Customers Live', 'AI-Powered Scoring', '100% Coverage', 'Co-Led Build'],
+    outcomeStat: { value: '100%', label: 'Interaction coverage, up from ~5%' },
+    title: 'Making AI Quality Scores Something Managers Trust',
+    tagline:
+      "Quality evaluations shape agent coaching, performance reviews, and sometimes pay — so when AI started scoring conversations instead of a person, accuracy wasn't the hard part. Earning the trust of a manager who couldn't interrogate the AI's reasoning was. I co-led the configuration layer, evidence system, and override loop that took AI quality scoring from an unproven idea to something 50+ enterprise customers now rely on for 100% of their interactions.",
+    metaDescription:
+      "Contact-center quality scoring used to reach ~5% of conversations by hand. I co-led the AI system that scores 100% of them — and the evidence, override, and validation layers built specifically to earn a skeptical manager's trust. 50+ customers live, 55+ languages.",
+    coverImage: '/ai-quality-management-case-study.png',
+    coverImageCaption:
+      "The case review screen — the AI Insights panel breaking a conversation down by parameter, with the evidence behind each score (here, why Agent Introduction scored low) surfaced right next to the transcript.",
+    heroQuote:
+      "Before this existed, quality evaluation lived entirely in human hands — and human hands could only reach about 5% of conversations. Early AI scores didn't fix that trust gap on their own: when even simple parameters came back inconsistent, managers drew an obvious conclusion — if the AI struggles here, how can I trust it on judgment calls that affect coaching, reviews, and pay? That question became the real problem to solve.",
+    heroStats: [
+      { value: '100%', label: 'Interaction coverage, up from ~5%' },
+      { value: '50+', label: 'Enterprise customers using AQM' },
+      { value: '≥80%', label: 'Per-parameter accuracy gate' },
+      { value: '55+', label: 'Languages supported' },
+    ],
+    sections: [
+      {
+        id: 'overview',
+        number: '01',
+        label: 'Overview',
+        heading: 'What changed, and what I co-owned.',
+        paragraphs: [
+          "I joined Sprinklr as a Product Analyst and was involved in building AQM from the very start, working alongside a Product Manager. As the scope grew — more features, more cross-functional teams, deeper AI complexity — my responsibilities expanded, and I moved into co-owning AQM alongside another PM. No prior AI scoring existed in the product; this was built from scratch. The first version had no real interface — all the scoring logic lived in the backend, was deployed manually, and was difficult to configure. We put it in front of early customers, iterated heavily, and that iteration is where the product became a differentiator — flexible enough to adapt to the very different quality-evaluation logics used across industries, instead of forcing one rigid scoring model on everyone.",
+        ],
+        beforeAfter: {
+          beforeTitle: 'Before',
+          beforeItems: [
+            'Quality evaluation done entirely by humans, reviewing roughly 5% of daily conversations',
+            'Even well-trained evaluators introduced bias and inconsistency interpreting the same criterion',
+            '95% of interactions carried zero quality visibility — no signal on agent performance or emerging issues',
+            "The first version's scoring logic lived in the backend only, deployed manually and hard to configure",
+          ],
+          afterTitle: 'What I Built',
+          afterItems: [
+            'A no-code configuration layer where managers define scoring criteria and pick the right AI method per criterion',
+            'An evidence layer showing exactly why the AI scored what it scored — proof messages, voice-signal timelines, plain-language explanations',
+            'A structured override-and-feedback loop that routes human disagreement into prompt tuning and model retraining',
+            'A gated accuracy-validation pipeline — no parameter ships below an 80% threshold',
+          ],
+        },
+      },
+      {
+        id: 'problem',
+        number: '02',
+        label: 'The Problem',
+        heading: 'The 5% sampling ceiling, and what hid behind it.',
+        pills: [
+          {
+            title: 'For Quality Managers',
+            items: [
+              'Only about 5% of daily conversations could ever be reviewed — the industry-standard ceiling',
+              'Bias and drift crept in even with a hard rubric — no two evaluators scored identically',
+              'An underperforming agent could go months without a low-scoring call landing in the sample',
+              'Manual review meant delayed feedback — issues surfaced days or weeks after a call closed',
+            ],
+          },
+          {
+            title: 'For the Business',
+            items: [
+              '95% of interactions carried zero quality visibility — agent performance, emerging issues, and compliance breaches all invisible',
+              'Competitors were beginning to integrate AI into quality workflows',
+              'Quality Management was a new product line at Sprinklr — an AI-powered version was the natural next step given the scale of the problem',
+            ],
+          },
+          {
+            title: 'Under the Hood',
+            items: [
+              'Every industry and client defined "quality" differently — no single rubric would work for everyone',
+              'Some criteria are objective and rule-based; others require human judgment that even humans disagree on',
+              'No existing product infrastructure let non-engineers configure AI scoring logic themselves',
+            ],
+          },
+        ],
+      },
+      {
+        id: 'discovery',
+        number: '03',
+        label: 'Discovery & Insights',
+        heading: 'What research revealed — and the trust gap that reframed the build.',
+        paragraphs: [
+          "Customer interviews with existing manual-QM users tested whether they'd actually rely on AI-generated scores. Analysis of real evaluation forms across industries separated criteria that follow a strict, objective rule from criteria that require human judgment — the judgment-heavy ones are the hardest to automate, because even humans disagree on them. Competitive analysis looked at whether other vendors let AI only suggest while a human decides, or let AI score directly. A review of how quality managers spent their time surfaced where AI could give back the most hours.",
+        ],
+        insightShifts: [
+          {
+            number: '01',
+            title: 'Accuracy and Transparency Mattered More Than Capability',
+            insight:
+              "We assumed customers would be excited that AI was entering QM. Instead, most weren't worried about whether AI could handle complex parameters — they wanted to know at what accuracy it performed consistently, and they wanted configuration in their own hands, at their own pace.",
+            shiftTitle: 'Built for control, not just capability',
+            shift:
+              'The product had to prove itself on the basics before customers would extend any trust to the complex judgment calls — configurability and demonstrated consistency became prerequisites, not features.',
+          },
+          {
+            number: '02',
+            title: 'Aggregate Insight Mattered as Much as Per-Conversation Evidence',
+            insight:
+              "Customers weren't only interested in single-conversation analysis. They were far more convinced by the bigger picture — which parameters were consistently scored low, which agents were underperforming, which supervisor's team was struggling.",
+            shiftTitle: 'Designed for the pattern, not just the case',
+            shift:
+              'Executive-level, aggregate reporting became as central to the product as the individual case review screen.',
+          },
+          {
+            number: '03',
+            title: 'Different Criteria Need Fundamentally Different Detection Methods',
+            insight:
+              'Some evaluation criteria are a literal string match — did the agent say the brand name. Others need the context of an entire conversation — did the agent actually resolve the issue. Others are positional, voice-based signals — hold, mute, dead air.',
+            shiftTitle: 'Matched the AI method to the criterion, not the other way around',
+            shift:
+              "This became the configuration layer's core judgment — keyword matching, LLMs, and voice-signal detectors each assigned to the criteria they could honestly evaluate, rather than forcing one model type to do everything.",
+          },
+          {
+            number: '04',
+            title: 'The Trust Gap Surfaced After Launch, Not Before',
+            insight:
+              "Early scores were sometimes inconsistent, and even simple parameters didn't reach an acceptable accuracy level. That created an obvious inference in customers' minds: if the AI struggles on the simple parameters, how can I trust it on the complex ones?",
+            shiftTitle: 'Reframed the problem from "capable" to "transparent"',
+            shift:
+              'This was the moment that reframed the whole product. The problem was no longer just making the AI capable — it was making its judgments transparent, verifiable, and correctable. Everything built afterward — the evidence layer, the override loop, the accuracy gate — was a direct answer to this.',
+          },
+        ],
+        image: {
+          src: '/ai-quality-management-rule-builder.png',
+          alt: 'A configured scoring rule shown as a condition-and-action tree, combining a keyword-style customer-name condition with a sentiment-and-brand-mention condition, each adjusting the Quality Score',
+          caption:
+            "Insight 03 in practice — a rule combining a simple keyword-style condition with a more nuanced sentiment-and-brand-mention condition, both feeding the same Quality Score. Matching the method to what each criterion actually needs was the configuration layer's core judgment.",
+        },
+      },
+      {
+        id: 'decisions',
+        number: '04',
+        label: 'Key Decisions',
+        heading: "Five decisions built around one question: how do you earn a skeptical manager's trust?",
+        decisions: [
+          {
+            number: '01',
+            tag: 'Model Selection as Product Judgment',
+            title: 'Match the AI detection method to the type of criterion, not one model for everything.',
+            chose:
+              "Used keyword and pattern matching for simple, objective criteria — did the agent say the brand name — since it's deterministic and can't hallucinate. Used LLMs for judgment-heavy criteria that need the context of a whole conversation — did the agent actually resolve the issue. Used voice-signal detectors for hold, mute, dead air, and transfers, later feeding that signal into an LLM for deeper analysis as models improved.",
+            result:
+              'Shipped an out-of-the-box parameter library spanning all three methods, so most customers could start from a proven template instead of a blank canvas.',
+          },
+          {
+            number: '02',
+            tag: 'Explainability vs. One Unified View',
+            title: 'Build a taxonomy of evidence types instead of forcing everything into one format.',
+            chose:
+              'Evidence looks different depending on how it was generated — an Empathy score needs a highlighted proof message and an explanation; a Dead Air score needs a highlighted range on a call timeline; a keyword match needs an honest, unembellished string match. Flattening all three into one card format would have over-explained simple evidence and under-explained complex evidence.',
+            result:
+              "Managers could interrogate the AI's reasoning in the format that actually matched how that evidence was produced — the difference between reacting to a verdict and reacting to proof.",
+          },
+          {
+            number: '03',
+            tag: 'Human Correction vs. Silent Automation',
+            title: 'Make every override structured, auditable, and permanent — not a silent edit.',
+            chose:
+              'Built a one-time override per item per case, with no back-and-forth toggling, requiring a reason from a structured taxonomy — Incorrect Score, Incorrect Evidence, Missing Evidence, or Comments — instead of a blind score edit.',
+            result:
+              'Every disagreement became usable signal for prompt tuning and retraining, not just a corrected number, while the manager kept the final word on any individual judgment.',
+          },
+          {
+            number: '04',
+            tag: 'Feedback Loop vs. Automatic Retraining',
+            title: 'Route human disagreement through two supervised paths, never an automatic pipeline.',
+            chose:
+              'Fast path: implementation consultants tune prompts directly in a no-code configuration studio when a pattern emerges. Slow path: systematic model failures go to the model team as labeled ground truth, validated against a golden test set before any retrain ships.',
+            result:
+              'Avoided the failure mode of an automatic pipeline — inconsistent overrides across managers, gaming, or unchecked drift — while still turning disagreement into structured, actionable improvement.',
+          },
+          {
+            number: '05',
+            tag: 'Validation Gate vs. Ship-and-Iterate',
+            title: 'Enforce a hard ≥80% per-parameter accuracy threshold before anything reaches a client.',
+            chose:
+              'Built a gated pipeline: bulk validation across 200+ diverse cases, manual accuracy review of ~50 cases per parameter, a hard 80% pass/fail gate, then continuous post-launch sampling of up to ~1,000 conversations per parameter to catch drift.',
+            result:
+              "Any parameter below the threshold doesn't ship, full stop — accuracy became a repeating, enforced pipeline instead of a number stamped once at launch.",
+          },
+        ],
+        image: {
+          src: '/ai-quality-management-override-flow.png',
+          alt: 'The override feedback dialog, showing a structured reason taxonomy — Incorrect Score, Incorrect Evidences, Missing Evidences — an expected-score field, and a Send Feedback & Override action',
+          caption:
+            "Decision 03 in practice — the override flow's structured reason taxonomy and expected score, captured as an auditable record before it replaces the AI's original evaluation.",
+        },
+      },
+      {
+        id: 'team',
+        number: '05',
+        label: 'The Partners',
+        heading: 'Twelve people. One trust problem to solve together.',
+        paragraphs: [
+          'AQM required a close, evolving partnership with the model team. Product fully owned requirements and evaluation criteria — what to evaluate, scoring logic, output contracts, and the ≥80% accuracy threshold. Prompt engineering started as model-team-only, requiring a support ticket for every change, and shifted toward product-owned once the model pipeline moved into a no-code configuration studio. Model architecture, training, and infrastructure stayed model-team territory throughout.',
+        ],
+        team: [
+          {
+            role: 'Product',
+            count: 2,
+            location: 'India',
+            body: 'Co-owned AQM as it grew from a supporting analyst role into full product decision-making — defining evaluation criteria, prompt framing, and validating accuracy through bulk testing before any parameter shipped.',
+          },
+          {
+            role: 'Engineers',
+            count: 4,
+            location: 'India',
+            body: 'Built the configuration layer, the case review screen, the evidence taxonomy, and the override-and-feedback infrastructure end to end.',
+          },
+          {
+            role: 'ML Engineers',
+            count: 2,
+            location: 'India',
+            body: 'Owned model architecture, training, and the golden-test-set methodology behind retraining cycles.',
+          },
+          {
+            role: 'Product Designer',
+            count: 1,
+            location: 'India',
+            body: "Designed the case review screen's evidence taxonomy — distinct card formats for AI-model, keyword, voice-signal, and activity evidence.",
+          },
+          {
+            role: 'QA Engineers',
+            count: 2,
+            location: 'India',
+            body: 'Validated scoring consistency across configuration changes, override flows, and the accuracy-gate pipeline.',
+          },
+        ],
+      },
+      {
+        id: 'outcome',
+        number: '06',
+        label: 'The Outcome',
+        heading: 'From 5% sampling to 100% coverage.',
+        impactCards: [
+          {
+            category: 'Coverage',
+            value: '100%',
+            label: 'of interactions now scored, up from ~5% under manual QM',
+            description:
+              'Every voice, chat, email, and social interaction scored against the configured checklist — no sampling, no lucky misses, no quality blind spots.',
+          },
+          {
+            category: 'Adoption',
+            value: '50+',
+            label: 'enterprise customers running AQM',
+            description:
+              'Across 55+ languages and every major industry vertical, each with its own configured scoring checklist.',
+          },
+          {
+            category: 'Accuracy',
+            value: '≥80%',
+            label: 'per-parameter accuracy, enforced as a hard gate',
+            description:
+              'No parameter ships below threshold — validated through bulk testing, manual review, and continuous post-launch sampling.',
+          },
+        ],
+        bullets: [
+          '25% improvement in agent performance following the shift to full-coverage evaluation',
+          '20% reduction in resolution times as issues surface immediately instead of during periodic sampling',
+          '15% increase in customer satisfaction tied to faster, more consistent quality feedback loops',
+        ],
+      },
+    ],
+  },
+  {
     id: 'screen-recording-quality-review',
     slug: 'screen-recording-quality-review',
     company: 'Sprinklr',
