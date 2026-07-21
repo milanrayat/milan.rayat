@@ -196,147 +196,144 @@ export default async function CaseStudyDetailPage({ params }: Props) {
 type IndependentProject = Awaited<ReturnType<typeof getIndependentProjects>>[number]
 
 /**
- * Founder-story layout: no metric cards and no Outcome section — a pre-launch
- * product has no traction data, and faking some would cost the story the one
- * thing it has. Info chips carry the framing that heroStats carry elsewhere.
- * `theme-venture` re-maps --accent locally so every shared component below
- * renders in the independent-work accent.
+ * Independent-project layout: no metric cards and no Outcome section. A
+ * pre-launch product has no traction data, and faking some would cost the
+ * story the one thing it has. Info chips carry the framing that heroStats
+ * carry on the enterprise case studies.
  */
 function IndependentProjectPage({ project }: { project: IndependentProject }) {
   return (
     <>
       <Navbar />
-      <div className="theme-venture">
-        <CaseStudySideNav
-          sections={project.sections.map(({ id, number, label }) => ({ id, number, label }))}
-        />
-        <main className="pt-24">
-          {/* Breadcrumb */}
-          <div className="px-6 lg:px-8 pt-8 pb-0">
-            <div className="max-w-3xl mx-auto">
-              <Link
-                href="/case-studies"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
-                aria-label="Back to all case studies"
-              >
-                <ArrowLeft size={14} aria-hidden="true" />
-                All Case Studies
-              </Link>
-            </div>
+      <CaseStudySideNav
+        sections={project.sections.map(({ id, number, label }) => ({ id, number, label }))}
+      />
+      <main className="pt-24">
+        {/* Breadcrumb */}
+        <div className="px-6 lg:px-8 pt-8 pb-0">
+          <div className="max-w-3xl mx-auto">
+            <Link
+              href="/case-studies"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+              aria-label="Back to all case studies"
+            >
+              <ArrowLeft size={14} aria-hidden="true" />
+              All Case Studies
+            </Link>
           </div>
+        </div>
 
-          {/* Hero */}
-          <section
-            className="py-12 px-6 lg:px-8 border-b border-border/30"
-            aria-labelledby="project-heading"
-          >
-            <div className="max-w-3xl mx-auto">
-              <div className="flex flex-wrap items-center gap-2 mb-5">
-                <span className="inline-flex items-center rounded-md bg-accent/10 border border-accent/30 px-2.5 py-1 text-xs font-semibold uppercase tracking-widest text-accent">
-                  Independent build
-                </span>
-                <span className="inline-flex items-center gap-1.5 rounded-md bg-secondary border border-border/40 px-2.5 py-1 text-xs font-medium text-muted-foreground">
-                  <span
-                    className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"
-                    aria-hidden="true"
-                  />
-                  {project.stageBadge}
-                </span>
-              </div>
-
-              <h1
-                id="project-heading"
-                className="font-heading font-bold text-4xl lg:text-6xl text-foreground mb-4 tracking-tight"
-              >
-                {project.title}
-              </h1>
-
-              <p className="text-base lg:text-lg text-muted-foreground max-w-2xl leading-relaxed text-pretty">
-                {project.tagline}
-              </p>
-
-              <p className="text-sm text-muted-foreground mt-6">
-                {project.role} &middot; {project.teamSize}
-                {project.website && (
-                  <>
-                    {' '}&middot;{' '}
-                    <a
-                      href={project.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-accent hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
-                    >
-                      {project.websiteLabel}
-                      <ArrowUpRight size={13} aria-hidden="true" />
-                    </a>
-                  </>
-                )}
-              </p>
-
-              {/* Info chips — deliberately chips, not metric cards */}
-              <ul className="flex flex-wrap gap-2 mt-8" aria-label="Project at a glance">
-                {project.infoChips.map((chip) => (
-                  <li
-                    key={chip}
-                    className="inline-flex items-center rounded-md border border-border/50 bg-card px-3 py-1.5 text-xs font-medium text-muted-foreground tracking-wide"
-                  >
-                    {chip}
-                  </li>
-                ))}
-              </ul>
-
-              {project.heroQuote && (
-                <blockquote className="border-l-2 border-accent pl-6 mt-10">
-                  <p className="text-base lg:text-lg text-foreground/90 leading-relaxed text-pretty">
-                    {project.heroQuote}
-                  </p>
-                </blockquote>
-              )}
-            </div>
-          </section>
-
-          {/* Content sections */}
-          {project.sections.map((section) => (
-            <CaseStudySection key={section.id} section={section} />
-          ))}
-
-          {/* Closing */}
-          <section className="py-14 px-6 lg:px-8" aria-label="See the product">
-            <div className="max-w-3xl mx-auto rounded-xl border border-accent/25 bg-accent/5 p-8 text-center">
-              <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-3">
+        {/* Hero */}
+        <section
+          className="py-12 px-6 lg:px-8 border-b border-border/30"
+          aria-labelledby="project-heading"
+        >
+          <div className="max-w-3xl mx-auto">
+            <div className="flex flex-wrap items-center gap-2 mb-5">
+              <span className="inline-flex items-center rounded-md bg-accent/10 border border-accent/30 px-2.5 py-1 text-xs font-semibold uppercase tracking-widest text-accent">
+                Independent build
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-md bg-secondary border border-border/40 px-2.5 py-1 text-xs font-medium text-muted-foreground">
+                <span
+                  className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"
+                  aria-hidden="true"
+                />
                 {project.stageBadge}
-              </p>
-              <h2 className="font-heading font-bold text-2xl text-foreground mb-3 text-balance">
-                Ctrl is real, and it&rsquo;s nearly out.
-              </h2>
-              <p className="text-sm text-muted-foreground max-w-md mx-auto mb-7 text-pretty">
-                First batch built, packaging in motion. The site is live in an early form —
-                a design refresh is on the way.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                {project.website && (
+              </span>
+            </div>
+
+            <h1
+              id="project-heading"
+              className="font-heading font-bold text-4xl lg:text-6xl text-foreground mb-4 tracking-tight"
+            >
+              {project.title}
+            </h1>
+
+            <p className="text-base lg:text-lg text-muted-foreground max-w-2xl leading-relaxed text-pretty">
+              {project.tagline}
+            </p>
+
+            <p className="text-sm text-muted-foreground mt-6">
+              {project.role} &middot; {project.teamSize}
+              {project.website && (
+                <>
+                  {' '}&middot;{' '}
                   <a
                     href={project.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground text-sm font-semibold px-6 py-3 rounded-md hover:bg-accent/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="inline-flex items-center gap-1 text-accent hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
                   >
-                    Visit {project.websiteLabel}
-                    <ArrowUpRight size={16} aria-hidden="true" />
+                    {project.websiteLabel}
+                    <ArrowUpRight size={13} aria-hidden="true" />
                   </a>
-                )}
-                <Link
-                  href="/case-studies"
-                  className="inline-flex items-center justify-center gap-2 border border-border/60 text-sm font-medium text-muted-foreground px-6 py-3 rounded-md hover:text-foreground hover:border-border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                </>
+              )}
+            </p>
+
+            {/* Info chips, deliberately not metric cards */}
+            <ul className="flex flex-wrap gap-2 mt-8" aria-label="Project at a glance">
+              {project.infoChips.map((chip) => (
+                <li
+                  key={chip}
+                  className="inline-flex items-center rounded-md border border-border/50 bg-card px-3 py-1.5 text-xs font-medium text-muted-foreground tracking-wide"
                 >
-                  <ArrowLeft size={15} aria-hidden="true" />
-                  All Case Studies
-                </Link>
-              </div>
+                  {chip}
+                </li>
+              ))}
+            </ul>
+
+            {project.heroQuote && (
+              <blockquote className="border-l-2 border-accent pl-6 mt-10">
+                <p className="text-base lg:text-lg text-foreground/90 leading-relaxed text-pretty">
+                  {project.heroQuote}
+                </p>
+              </blockquote>
+            )}
+          </div>
+        </section>
+
+        {/* Content sections */}
+        {project.sections.map((section) => (
+          <CaseStudySection key={section.id} section={section} />
+        ))}
+
+        {/* Closing */}
+        <section className="py-14 px-6 lg:px-8" aria-label="See the product">
+          <div className="max-w-3xl mx-auto rounded-xl border border-accent/25 bg-accent/5 p-8 text-center">
+            <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-3">
+              {project.stageBadge}
+            </p>
+            <h2 className="font-heading font-bold text-2xl text-foreground mb-3 text-balance">
+              Ctrl is real, and it&rsquo;s nearly out.
+            </h2>
+            <p className="text-sm text-muted-foreground max-w-md mx-auto mb-7 text-pretty">
+              First batch built, packaging in motion. The site is live in an early form,
+              with a design refresh on the way.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              {project.website && (
+                <a
+                  href={project.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground text-sm font-semibold px-6 py-3 rounded-md hover:bg-accent/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  Visit {project.websiteLabel}
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                </a>
+              )}
+              <Link
+                href="/case-studies"
+                className="inline-flex items-center justify-center gap-2 border border-border/60 text-sm font-medium text-muted-foreground px-6 py-3 rounded-md hover:text-foreground hover:border-border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <ArrowLeft size={15} aria-hidden="true" />
+                All Case Studies
+              </Link>
             </div>
-          </section>
-        </main>
-      </div>
+          </div>
+        </section>
+      </main>
       <Footer />
     </>
   )

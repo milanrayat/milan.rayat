@@ -11,11 +11,11 @@ export const PERSON = {
 }
 
 export const METRICS = [
-  { value: '$20M+', label: 'ARR — Quality Monitoring Product', category: 'Revenue' },
+  { value: '$20M+', label: 'ARR · Quality Monitoring Product', category: 'Revenue' },
   { value: '10x', label: 'Customer Growth, 120% YoY', category: 'Growth' },
-  { value: '$40M', label: 'ARR — Redaction & Compliance Tools', category: 'Revenue' },
+  { value: '$40M', label: 'ARR · Redaction & Compliance Tools', category: 'Revenue' },
   { value: '20K', label: 'Daily Calls Automated', category: 'Scale' },
-  { value: '$10M', label: 'Deal Won — EU Telecom Compliance', category: 'Deal' },
+  { value: '$10M', label: 'Deal Won · EU Telecom Compliance', category: 'Deal' },
   { value: '500+', label: 'Implementation Members Upskilled', category: 'Enablement' },
 ]
 
@@ -116,14 +116,14 @@ export const CASE_STUDIES = [
     outcomeStat: { value: '100%', label: 'Interaction coverage, up from ~5%' },
     title: 'Making AI Quality Scores Something Managers Trust',
     tagline:
-      "Quality evaluations shape agent coaching, performance reviews, and sometimes pay — so when AI started scoring conversations instead of a person, accuracy wasn't the hard part. Earning the trust of a manager who couldn't interrogate the AI's reasoning was. I co-led the configuration layer, evidence system, and override loop that took AI quality scoring from an unproven idea to something 50+ enterprise customers now rely on for 100% of their interactions.",
+      "Quality evaluations shape agent coaching, performance reviews, and sometimes pay. So when AI started scoring conversations instead of a person, accuracy wasn't the hard part. Earning the trust of a manager who couldn't interrogate the AI's reasoning was. I co-led the configuration layer, evidence system, and override loop that took AI quality scoring from an unproven idea to something 50+ enterprise customers now rely on for 100% of their interactions.",
     metaDescription:
-      "Contact-center quality scoring used to reach ~5% of conversations by hand. I co-led the AI system that scores 100% of them — and the evidence, override, and validation layers built specifically to earn a skeptical manager's trust. 50+ customers live, 55+ languages.",
+      "Contact-center quality scoring used to reach ~5% of conversations by hand. I co-led the AI system that scores 100% of them, plus the evidence, override, and validation layers built specifically to earn a skeptical manager's trust. 50+ customers live, 55+ languages.",
     coverImage: '/ai-quality-management-case-study.png',
     coverImageCaption:
-      "The case review screen — the AI Insights panel breaking a conversation down by parameter, with the evidence behind each score (here, why Agent Introduction scored low) surfaced right next to the transcript.",
+      "The case review screen: the AI Insights panel breaking a conversation down by parameter, with the evidence behind each score (here, why Agent Introduction scored low) surfaced right next to the transcript.",
     heroQuote:
-      "Before this existed, quality evaluation lived entirely in human hands — and human hands could only reach about 5% of conversations. Early AI scores didn't fix that trust gap on their own: when even simple parameters came back inconsistent, managers drew an obvious conclusion — if the AI struggles here, how can I trust it on judgment calls that affect coaching, reviews, and pay? That question became the real problem to solve.",
+      "Before this existed, quality evaluation lived entirely in human hands, and human hands could only reach about 5% of conversations. Early AI scores didn't fix that trust gap on their own: when even simple parameters came back inconsistent, managers drew an obvious conclusion. If the AI struggles here, how can I trust it on judgment calls that affect coaching, reviews, and pay? That question became the real problem to solve.",
     heroStats: [
       { value: '100%', label: 'Interaction coverage, up from ~5%' },
       { value: '50+', label: 'Enterprise customers using AQM' },
@@ -137,22 +137,22 @@ export const CASE_STUDIES = [
         label: 'Overview',
         heading: 'What changed, and what I co-owned.',
         paragraphs: [
-          "I joined Sprinklr as a Product Analyst and was involved in building AQM from the very start, working alongside a Product Manager. As the scope grew — more features, more cross-functional teams, deeper AI complexity — my responsibilities expanded, and I moved into co-owning AQM alongside another PM. No prior AI scoring existed in the product; this was built from scratch. The first version had no real interface — all the scoring logic lived in the backend, was deployed manually, and was difficult to configure. We put it in front of early customers, iterated heavily, and that iteration is where the product became a differentiator — flexible enough to adapt to the very different quality-evaluation logics used across industries, instead of forcing one rigid scoring model on everyone.",
+          "I joined Sprinklr as a Product Analyst and was involved in building AQM from the very start, working alongside a Product Manager. As the scope grew (more features, more cross-functional teams, deeper AI complexity), my responsibilities expanded, and I moved into co-owning AQM alongside another PM. No prior AI scoring existed in the product; this was built from scratch. The first version had no real interface: all the scoring logic lived in the backend, was deployed manually, and was difficult to configure. We put it in front of early customers, iterated heavily, and that iteration is where the product became a differentiator, flexible enough to adapt to the very different quality-evaluation logics used across industries, instead of forcing one rigid scoring model on everyone.",
         ],
         beforeAfter: {
           beforeTitle: 'Before',
           beforeItems: [
             'Quality evaluation done entirely by humans, reviewing roughly 5% of daily conversations',
             'Even well-trained evaluators introduced bias and inconsistency interpreting the same criterion',
-            '95% of interactions carried zero quality visibility — no signal on agent performance or emerging issues',
+            '95% of interactions carried zero quality visibility, with no signal on agent performance or emerging issues',
             "The first version's scoring logic lived in the backend only, deployed manually and hard to configure",
           ],
           afterTitle: 'What I Built',
           afterItems: [
             'A no-code configuration layer where managers define scoring criteria and pick the right AI method per criterion',
-            'An evidence layer showing exactly why the AI scored what it scored — proof messages, voice-signal timelines, plain-language explanations',
+            'An evidence layer showing exactly why the AI scored what it scored: proof messages, voice-signal timelines, plain-language explanations',
             'A structured override-and-feedback loop that routes human disagreement into prompt tuning and model retraining',
-            'A gated accuracy-validation pipeline — no parameter ships below an 80% threshold',
+            'A gated accuracy-validation pipeline, where no parameter ships below an 80% threshold',
           ],
         },
       },
@@ -165,24 +165,24 @@ export const CASE_STUDIES = [
           {
             title: 'For Quality Managers',
             items: [
-              'Only about 5% of daily conversations could ever be reviewed — the industry-standard ceiling',
-              'Bias and drift crept in even with a hard rubric — no two evaluators scored identically',
+              'Only about 5% of daily conversations could ever be reviewed, the industry-standard ceiling',
+              'Bias and drift crept in even with a hard rubric, and no two evaluators scored identically',
               'An underperforming agent could go months without a low-scoring call landing in the sample',
-              'Manual review meant delayed feedback — issues surfaced days or weeks after a call closed',
+              'Manual review meant delayed feedback, with issues surfacing days or weeks after a call closed',
             ],
           },
           {
             title: 'For the Business',
             items: [
-              '95% of interactions carried zero quality visibility — agent performance, emerging issues, and compliance breaches all invisible',
+              '95% of interactions carried zero quality visibility: agent performance, emerging issues, and compliance breaches all invisible',
               'Competitors were beginning to integrate AI into quality workflows',
-              'Quality Management was a new product line at Sprinklr — an AI-powered version was the natural next step given the scale of the problem',
+              'Quality Management was a new product line at Sprinklr, and an AI-powered version was the natural next step given the scale of the problem',
             ],
           },
           {
             title: 'Under the Hood',
             items: [
-              'Every industry and client defined "quality" differently — no single rubric would work for everyone',
+              'Every industry and client defined "quality" differently, so no single rubric would work for everyone',
               'Some criteria are objective and rule-based; others require human judgment that even humans disagree on',
               'No existing product infrastructure let non-engineers configure AI scoring logic themselves',
             ],
@@ -193,25 +193,25 @@ export const CASE_STUDIES = [
         id: 'discovery',
         number: '03',
         label: 'Discovery & Insights',
-        heading: 'What research revealed — and the trust gap that reframed the build.',
+        heading: 'What research revealed, and the trust gap that reframed the build.',
         paragraphs: [
-          "Customer interviews with existing manual-QM users tested whether they'd actually rely on AI-generated scores. Analysis of real evaluation forms across industries separated criteria that follow a strict, objective rule from criteria that require human judgment — the judgment-heavy ones are the hardest to automate, because even humans disagree on them. Competitive analysis looked at whether other vendors let AI only suggest while a human decides, or let AI score directly. A review of how quality managers spent their time surfaced where AI could give back the most hours.",
+          "Customer interviews with existing manual-QM users tested whether they'd actually rely on AI-generated scores. Analysis of real evaluation forms across industries separated criteria that follow a strict, objective rule from criteria that require human judgment. The judgment-heavy ones are the hardest to automate, because even humans disagree on them. Competitive analysis looked at whether other vendors let AI only suggest while a human decides, or let AI score directly. A review of how quality managers spent their time surfaced where AI could give back the most hours.",
         ],
         insightShifts: [
           {
             number: '01',
             title: 'Accuracy and Transparency Mattered More Than Capability',
             insight:
-              "We assumed customers would be excited that AI was entering QM. Instead, most weren't worried about whether AI could handle complex parameters — they wanted to know at what accuracy it performed consistently, and they wanted configuration in their own hands, at their own pace.",
+              "We assumed customers would be excited that AI was entering QM. Instead, most weren't worried about whether AI could handle complex parameters. They wanted to know at what accuracy it performed consistently, and they wanted configuration in their own hands, at their own pace.",
             shiftTitle: 'Built for control, not just capability',
             shift:
-              'The product had to prove itself on the basics before customers would extend any trust to the complex judgment calls — configurability and demonstrated consistency became prerequisites, not features.',
+              'The product had to prove itself on the basics before customers would extend any trust to the complex judgment calls. Configurability and demonstrated consistency became prerequisites, not features.',
           },
           {
             number: '02',
             title: 'Aggregate Insight Mattered as Much as Per-Conversation Evidence',
             insight:
-              "Customers weren't only interested in single-conversation analysis. They were far more convinced by the bigger picture — which parameters were consistently scored low, which agents were underperforming, which supervisor's team was struggling.",
+              "Customers weren't only interested in single-conversation analysis. They were far more convinced by the bigger picture: which parameters were consistently scored low, which agents were underperforming, which supervisor's team was struggling.",
             shiftTitle: 'Designed for the pattern, not just the case',
             shift:
               'Executive-level, aggregate reporting became as central to the product as the individual case review screen.',
@@ -220,10 +220,10 @@ export const CASE_STUDIES = [
             number: '03',
             title: 'Different Criteria Need Fundamentally Different Detection Methods',
             insight:
-              'Some evaluation criteria are a literal string match — did the agent say the brand name. Others need the context of an entire conversation — did the agent actually resolve the issue. Others are positional, voice-based signals — hold, mute, dead air.',
+              'Some evaluation criteria are a literal string match: did the agent say the brand name. Others need the context of an entire conversation: did the agent actually resolve the issue. Others are positional, voice-based signals: hold, mute, dead air.',
             shiftTitle: 'Matched the AI method to the criterion, not the other way around',
             shift:
-              "This became the configuration layer's core judgment — keyword matching, LLMs, and voice-signal detectors each assigned to the criteria they could honestly evaluate, rather than forcing one model type to do everything.",
+              "This became the configuration layer's core judgment: keyword matching, LLMs, and voice-signal detectors each assigned to the criteria they could honestly evaluate, rather than forcing one model type to do everything.",
           },
           {
             number: '04',
@@ -232,14 +232,14 @@ export const CASE_STUDIES = [
               "Early scores were sometimes inconsistent, and even simple parameters didn't reach an acceptable accuracy level. That created an obvious inference in customers' minds: if the AI struggles on the simple parameters, how can I trust it on the complex ones?",
             shiftTitle: 'Reframed the problem from "capable" to "transparent"',
             shift:
-              'This was the moment that reframed the whole product. The problem was no longer just making the AI capable — it was making its judgments transparent, verifiable, and correctable. Everything built afterward — the evidence layer, the override loop, the accuracy gate — was a direct answer to this.',
+              'This was the moment that reframed the whole product. The problem was no longer just making the AI capable. It was making its judgments transparent, verifiable, and correctable. Everything built afterward (the evidence layer, the override loop, the accuracy gate) was a direct answer to this.',
           },
         ],
         image: {
           src: '/ai-quality-management-rule-builder.png',
           alt: 'A configured scoring rule shown as a condition-and-action tree, combining a keyword-style customer-name condition with a sentiment-and-brand-mention condition, each adjusting the Quality Score',
           caption:
-            "Insight 03 in practice — a rule combining a simple keyword-style condition with a more nuanced sentiment-and-brand-mention condition, both feeding the same Quality Score. Matching the method to what each criterion actually needs was the configuration layer's core judgment.",
+            "Insight 03 in practice: a rule combining a simple keyword-style condition with a more nuanced sentiment-and-brand-mention condition, both feeding the same Quality Score. Matching the method to what each criterion actually needs was the configuration layer's core judgment.",
         },
       },
       {
@@ -253,7 +253,7 @@ export const CASE_STUDIES = [
             tag: 'Model Selection as Product Judgment',
             title: 'Match the AI detection method to the type of criterion, not one model for everything.',
             chose:
-              "Used keyword and pattern matching for simple, objective criteria — did the agent say the brand name — since it's deterministic and can't hallucinate. Used LLMs for judgment-heavy criteria that need the context of a whole conversation — did the agent actually resolve the issue. Used voice-signal detectors for hold, mute, dead air, and transfers, later feeding that signal into an LLM for deeper analysis as models improved.",
+              "Used keyword and pattern matching for simple, objective criteria like whether the agent said the brand name, since it's deterministic and can't hallucinate. Used LLMs for judgment-heavy criteria that need the context of a whole conversation, such as whether the agent actually resolved the issue. Used voice-signal detectors for hold, mute, dead air, and transfers, later feeding that signal into an LLM for deeper analysis as models improved.",
             result:
               'Shipped an out-of-the-box parameter library spanning all three methods, so most customers could start from a proven template instead of a blank canvas.',
           },
@@ -262,16 +262,16 @@ export const CASE_STUDIES = [
             tag: 'Explainability vs. One Unified View',
             title: 'Build a taxonomy of evidence types instead of forcing everything into one format.',
             chose:
-              'Evidence looks different depending on how it was generated — an Empathy score needs a highlighted proof message and an explanation; a Dead Air score needs a highlighted range on a call timeline; a keyword match needs an honest, unembellished string match. Flattening all three into one card format would have over-explained simple evidence and under-explained complex evidence.',
+              'Evidence looks different depending on how it was generated. An Empathy score needs a highlighted proof message and an explanation; a Dead Air score needs a highlighted range on a call timeline; a keyword match needs an honest, unembellished string match. Flattening all three into one card format would have over-explained simple evidence and under-explained complex evidence.',
             result:
-              "Managers could interrogate the AI's reasoning in the format that actually matched how that evidence was produced — the difference between reacting to a verdict and reacting to proof.",
+              "Managers could interrogate the AI's reasoning in the format that actually matched how that evidence was produced. That is the difference between reacting to a verdict and reacting to proof.",
           },
           {
             number: '03',
             tag: 'Human Correction vs. Silent Automation',
-            title: 'Make every override structured, auditable, and permanent — not a silent edit.',
+            title: 'Make every override structured, auditable, and permanent, not a silent edit.',
             chose:
-              'Built a one-time override per item per case, with no back-and-forth toggling, requiring a reason from a structured taxonomy — Incorrect Score, Incorrect Evidence, Missing Evidence, or Comments — instead of a blind score edit.',
+              'Built a one-time override per item per case, with no back-and-forth toggling, requiring a reason from a structured taxonomy (Incorrect Score, Incorrect Evidence, Missing Evidence, or Comments) instead of a blind score edit.',
             result:
               'Every disagreement became usable signal for prompt tuning and retraining, not just a corrected number, while the manager kept the final word on any individual judgment.',
           },
@@ -282,7 +282,7 @@ export const CASE_STUDIES = [
             chose:
               'Fast path: implementation consultants tune prompts directly in a no-code configuration studio when a pattern emerges. Slow path: systematic model failures go to the model team as labeled ground truth, validated against a golden test set before any retrain ships.',
             result:
-              'Avoided the failure mode of an automatic pipeline — inconsistent overrides across managers, gaming, or unchecked drift — while still turning disagreement into structured, actionable improvement.',
+              'Avoided the failure mode of an automatic pipeline (inconsistent overrides across managers, gaming, or unchecked drift) while still turning disagreement into structured, actionable improvement.',
           },
           {
             number: '05',
@@ -291,14 +291,14 @@ export const CASE_STUDIES = [
             chose:
               'Built a gated pipeline: bulk validation across 200+ diverse cases, manual accuracy review of ~50 cases per parameter, a hard 80% pass/fail gate, then continuous post-launch sampling of up to ~1,000 conversations per parameter to catch drift.',
             result:
-              "Any parameter below the threshold doesn't ship, full stop — accuracy became a repeating, enforced pipeline instead of a number stamped once at launch.",
+              "Any parameter below the threshold doesn't ship, full stop. Accuracy became a repeating, enforced pipeline instead of a number stamped once at launch.",
           },
         ],
         image: {
           src: '/ai-quality-management-override-flow.png',
-          alt: 'The override feedback dialog, showing a structured reason taxonomy — Incorrect Score, Incorrect Evidences, Missing Evidences — an expected-score field, and a Send Feedback & Override action',
+          alt: 'The override feedback dialog, showing a structured reason taxonomy (Incorrect Score, Incorrect Evidences, Missing Evidences), an expected-score field, and a Send Feedback & Override action',
           caption:
-            "Decision 03 in practice — the override flow's structured reason taxonomy and expected score, captured as an auditable record before it replaces the AI's original evaluation.",
+            "Decision 03 in practice: the override flow's structured reason taxonomy and expected score, captured as an auditable record before it replaces the AI's original evaluation.",
         },
       },
       {
@@ -307,14 +307,14 @@ export const CASE_STUDIES = [
         label: 'The Partners',
         heading: 'Twelve people. One trust problem to solve together.',
         paragraphs: [
-          'AQM required a close, evolving partnership with the model team. Product fully owned requirements and evaluation criteria — what to evaluate, scoring logic, output contracts, and the ≥80% accuracy threshold. Prompt engineering started as model-team-only, requiring a support ticket for every change, and shifted toward product-owned once the model pipeline moved into a no-code configuration studio. Model architecture, training, and infrastructure stayed model-team territory throughout.',
+          'AQM required a close, evolving partnership with the model team. Product fully owned requirements and evaluation criteria: what to evaluate, scoring logic, output contracts, and the ≥80% accuracy threshold. Prompt engineering started as model-team-only, requiring a support ticket for every change, and shifted toward product-owned once the model pipeline moved into a no-code configuration studio. Model architecture, training, and infrastructure stayed model-team territory throughout.',
         ],
         team: [
           {
             role: 'Product',
             count: 2,
             location: 'India',
-            body: 'Co-owned AQM as it grew from a supporting analyst role into full product decision-making — defining evaluation criteria, prompt framing, and validating accuracy through bulk testing before any parameter shipped.',
+            body: 'Co-owned AQM as it grew from a supporting analyst role into full product decision-making, defining evaluation criteria, prompt framing, and validating accuracy through bulk testing before any parameter shipped.',
           },
           {
             role: 'Engineers',
@@ -332,7 +332,7 @@ export const CASE_STUDIES = [
             role: 'Product Designer',
             count: 1,
             location: 'India',
-            body: "Designed the case review screen's evidence taxonomy — distinct card formats for AI-model, keyword, voice-signal, and activity evidence.",
+            body: "Designed the case review screen's evidence taxonomy: distinct card formats for AI-model, keyword, voice-signal, and activity evidence.",
           },
           {
             role: 'QA Engineers',
@@ -353,7 +353,7 @@ export const CASE_STUDIES = [
             value: '100%',
             label: 'of interactions now scored, up from ~5% under manual QM',
             description:
-              'Every voice, chat, email, and social interaction scored against the configured checklist — no sampling, no lucky misses, no quality blind spots.',
+              'Every voice, chat, email, and social interaction scored against the configured checklist. No sampling, no lucky misses, no quality blind spots.',
           },
           {
             category: 'Adoption',
@@ -367,7 +367,7 @@ export const CASE_STUDIES = [
             value: '≥80%',
             label: 'per-parameter accuracy, enforced as a hard gate',
             description:
-              'No parameter ships below threshold — validated through bulk testing, manual review, and continuous post-launch sampling.',
+              'No parameter ships below threshold, validated through bulk testing, manual review, and continuous post-launch sampling.',
           },
         ],
         bullets: [
@@ -409,7 +409,7 @@ export const CASE_STUDIES = [
         label: 'Overview',
         heading: 'A 0-to-1 build, end to end.',
         paragraphs: [
-          "As Product Manager at Sprinklr, I owned the integration of screen recording into the platform's quality review system — from the playback viewer to access controls to reporting. This was a 0-to-1 build, coordinated across two product pods over three quarters.",
+          "As Product Manager at Sprinklr, I owned the integration of screen recording into the platform's quality review system, from the playback viewer to access controls to reporting. This was a 0-to-1 build, coordinated across two product pods over three quarters.",
         ],
         beforeAfter: {
           beforeTitle: 'Before',
@@ -424,7 +424,7 @@ export const CASE_STUDIES = [
           afterItems: [
             'Synchronised screen and audio playback inside the existing review workflow, across voice and digital channels',
             "Role-based access controls tied to each reviewer's team reporting structure",
-            'Omnichannel continuity — screen recording follows a conversation across voice, chat, and email without the reviewer leaving the page',
+            'Omnichannel continuity, so screen recording follows a conversation across voice, chat, and email without the reviewer leaving the page',
             'Reporting dashboard tracking recording coverage and failure reasons from day one',
           ],
         },
@@ -476,7 +476,7 @@ export const CASE_STUDIES = [
             number: '01',
             title: 'The Cross-Channel Reality',
             insight:
-              'Quality review is rarely linear — a single interaction often starts as a voice call, transfers to a second agent, and concludes over chat.',
+              'Quality review is rarely linear. A single interaction often starts as a voice call, transfers to a second agent, and concludes over chat.',
             shiftTitle: 'Architected omnichannel playback',
             shift:
               'Pivoted from a standalone screen recorder to a recording context that maps display logic across every channel transition.',
@@ -485,7 +485,7 @@ export const CASE_STUDIES = [
             number: '02',
             title: 'The Danger of "Silent Failures"',
             insight:
-              'When screen and audio failed to stitch together, it failed silently — reviewers assumed no recording existed, creating undetected compliance gaps.',
+              'When screen and audio failed to stitch together, it failed silently. Reviewers assumed no recording existed, creating undetected compliance gaps.',
             shiftTitle: 'Prioritised system health UI',
             shift:
               'Re-prioritised the roadmap to ship a real-time reporting dashboard from day one, not as a post-launch fast-follow.',
@@ -494,7 +494,7 @@ export const CASE_STUDIES = [
             number: '03',
             title: 'High-Stakes Access Control',
             insight:
-              'When a call transfers across teams, one continuous recording captures multiple agents — risking supervisor-level data privacy violations.',
+              'When a call transfers across teams, one continuous recording captures multiple agents, risking supervisor-level data privacy violations.',
             shiftTitle: 'Injected role-based playback gates',
             shift:
               'Built access controls directly into the playback player, so supervisors only see segments filmed within their own team hierarchy.',
@@ -505,12 +505,12 @@ export const CASE_STUDIES = [
         id: 'decisions',
         number: '04',
         label: 'Key Decisions',
-        heading: 'The work — key decisions and trade-offs.',
+        heading: 'The work: key decisions and trade-offs.',
         decisions: [
           {
             number: '01',
             tag: 'Control vs. compatibility',
-            title: "Extend the existing permissions framework — don't build a new one",
+            title: "Extend the existing permissions framework, don't build a new one",
             chose:
               "Extended Sprinklr's existing case visibility system with team hierarchy rules layered on top for multi-agent calls",
             result: 'Minimal new complexity, no conflicts with existing systems, full compliance coverage',
@@ -518,7 +518,7 @@ export const CASE_STUDIES = [
           {
             number: '02',
             tag: 'Coverage vs. reliability',
-            title: 'Scope v1 to single-screen only — backed by customer data, not caution',
+            title: 'Scope v1 to single-screen only, backed by customer data rather than caution',
             chose:
               '3 of 4 initial customers had single-monitor setups. Validated the full pipeline before adding multi-screen complexity',
             result: 'Covered 75% of rollout needs while proving end-to-end reliability',
@@ -526,7 +526,7 @@ export const CASE_STUDIES = [
           {
             number: '03',
             tag: 'Performance vs. completeness',
-            title: "Absorb the engineering constraint into the design — don't pass it to the user",
+            title: "Absorb the engineering constraint into the design, don't pass it to the user",
             chose:
               'Toggle between screens on demand instead of simultaneous playback, which caused performance issues',
             result: 'Full multi-screen access, zero performance cost to the reviewer',
@@ -534,7 +534,7 @@ export const CASE_STUDIES = [
           {
             number: '04',
             tag: 'Speed vs. visibility',
-            title: 'Ship reporting on day one — observability is not a follow-up project',
+            title: 'Ship reporting on day one, because observability is not a follow-up project',
             chose: 'Scoped the reporting dashboard as part of the initial launch, not phase two',
             result: 'Ops teams had immediate visibility into coverage and failures from day one',
           },
@@ -610,14 +610,14 @@ export const CASE_STUDIES = [
     outcomeStat: { value: '0', label: 'Compliance issues after launch' },
     title: 'Building Privacy Protection That Scales',
     tagline:
-      "Customers share sensitive details — card numbers, addresses, health info — on every support call and chat. One slip, and that's a legal problem for the company. I led the product work that closed the gap: turning a manual, error-prone process into an automatic safety net.",
+      "Customers share sensitive details (card numbers, addresses, health info) on every support call and chat. One slip, and that's a legal problem for the company. I led the product work that closed the gap: turning a manual, error-prone process into an automatic safety net.",
     metaDescription:
-      "Support teams handle sensitive customer details every day — card numbers, addresses, health info. I led the build of an AI-powered system that protects it automatically. 30+ customers live, 50+ data types covered, zero compliance issues.",
+      "Support teams handle sensitive customer details every day: card numbers, addresses, health info. I led the build of an AI-powered system that protects it automatically. 30+ customers live, 50+ data types covered, zero compliance issues.",
     coverImage: '/pii-masking-case-study.png',
     coverImageCaption:
-      'The masking template builder — where admins set up and test data-protection rules before turning them on.',
+      'The masking template builder, where admins set up and test data-protection rules before turning them on.',
     heroQuote:
-      "The old approach: hand-written rules, one for every kind of sensitive detail, built to match an exact format. A card number read out with a slight pause could slip past it. Names and addresses were never something a rule like that could catch — that's simply outside what pattern-matching can do.",
+      "The old approach: hand-written rules, one for every kind of sensitive detail, built to match an exact format. A card number read out with a slight pause could slip past it. Names and addresses were never something a rule like that could catch. That is simply outside what pattern-matching can do.",
     heroStats: [
       { value: '2 quarters', label: 'End-to-end delivery' },
       { value: '30+', label: 'Customers live within 8 months' },
@@ -631,7 +631,7 @@ export const CASE_STUDIES = [
         label: 'Overview',
         heading: 'From manual rules to automatic protection.',
         paragraphs: [
-          "As Product Manager at Sprinklr, I led the build of a tool that lets admins set up and test data-protection rules themselves — no engineers needed. I scoped the solution end-to-end, from discovery with legal and implementation teams through to customer rollout, coordinating across three cross-functional pods over two quarters.",
+          "As Product Manager at Sprinklr, I led the build of a tool that lets admins set up and test data-protection rules themselves, with no engineers needed. I scoped the solution end-to-end, from discovery with legal and implementation teams through to customer rollout, coordinating across three cross-functional pods over two quarters.",
         ],
         beforeAfter: {
           beforeTitle: 'Before',
@@ -645,7 +645,7 @@ export const CASE_STUDIES = [
           afterItems: [
             'A no-code tool for setting up and testing data-protection rules',
             'AI that spots 50+ types of sensitive info, even outside fixed patterns',
-            'Flexible timing — protect data the moment it arrives, or once a call wraps up',
+            'Flexible timing: protect data the moment it arrives, or once a call wraps up',
             'One shared system any team at Sprinklr can plug into',
           ],
         },
@@ -659,18 +659,18 @@ export const CASE_STUDIES = [
           {
             title: 'For New Customers',
             items: [
-              'Gaps kept surfacing during onboarding — friction on every rollout',
+              'Gaps kept surfacing during onboarding, creating friction on every rollout',
               "Sales couldn't confidently answer questions about voice-call protection",
               'No simple setup made it hard to hand off to customers cleanly',
-              'Same problem, every time — not a one-off',
+              'Same problem, every time. Not a one-off',
             ],
           },
           {
             title: 'For Compliance Teams',
             items: [
-              'Legal rules (like PCI and HIPAA) required this data to stay protected — no exceptions',
+              'Legal rules (like PCI and HIPAA) required this data to stay protected, no exceptions',
               'Names and addresses had zero coverage',
-              'Proving exactly what was protected, channel by channel, wasn\'t straightforward — making it hard to give auditors or legal teams a clear answer',
+              'Proving exactly what was protected, channel by channel, wasn\'t straightforward, making it hard to give auditors or legal teams a clear answer',
             ],
           },
           {
@@ -678,7 +678,7 @@ export const CASE_STUDIES = [
             items: [
               'Rules only matched exact, predictable formats',
               "Names and addresses can't be captured by a fixed pattern",
-              'Every small tweak — even a single regex change — meant re-testing the whole rule by hand, and it was easy to get wrong',
+              'Every small tweak, even a single regex change, meant re-testing the whole rule by hand, and it was easy to get wrong',
             ],
           },
         ],
@@ -702,16 +702,16 @@ export const CASE_STUDIES = [
             number: '01',
             title: 'Wide Open by Default',
             insight:
-              "At one customer alone, out of 32,000+ daily conversations, roughly 1 in 10 contained something sensitive — card numbers, home addresses. Whatever slipped past the existing rules wasn't just sitting there unseen: over 3,000 people on that customer's platform had open access to recordings and most chats, with no restrictions at all.",
+              "At one customer alone, out of 32,000+ daily conversations, roughly 1 in 10 contained something sensitive: card numbers, home addresses. Whatever slipped past the existing rules wasn't just sitting there unseen: over 3,000 people on that customer's platform had open access to recordings and most chats, with no restrictions at all.",
             shiftTitle: 'Made privacy the default, everywhere',
             shift:
-              "This changed how we framed the baseline state of the platform. Protection could not be opt-in when most users had no awareness of their own exposure. The default had to flip — open access needed to become the exception that required justification, not the norm.",
+              "This changed how we framed the baseline state of the platform. Protection could not be opt-in when most users had no awareness of their own exposure. The default had to flip. Open access needed to become the exception that required justification, not the norm.",
           },
           {
             number: '02',
             title: 'A Rule That Broke Real Work',
             insight:
-              "Legal's rule: hide every flagged sensitive detail before anyone on the platform could see it — reasonable on paper. But agents told us they often need to read those same details back to a customer mid-call to do their job, and the rule blocked that outright.",
+              "Legal's rule: hide every flagged sensitive detail before anyone on the platform could see it, which is reasonable on paper. But agents told us they often need to read those same details back to a customer mid-call to do their job, and the rule blocked that outright.",
             shiftTitle: 'Gave teams control over timing',
             shift:
               'This reframed the compliance requirement itself. The question was no longer whether data should be masked. It was when in the interaction lifecycle masking should happen. Compliance and operational utility were not opposing forces; they needed different execution points, not different rules.',
@@ -720,7 +720,7 @@ export const CASE_STUDIES = [
             number: '03',
             title: "Sound Can't Be Edited Like Text",
             insight:
-              "You can't edit an audio file directly — you can only act on the transcript made from it. A transcript can point to one exact word. Audio can't be trimmed that precisely; muting it means losing a few seconds, not just a word.",
+              "You can't edit an audio file directly. You can only act on the transcript made from it. A transcript can point to one exact word. Audio can't be trimmed that precisely; muting it means losing a few seconds, not just a word.",
             shiftTitle: 'Shipped a working version, queued the upgrade',
             shift:
               "This reframed the audio redaction problem from a filtering challenge to a synchronisation challenge. The transcript is the source of truth for what was said, but the audio operates at a coarser level of granularity. Any muting strategy had to be designed around segments, not words, and the definition of accurate enough to ship had to account for that gap rather than pretend it did not exist.",
@@ -729,7 +729,7 @@ export const CASE_STUDIES = [
             number: '04',
             title: 'One Problem, Four Different Fixes',
             insight:
-              "This wasn't a missing feature — it was a scattered one. Four product suites had each quietly built their own version of the same fix, with no shared standard and nothing another suite could reuse.",
+              "This wasn't a missing feature. It was a scattered one. Four product suites had each quietly built their own version of the same fix, with no shared standard and nothing another suite could reuse.",
             shiftTitle: 'Built it once, for everyone',
             shift:
               'This changed what kind of problem we were actually solving. It was not a product gap in one suite. It was an organisational coordination failure that had been silently multiplying. Building another point solution would have added a fifth workaround, not solved the problem. The right frame was infrastructure, not feature.',
@@ -749,16 +749,16 @@ export const CASE_STUDIES = [
             chose:
               'Made platform-level masking the out-of-the-box default for seven to eight high-risk sensitive data categories, with a single configuration toggle to disable it for teams with a legitimate operational need. No underlying customer data is altered by this setting.',
             result:
-              "Zero compliance issues after launch. The only flags were for languages outside our AI's current range — already on the roadmap.",
+              "Zero compliance issues after launch. The only flags were for languages outside our AI's current range, already on the roadmap.",
           },
           {
             number: '02',
             tag: 'Compliance timing vs. Workflow continuity',
-            title: 'Let teams choose when protection kicks in — not just whether it does.',
+            title: 'Let teams choose when protection kicks in, not just whether it does.',
             chose:
               "Moved away from a fixed pre-display masking trigger and built a user-configurable model. Admins set redaction to execute either at data ingestion or after an agent closes a query, depending on their team's live interaction requirements.",
             result:
-              'Agents who need to read details back mid-call could keep doing their job — without lowering the compliance bar.',
+              'Agents who need to read details back mid-call could keep doing their job without lowering the compliance bar.',
           },
           {
             number: '03',
@@ -774,14 +774,14 @@ export const CASE_STUDIES = [
             tag: 'Spread Thin vs. Focused',
             title: "Give this its own team, instead of squeezing it into someone else's roadmap.",
             chose:
-              'Since no existing team owned this or had room for it, pulled together a dedicated group with engineering, AI, and design — focused on just this.',
+              'Since no existing team owned this or had room for it, pulled together a dedicated group with engineering, AI, and design, focused on just this.',
             result:
               'Shipped clean, with no rework. All three disciplines stayed aligned the whole way through.',
           },
           {
             number: '05',
             tag: 'Quick Fix vs. Built to Last',
-            title: 'Build one system everyone can use — not another one-off patch.',
+            title: 'Build one system everyone can use, not another one-off patch.',
             chose:
               "Widened the scope from fixing one team's gap to building a shared system every team at Sprinklr could plug into.",
             result:
@@ -798,7 +798,7 @@ export const CASE_STUDIES = [
           {
             role: 'Engineers',
             count: 2,
-            body: 'Built the whole thing end to end — the screen admins use to set up rules, and the system underneath that makes those rules actually work.',
+            body: 'Built the whole thing end to end: the screen admins use to set up rules, and the system underneath that makes those rules actually work.',
           },
           {
             role: 'ML Engineer',
@@ -808,12 +808,12 @@ export const CASE_STUDIES = [
           {
             role: 'Designer',
             count: 1,
-            body: "Designed the setup screen to work for one team today and scale to the whole company tomorrow — no redesign needed later.",
+            body: "Designed the setup screen to work for one team today and scale to the whole company tomorrow, with no redesign needed later.",
           },
           {
             role: 'QA Engineer',
             count: 1,
-            body: 'Pushed the system to its limits before anything shipped — real-world scenarios, heavy load, edge cases, across every channel.',
+            body: 'Pushed the system to its limits before anything shipped: real-world scenarios, heavy load, edge cases, across every channel.',
           },
         ],
       },
@@ -835,7 +835,7 @@ export const CASE_STUDIES = [
             value: '0',
             label: 'compliance issues after launch',
             description:
-              "AI covers 50+ types of sensitive info · Only open item: languages outside the AI's current range — already known and planned for",
+              "AI covers 50+ types of sensitive info · Only open item: languages outside the AI's current range, already known and planned for",
           },
           {
             category: 'Internal Adoption',
@@ -860,14 +860,14 @@ export const CASE_STUDIES = [
     outcomeStat: { value: '60+', label: 'Enterprise customers active' },
     title: 'Making Evaluator Scores Consistent, At Scale',
     tagline:
-      "Quality evaluations in contact centers shape coaching plans, performance reviews, and careers. But there was no way to check if the evaluators themselves were scoring consistently. I built Calibration from zero — giving quality teams a way to audit their own auditors and turn evaluator consistency into something measurable.",
+      "Quality evaluations in contact centers shape coaching plans, performance reviews, and careers. But there was no way to check if the evaluators themselves were scoring consistently. I built Calibration from zero, giving quality teams a way to audit their own auditors and turn evaluator consistency into something measurable.",
     metaDescription:
-      "Contact center quality scores shape agent careers, but evaluators were never checked for consistency. I led the 0-to-1 build of a tool that audits the auditors — 60+ customers live, ~20K sessions run monthly.",
+      "Contact center quality scores shape agent careers, but evaluators were never checked for consistency. I led the 0-to-1 build of a tool that audits the auditors. 60+ customers live, ~20K sessions run monthly.",
     coverImage: '/calibration-case-study.png',
     coverImageCaption:
-      "ATA in practice — a QM Lead's audit of the same call, broken down section by section against the original evaluation, with score gaps flagged at every level.",
+      "ATA in practice: a QM Lead's audit of the same call, broken down section by section against the original evaluation, with score gaps flagged at every level.",
     heroQuote:
-      "Before this existed, a quality team had no way to know if their evaluators were aligned. Supervisors ran monthly sessions where QMs scored the same agent call on paper, compared notes, and debated differences out loud. None of it was recorded — no data on which criteria caused friction, no way to tell whether a score reflected an agent's work or just which manager happened to review it that week.",
+      "Before this existed, a quality team had no way to know if their evaluators were aligned. Supervisors ran monthly sessions where QMs scored the same agent call on paper, compared notes, and debated differences out loud. None of it was recorded: no data on which criteria caused friction, no way to tell whether a score reflected an agent's work or just which manager happened to review it that week.",
     heroStats: [
       { value: '60+', label: 'Enterprise customers active' },
       { value: '~20K', label: 'Monthly calibration sessions' },
@@ -881,14 +881,14 @@ export const CASE_STUDIES = [
         label: 'Overview',
         heading: 'What changed, and what I owned.',
         paragraphs: [
-          "As the sole PM, I owned Calibration end-to-end — growing from a supporting analyst role during early discovery into full ownership across a 7-person team. This was a 0-to-1 build with no prior foundation in the platform, shipped in two phases: ATA (Audit the Auditor) first, then P2P (Peer-to-Peer) calibration.",
+          "As the sole PM, I owned Calibration end-to-end, growing from a supporting analyst role during early discovery into full ownership across a 7-person team. This was a 0-to-1 build with no prior foundation in the platform, shipped in two phases: ATA (Audit the Auditor) first, then P2P (Peer-to-Peer) calibration.",
         ],
         beforeAfter: {
           beforeTitle: 'Before',
           beforeItems: [
             'No way to check if QM managers were scoring consistently',
-            'Evaluator alignment handled offline — spreadsheets, monthly sessions, ad hoc reviews',
-            'Score variance between evaluators invisible in the product — no data, no trend',
+            'Evaluator alignment handled offline: spreadsheets, monthly sessions, ad hoc reviews',
+            'Score variance between evaluators invisible in the product, with no data and no trend',
             "Agent scores varied depending on which QM happened to evaluate them",
             "No structured way for a QM to dispute a calibrator's assessment",
           ],
@@ -896,8 +896,8 @@ export const CASE_STUDIES = [
           afterItems: [
             'ATA: QM Leads score the same interaction as their QMs, then see exactly where their scores diverge',
             'P2P: QMs score the same interaction independently, blinded to each other, against a reference evaluator',
-            'Configurable score correction — overwrite the score, exclude it from metrics, or leave it untouched',
-            'Calibration reporting — alignment %, question-level variance, deviation trends, session volumes',
+            'Configurable score correction: overwrite the score, exclude it from metrics, or leave it untouched',
+            'Calibration reporting: alignment %, question-level variance, deviation trends, session volumes',
           ],
         },
       },
@@ -910,8 +910,8 @@ export const CASE_STUDIES = [
           {
             title: 'For Agents',
             items: [
-              'Same interaction, different evaluator, different score — no way to flag it',
-              'No visibility into evaluator consistency — couldn\'t tell a fair score from a biased one',
+              'Same interaction, different evaluator, different score, and no way to flag it',
+              'No visibility into evaluator consistency, so you couldn\'t tell a fair score from a biased one',
               'Disputed evaluations resolved by manager discretion, not by process',
               'Coaching plans built on inconsistent scores misdirected agent development',
             ],
@@ -928,7 +928,7 @@ export const CASE_STUDIES = [
           {
             title: 'Under the Hood',
             items: [
-              'Manual workarounds — spreadsheets, offline sessions — left no auditable trail',
+              'Manual workarounds (spreadsheets, offline sessions) left no auditable trail',
               'No standard industry definition of calibration metrics; every customer measured it differently',
               'No data model or workflow support for multi-party blinded evaluation sessions',
             ],
@@ -946,30 +946,30 @@ export const CASE_STUDIES = [
         insightShifts: [
           {
             number: '01',
-            title: 'The Offline Workaround Was Universal — and Invisible',
+            title: 'The Offline Workaround Was Universal, and Invisible',
             insight:
-              "Calibration was already happening at every customer we talked to — just outside the product. One ran monthly paper-scoring sessions and debated differences out loud. Others used 1-on-1 reviews. Some did nothing. None of it left a record, and none of it showed whether alignment improved over time.",
+              "Calibration was already happening at every customer we talked to, just outside the product. One ran monthly paper-scoring sessions and debated differences out loud. Others used 1-on-1 reviews. Some did nothing. None of it left a record, and none of it showed whether alignment improved over time.",
             shiftTitle: 'Brought an existing practice into the product',
             shift:
-              "Customers didn't need to be taught what calibration was — they'd already built workarounds around its absence. The job was to bring an established practice into the platform and give it the data layer offline sessions never had.",
+              "Customers didn't need to be taught what calibration was. They'd already built workarounds around its absence. The job was to bring an established practice into the platform and give it the data layer offline sessions never had.",
           },
           {
             number: '02',
             title: 'Competitors Had Half the Picture',
             insight:
-              "Most QM vendors offered either ATA-style or P2P-style calibration, not both — and the ones with P2P often didn't enforce blinding rigorously. Across the board, the UIs were complex enough to create real adoption friction.",
+              "Most QM vendors offered either ATA-style or P2P-style calibration, not both, and the ones with P2P often didn't enforce blinding rigorously. Across the board, the UIs were complex enough to create real adoption friction.",
             shiftTitle: 'Made calibration feel native, not bolted on',
             shift:
-              "The gap wasn't in the individual capabilities — it was in how disconnected they felt. A QM manager already using the platform daily should meet calibration as an extension of that workflow, not a separate system to learn.",
+              "The gap wasn't in the individual capabilities. It was in how disconnected they felt. A QM manager already using the platform daily should meet calibration as an extension of that workflow, not a separate system to learn.",
           },
           {
             number: '03',
             title: 'One Metric Broke on Non-Scoring Forms',
             insight:
-              "After the reporting design was finalized, a customer flagged that their evaluation forms used response-based criteria with no numeric scoring — so the core metric (% alignment, computed by comparing scores) had nothing to compare. This wasn't an edge case; it broke reporting for any customer using checklist-style forms.",
+              "After the reporting design was finalized, a customer flagged that their evaluation forms used response-based criteria with no numeric scoring, so the core metric (% alignment, computed by comparing scores) had nothing to compare. This wasn't an edge case; it broke reporting for any customer using checklist-style forms.",
             shiftTitle: 'Made the metric configurable, not fixed',
             shift:
-              "Alignment doesn't mean the same thing across every evaluation form — the product couldn't impose one fixed definition. A single hard-coded metric was the wrong answer; a configurable one was the right one.",
+              "Alignment doesn't mean the same thing across every evaluation form, and the product couldn't impose one fixed definition. A single hard-coded metric was the wrong answer; a configurable one was the right one.",
           },
           {
             number: '04',
@@ -978,7 +978,7 @@ export const CASE_STUDIES = [
               "Platform data showed some QM managers consistently scored higher or lower than their peers, but that pattern was invisible in standard QM reporting. In interviews, QM leads described the goal not as catching a wrong score, but as knowing which evaluators needed coaching on which criteria.",
             shiftTitle: 'Reframed it as coaching, not a verdict',
             shift:
-              "This changed what kind of product Calibration needed to be — not a system for ruling an evaluator right or wrong, but the same coaching loop the QM product already ran between managers and agents, just applied one level up.",
+              "This changed what kind of product Calibration needed to be. Not a system for ruling an evaluator right or wrong, but the same coaching loop the QM product already ran between managers and agents, just applied one level up.",
           },
         ],
       },
@@ -993,7 +993,7 @@ export const CASE_STUDIES = [
             tag: 'Continuity vs. Differentiation',
             title: 'Anchor calibration to the existing QM evaluation screen.',
             chose:
-              'Built both calibration modes inside the same QM interface, with distinct visual cues to set calibration sessions apart — instead of a separate module. Reasoning: no one navigating a new platform should face a second learning curve for a closely related workflow.',
+              'Built both calibration modes inside the same QM interface, with distinct visual cues to set calibration sessions apart, instead of a separate module. Reasoning: no one navigating a new platform should face a second learning curve for a closely related workflow.',
             result:
               'The first customers onboarded to P2P reported minimal ramp-up time, citing direct continuity with the evaluation flow they already knew.',
           },
@@ -1004,7 +1004,7 @@ export const CASE_STUDIES = [
             chose:
               "After a customer's non-scoring forms broke the score-based % alignment metric, rebuilt reporting so alignment can be computed by score comparison, response comparison, or both.",
             result:
-              'Removed a hard adoption blocker for non-scoring customers — Calibration Reporting now works across every evaluation form configuration on the platform.',
+              'Removed a hard adoption blocker for non-scoring customers. Calibration Reporting now works across every evaluation form configuration on the platform.',
           },
           {
             number: '03',
@@ -1020,9 +1020,9 @@ export const CASE_STUDIES = [
             tag: 'Statistical Rigor vs. Social Pressure',
             title: 'Enforce blinding through group completion, not individual submission.',
             chose:
-              "In P2P, results become visible to the group only once every participant has submitted independently — enforced by a group-level completion flag. Participants also can't see who else is in the group until results are revealed.",
+              "In P2P, results become visible to the group only once every participant has submitted independently, enforced by a group-level completion flag. Participants also can't see who else is in the group until results are revealed.",
             result:
-              "Each score reflected independent judgment against the reference evaluator, making the variance a clean signal of where standards drifted — not a socially-influenced consensus.",
+              "Each score reflected independent judgment against the reference evaluator, making the variance a clean signal of where standards drifted, not a socially-influenced consensus.",
           },
           {
             number: '05',
@@ -1031,14 +1031,14 @@ export const CASE_STUDIES = [
             chose:
               "Built the ability to formally dispute a calibrator's assessment as a configurable toggle, not a default. A default-on dispute mechanism would introduce conflict right when a new team most needs to build trust in the process.",
             result:
-              'Clients could roll out Calibration as a pure coaching tool first, then turn on formal dispute accountability once the practice was established — minimizing friction at launch.',
+              'Clients could roll out Calibration as a pure coaching tool first, then turn on formal dispute accountability once the practice was established, minimizing friction at launch.',
           },
         ],
         image: {
           src: '/calibration-p2p-results.png',
           alt: 'Peer-to-peer calibration results screen showing auditor scores compared against a reference evaluator, with the call transcript alongside',
           caption:
-            "Decision 04 in practice — auditor scores compared against the reference evaluator only after every participant has submitted independently, with the original call transcript shown alongside for context.",
+            "Decision 04 in practice: auditor scores compared against the reference evaluator only after every participant has submitted independently, with the original call transcript shown alongside for context.",
         },
       },
       {
@@ -1051,13 +1051,13 @@ export const CASE_STUDIES = [
             role: 'Engineers',
             count: 4,
             location: 'India',
-            body: 'Built both calibration modes end to end — the blinding mechanism for group-completion, configurable score correction, the dispute flow, and the reporting infrastructure behind all of it.',
+            body: 'Built both calibration modes end to end: the blinding mechanism for group-completion, configurable score correction, the dispute flow, and the reporting infrastructure behind all of it.',
           },
           {
             role: 'Product Designer',
             count: 1,
             location: 'India',
-            body: 'Designed calibration inside the existing QM interface — keeping visual continuity with regular evaluations while making calibration sessions clearly distinct.',
+            body: 'Designed calibration inside the existing QM interface, keeping visual continuity with regular evaluations while making calibration sessions clearly distinct.',
           },
           {
             role: 'QA Engineers',
@@ -1092,11 +1092,11 @@ export const CASE_STUDIES = [
             value: '~5%',
             label: 'reduction in agent dispute rates',
             description:
-              'At customers with high Calibration adoption — consistent evaluator standards linked to fewer contested assessments downstream',
+              'At customers with high Calibration adoption, consistent evaluator standards linked to fewer contested assessments downstream',
           },
         ],
         quote:
-          'The Calibration functionality has been extremely helpful — working without any issues to coach our QMs and improve our internal audit processes.',
+          'The Calibration functionality has been extremely helpful, working without any issues to coach our QMs and improve our internal audit processes.',
         quoteAttribution: 'QM Lead, US Enterprise Retail Client · Internal QBR',
       },
     ],
@@ -1104,10 +1104,10 @@ export const CASE_STUDIES = [
 ]
 
 /**
- * Independent work — self-funded / founder projects, kept deliberately separate
- * from CASE_STUDIES so they never read as employer work. No metric cards and no
- * Outcome section: pre-launch products have no traction data, and inventing some
- * would undercut the only thing this story has going for it.
+ * Independent projects, kept deliberately separate from CASE_STUDIES so they
+ * never read as employer work. No metric cards and no Outcome section:
+ * pre-launch products have no traction data, and inventing some would undercut
+ * the only thing this story has going for it.
  */
 export const INDEPENDENT_PROJECTS = [
   {
@@ -1115,7 +1115,7 @@ export const INDEPENDENT_PROJECTS = [
     slug: 'ctrl',
     kind: 'independent' as const,
     company: 'Ctrl',
-    role: 'Head of Product · Co-founder',
+    role: 'Head of Product',
     duration: 'Started 2026 · Launching Fall 2026',
     teamSize: '3 people · India + US',
     stageBadge: 'Launching Fall 2026',
@@ -1124,34 +1124,34 @@ export const INDEPENDENT_PROJECTS = [
     title: 'Ctrl',
     cardTitle: 'A physical tap-to-focus device, built India-first',
     tagline:
-      'A physical tap-to-focus device for people who keep losing hours to their phones — built India-first, priced for India, and designed by me from the ground up.',
+      'A physical tap-to-focus device for people who keep losing hours to their phones. Built India-first, priced for India, and designed by me from the ground up.',
     oneLiner:
-      'An NFC metal card that locks your distracting apps on a tap. Co-founded with a friend, currently pre-launch: first production batch built, packaging and go-to-market in motion.',
+      'An NFC metal card that locks your distracting apps on a tap. Built with two others and still pre-launch: first production batch done, packaging and go-to-market in motion.',
     metaDescription:
-      'Ctrl is a physical NFC card that locks distracting apps on a tap — built India-first and priced for India. My founder case study: the problem, the form-factor pivot from magnet to metal card, the app UX I own, and where it goes next.',
+      'Ctrl is a physical NFC card that locks distracting apps on a tap, built India-first and priced for India. My case study on the problem, the form-factor pivot from magnet to metal card, the app UX I own, and where it goes next.',
     infoChips: [
       'Head of Product',
       '0-to-1 physical + software',
-      'NFC — tap to lock',
+      'NFC, tap to lock',
       'India-first, building toward Europe',
     ],
     tags: ['Consumer Hardware', 'iOS + Android', 'Pre-launch'],
     heroQuote:
-      "I'd sit down to study or start a work block, get through ten minutes, and then just pick up my phone — not even meaning to, just a reflex. A minute on Instagram became twenty. That's the moment Ctrl came from: not a market report, just watching my own thumb do the same thing every day and deciding to build something that would physically get in its way.",
+      "I'd sit down to study or start a work block, get through ten minutes, and then just pick up my phone. Not even meaning to, just a reflex. A minute on Instagram became twenty. That's the moment Ctrl came from: not a market report, just watching my own thumb do the same thing every day and deciding to build something that would physically get in its way.",
     sections: [
       {
         id: 'problem',
         number: '01',
         label: 'The Problem',
-        heading: 'A reflex, not a decision — and nothing on the shelf built for India.',
+        heading: 'A reflex, not a decision, and nothing on the shelf built for India.',
         paragraphs: [
-          "Long stretches of study or focused work kept getting fractured by short reflexive checks — Instagram, Snapchat, YouTube. Not planned breaks. A few minutes of \"just checking\" routinely turned into a much longer detour, and it was happening every day, to a student and a working professional alike. Screen-time settings and app timers already existed and were already being ignored: anything you can dismiss with a tap gets dismissed with a tap.",
-          'Physical anti-distraction devices did exist — but they were designed, priced, and distributed for US and European buyers. For an Indian student or an early-career professional, the price alone put them out of reach, and none of them had a local go-to-market behind them. That gap was the opening: bring the same category of solution natively to India, at a price India would actually pay.',
+          "Long stretches of study or focused work kept getting fractured by short reflexive checks: Instagram, Snapchat, YouTube. Not planned breaks. A few minutes of \"just checking\" routinely turned into a much longer detour, and it was happening every day, to a student and a working professional alike. Screen-time settings and app timers already existed and were already being ignored: anything you can dismiss with a tap gets dismissed with a tap.",
+          'Physical anti-distraction devices did exist, but they were designed, priced, and distributed for US and European buyers. For an Indian student or an early-career professional, the price alone put them out of reach, and none of them had a local go-to-market behind them. That gap was the opening: bring the same category of solution natively to India, at a price India would actually pay.',
         ],
         pills: [
           {
             title: 'The personal pain',
-            body: 'Reflexive phone checks fracturing every study or work block — a habit loop that software timers were too easy to dismiss to break.',
+            body: 'Reflexive phone checks fracturing every study or work block, a habit loop that software timers were too easy to dismiss to break.',
           },
           {
             title: 'The market gap',
@@ -1159,7 +1159,7 @@ export const INDEPENDENT_PROJECTS = [
           },
           {
             title: 'Why it is hard',
-            body: 'It only works if both halves ship in lockstep — an object small and durable enough to carry everywhere, and an app where setting a restriction takes seconds, not a settings maze.',
+            body: 'It only works if both halves ship in lockstep: an object small and durable enough to carry everywhere, and an app where setting a restriction takes seconds, not a settings maze.',
           },
         ],
       },
@@ -1170,19 +1170,19 @@ export const INDEPENDENT_PROJECTS = [
         heading: 'Three people, no design function, no QA function.',
         paragraphs: [
           "The idea came from a friend, who brought me the concept; I joined to build it with him. It's been roughly three to four months since we started, and in that time we've gone from a printed prototype to a first production batch.",
-          "We're three people, and none of us has the luxury of a narrow job description. There's no dedicated designer and no dedicated QA — which means product and engineering roles blur by necessity. That's worth naming plainly rather than smoothing over, because it's what building lean actually looks like: I write the product spec, design the screens, and test the builds, and the boundaries only exist where they're useful.",
+          "We're three people, and none of us has the luxury of a narrow job description. There's no dedicated designer and no dedicated QA, which means product and engineering roles blur by necessity. That's worth naming plainly rather than smoothing over, because it's what building lean actually looks like: I write the product spec, design the screens, and test the builds, and the boundaries only exist where they're useful.",
         ],
         pills: [
           {
-            title: 'CEO — my co-founder',
+            title: 'CEO',
             body: 'Company operations, manufacturing coordination, and go-to-market execution.',
           },
           {
-            title: 'Me — Head of Product',
+            title: 'Me, Head of Product',
             body: 'The product and UX layer: the analytics experience, settings and app-selection flow, and the overall navigation and information architecture.',
           },
           {
-            title: 'Engineering partner — remote, US',
+            title: 'Engineering partner, remote in the US',
             body: 'The underlying software logic connecting the NFC tap to the app-locking mechanism, across both iOS and Android.',
           },
         ],
@@ -1193,9 +1193,9 @@ export const INDEPENDENT_PROJECTS = [
         label: 'The Build',
         heading: 'The product changed shape before it changed features.',
         paragraphs: [
-          'Version one of Ctrl was a 3D-printed fridge magnet. Tap your phone against it and your chosen set of apps locked for a set duration, with a lock animation confirming it on screen; tap again to unlock everything. It worked, and it proved the core mechanic — but it had a limitation baked into its form factor. A fridge magnet lives on a fridge. It served the at-home use case well and nothing else.',
-          "Rather than assume the form factor needed to change, we tested it. We ran an informal market survey — friends, colleagues, people we met on trips — with one specific question: does the magnet work once you leave the house? The answer came back consistent. A magnet is genuinely awkward to carry, easy to leave behind, and easy to lose. But everyone was already carrying a card-shaped object everywhere they went. A card wouldn't have to fight an existing habit; it could ride on one.",
-          'So Ctrl became a metal card — credit-card sized, with an NFC tag embedded inside. The interaction is identical: tap the card with the app open, your chosen apps lock, tap again to unlock. What changed is that it now travels naturally in a wallet or a pocket, for a student between classes or a professional at a desk. We didn\'t discard the magnet; it still serves the original at-home case. The card just became the primary product.',
+          'Version one of Ctrl was a 3D-printed fridge magnet. Tap your phone against it and your chosen set of apps locked for a set duration, with a lock animation confirming it on screen; tap again to unlock everything. It worked, and it proved the core mechanic, but it had a limitation baked into its form factor. A fridge magnet lives on a fridge. It served the at-home use case well and nothing else.',
+          "Rather than assume the form factor needed to change, we tested it. We ran an informal market survey with friends, colleagues, and people we met on trips, all asking one specific question: does the magnet work once you leave the house? The answer came back consistent. A magnet is genuinely awkward to carry, easy to leave behind, and easy to lose. But everyone was already carrying a card-shaped object everywhere they went. A card wouldn't have to fight an existing habit; it could ride on one.",
+          'So Ctrl became a metal card, credit-card sized, with an NFC tag embedded inside. The interaction is identical: tap the card with the app open, your chosen apps lock, tap again to unlock. What changed is that it now travels naturally in a wallet or a pocket, for a student between classes or a professional at a desk. We didn\'t discard the magnet; it still serves the original at-home case. The card just became the primary product.',
         ],
         decisions: [
           {
@@ -1203,7 +1203,7 @@ export const INDEPENDENT_PROJECTS = [
             tag: 'Form factor',
             title: 'Change the object, not the interaction',
             chose:
-              'Redesigned the device from a 3D-printed fridge magnet into a credit-card-sized metal card with an embedded NFC tag — while keeping the tap-to-lock mechanic exactly as it was.',
+              'Redesigned the device from a 3D-printed fridge magnet into a credit-card-sized metal card with an embedded NFC tag, while keeping the tap-to-lock mechanic exactly as it was.',
             result:
               'The habit loop that already worked stayed untouched; only the constraint that limited it to one room got removed.',
           },
@@ -1212,7 +1212,7 @@ export const INDEPENDENT_PROJECTS = [
             tag: 'Validation',
             title: 'Test the pivot before paying for it',
             chose:
-              'Ran an informal qualitative survey with friends, colleagues, and people met on trips specifically to probe portability — before committing to a manufacturing run.',
+              'Ran an informal qualitative survey with friends, colleagues, and people met on trips specifically to probe portability, before committing to a manufacturing run.',
             result:
               'A form-factor decision made on direct user signal rather than a hunch, at a stage where getting it wrong would have meant a batch of unsellable inventory.',
           },
@@ -1222,7 +1222,7 @@ export const INDEPENDENT_PROJECTS = [
             number: '01',
             title: 'Where the magnet actually failed',
             insight:
-              'The magnet was never rejected for how it worked — every person we spoke to understood the tap instantly. It failed on where it could be. Distraction does not stay at home, so a device that does is only ever solving part of the problem.',
+              'The magnet was never rejected for how it worked. Every person we spoke to understood the tap instantly. It failed on where it could be. Distraction does not stay at home, so a device that does is only ever solving part of the problem.',
             shiftTitle: 'Stop designing an object, start designing for a pocket',
             shift:
               'The design constraint stopped being "what shape holds an NFC tag" and became "what shape do people already carry without thinking about it."',
@@ -1235,8 +1235,8 @@ export const INDEPENDENT_PROJECTS = [
         label: 'My Role',
         heading: 'Designing an app that makes you want to keep the streak.',
         paragraphs: [
-          "I own the product and UX layer of the Ctrl app — the analytics experience, the settings and app-selection flow, and the overall navigation and information architecture. Both the iOS and Android builds are ready.",
-          'The stats section was designed around one question: does seeing your own focus data make you want to keep going? That question decided the information architecture. Rather than dumping every statistic onto one screen, the app layers data the way a habit actually gets reinforced — a single glanceable streak number first, a personal-records card for the proud-of-yourself moments second, and a full historical drill-down for anyone who wants to dig.',
+          "I own the product and UX layer of the Ctrl app: the analytics experience, the settings and app-selection flow, and the overall navigation and information architecture. Both the iOS and Android builds are ready.",
+          'The stats section was designed around one question: does seeing your own focus data make you want to keep going? That question decided the information architecture. Rather than dumping every statistic onto one screen, the app layers data the way a habit actually gets reinforced. A single glanceable streak number first, a personal-records card for the proud-of-yourself moments second, and a full historical drill-down for anyone who wants to dig.',
         ],
         pills: [
           {
@@ -1245,7 +1245,7 @@ export const INDEPENDENT_PROJECTS = [
           },
           {
             title: 'Monthly trend',
-            body: 'Every month broken down by total focused time and session count — so progress reads month over month, not just day to day.',
+            body: 'Every month broken down by total focused time and session count, so progress reads month over month, not just day to day.',
           },
           {
             title: 'Weekly view',
@@ -1253,7 +1253,7 @@ export const INDEPENDENT_PROJECTS = [
           },
         ],
         bullets: [
-          'Every number in the app is computed and stored on the device — the analytics you see are never sent anywhere.',
+          'Every number in the app is computed and stored on the device. The analytics you see are never sent anywhere.',
         ],
       },
       {
@@ -1262,14 +1262,14 @@ export const INDEPENDENT_PROJECTS = [
         label: 'The Vision',
         heading: 'Ship India first. Let the move to Paris open Europe.',
         paragraphs: [
-          'The first production batch of the physical card exists. Packaging and distribution logistics are being finalised, and the website is live in an early form at getctrl.in with a design refresh underway — the positioning holds, the visual design changes.',
+          'The first production batch of the physical card exists. Packaging and distribution logistics are being finalised, and the website is live in an early form at getctrl.in with a design refresh underway. The positioning holds, the visual design changes.',
           "On price, Ctrl sits at roughly a quarter to a third of what Brick and Bloom charge. That isn't a discount strategy; it's the direct product of designing, sourcing, and manufacturing for India instead of importing a US price point into an Indian market.",
-          "And the part that could read as a pause isn't one. As I move to Paris for my MBA, that move becomes the on-ramp for Ctrl's entry into Europe — a founder on the ground in the market we want next, rather than a venture on hold.",
+          "And the part that could read as a pause isn't one. As I move to Paris for my MBA, that move becomes the on-ramp for Ctrl's entry into Europe, with me on the ground in the market we want next, rather than a venture on hold.",
         ],
         pills: [
           {
             title: 'College students',
-            body: 'The primary wedge — reached directly through top colleges\' technical fests and existing student networks rather than cold marketing.',
+            body: 'The primary wedge, reached directly through top colleges\' technical fests and existing student networks rather than cold marketing.',
           },
           {
             title: 'Corporate professionals',
@@ -1277,11 +1277,11 @@ export const INDEPENDENT_PROJECTS = [
           },
           {
             title: 'Everyone else',
-            body: 'Individual buyers are expected to arrive alongside those two organically — real, but deliberately not a targeted bracket at this stage.',
+            body: 'Individual buyers are expected to arrive alongside those two organically. Real, but deliberately not a targeted bracket at this stage.',
           },
         ],
         bullets: [
-          'Offline and private by construction: Ctrl works through a local NFC tap with no cloud dependency, so no usage data is collected or transmitted anywhere. That is a deliberate design principle, not a gap in the roadmap — and it is a genuine advantage heading into a European market where GDPR and data-privacy expectations are front of mind.',
+          'Offline and private by construction: Ctrl works through a local NFC tap with no cloud dependency, so no usage data is collected or transmitted anywhere. That is a deliberate design principle, not a gap in the roadmap, and it is a genuine advantage heading into a European market where GDPR and data-privacy expectations are front of mind.',
           'Priced at roughly one-quarter to one-third of international competitors Brick and Bloom, because the product was designed for the Indian market rather than adapted to it.',
         ],
         closingQuote:

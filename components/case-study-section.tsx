@@ -76,7 +76,7 @@ export interface CaseStudySectionData {
   insightShifts?: InsightShift[]
   impactCards?: ImpactCard[]
   bullets?: string[]
-  /** Same treatment as `quote`, but rendered last — for closing a section. */
+  /** Same treatment as `quote`, but rendered last, for closing a section. */
   closingQuote?: string
 }
 

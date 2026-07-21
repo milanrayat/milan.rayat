@@ -70,7 +70,7 @@ export default async function AboutPage() {
               Engineer. Strategist. Builder.
             </h1>
             <p className="text-base lg:text-lg text-muted-foreground max-w-3xl leading-relaxed text-pretty">
-              I started my career as a Mechanical Engineering graduate from IIT Guwahati — one of India&apos;s premier technical institutes. That foundation in first-principles thinking and systems design became the bedrock of everything I&apos;ve built since.
+              I started my career as a Mechanical Engineering graduate from IIT Guwahati, one of India&apos;s premier technical institutes. That foundation in first-principles thinking and systems design became the bedrock of everything I&apos;ve built since.
             </p>
           </div>
         </section>
@@ -92,10 +92,10 @@ export default async function AboutPage() {
               </div>
               <div className="lg:col-span-7 flex flex-col gap-6 text-muted-foreground leading-relaxed">
                 <p>
-                  After IIT Guwahati, I gravitated toward the intersection of data and product decisions. Before formal PM roles, I built and owned large-scale analytics pipelines — learning to translate raw data into executive-level narratives. That combination of engineering rigor and business fluency became my edge.
+                  After IIT Guwahati, I gravitated toward the intersection of data and product decisions. Before formal PM roles, I built and owned large-scale analytics pipelines, learning to translate raw data into executive-level narratives. That combination of engineering rigor and business fluency became my edge.
                 </p>
                 <p>
-                  At Sprinklr, I stepped into product ownership of the <strong className="text-foreground font-medium">contact center quality monitoring</strong> suite — a complex, high-stakes domain where enterprise customers evaluate thousands of agent interactions daily. I owned everything: vision, roadmap, delivery, go-to-market, and customer adoption.
+                  At Sprinklr, I stepped into product ownership of the <strong className="text-foreground font-medium">contact center quality monitoring</strong> suite, a complex, high-stakes domain where enterprise customers evaluate thousands of agent interactions daily. I owned everything: vision, roadmap, delivery, go-to-market, and customer adoption.
                 </p>
                 <p>
                   Over five years, I&apos;ve shipped products adopted by 100+ enterprise customers, generated $20M+ ARR, and closed a $10M deal for Europe&apos;s largest telecom provider through rigorous EU compliance work. I&apos;ve run 14-member cross-functional teams across India and the US, presented roadmaps to C-suite stakeholders, and earned a CTO Award for delivery quality.
@@ -128,7 +128,7 @@ export default async function AboutPage() {
                   {[
                     {
                       label: 'Outcomes over output',
-                      body: 'I measure success in ARR, customer adoption, and time saved — not features shipped. Every roadmap decision maps to a business metric.',
+                      body: 'I measure success in ARR, customer adoption, and time saved, not features shipped. Every roadmap decision maps to a business metric.',
                     },
                     {
                       label: 'Data before opinion',
@@ -140,7 +140,7 @@ export default async function AboutPage() {
                     },
                     {
                       label: 'Executive-ready by default',
-                      body: 'Every PM is a spokesperson for the product. I write and present at C-suite level — clear, crisp, and tied to the business case.',
+                      body: 'Every PM is a spokesperson for the product. I write and present at C-suite level: clear, crisp, and tied to the business case.',
                     },
                   ].map(({ label, body }) => (
                     <div
@@ -181,7 +181,7 @@ export default async function AboutPage() {
                     My AI product thinking goes beyond &quot;add LLM to feature.&quot; I work with structured prompt engineering workflows, understand LLM evaluation frameworks, and have hands-on experience integrating speech analytics and AI-driven quality scoring into enterprise contact center workflows.
                   </p>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    I use AI tooling daily — Claude for structured analysis, Cursor and v0 for rapid prototyping — and bring that operator-level understanding to every AI product decision.
+                    I use AI tooling daily (Claude for structured analysis, Cursor and v0 for rapid prototyping) and bring that operator-level understanding to every AI product decision.
                   </p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -189,7 +189,7 @@ export default async function AboutPage() {
                     { label: 'AI Evals & Quality Scoring', desc: 'Designing rubrics and automated evaluation frameworks for LLM-generated outputs.' },
                     { label: 'Prompt Engineering', desc: 'Structured prompt workflows for consistent, auditable AI behavior in enterprise settings.' },
                     { label: 'Speech & NLP Analytics', desc: 'Contact center intelligence: sentiment, intent, topic classification at scale.' },
-                    { label: 'LLM Fine-tuning Parameters', desc: 'Understanding temperature, sampling, context windows — and their product-level tradeoffs.' },
+                    { label: 'LLM Fine-tuning Parameters', desc: 'Understanding temperature, sampling, context windows, and their product-level tradeoffs.' },
                   ].map(({ label, desc }) => (
                     <div
                       key={label}
@@ -327,22 +327,22 @@ export default async function AboutPage() {
                     {
                       icon: '⛰',
                       label: 'Himalayas Trekker',
-                      desc: 'Avid trekker with multiple Himalayan routes completed. The mountains teach patience and navigation — skills that transfer directly to product.',
+                      desc: 'Avid trekker with multiple Himalayan routes completed. The mountains teach patience and navigation, skills that transfer directly to product.',
                     },
                     {
                       icon: '🕺',
                       label: 'Dancer',
-                      desc: 'Performance arts sharpen spatial awareness, rhythm, and the ability to read a room — all underrated PM skills.',
+                      desc: 'Performance arts sharpen spatial awareness, rhythm, and the ability to read a room, all underrated PM skills.',
                     },
                     {
                       icon: '🏀',
                       label: 'Basketball Nerd',
-                      desc: "Film study, play-calling, and team dynamics — basketball's analytical depth mirrors how I think about product strategy.",
+                      desc: "Film study, play-calling, and team dynamics. Basketball's analytical depth mirrors how I think about product strategy.",
                     },
                     {
                       icon: '🎯',
                       label: 'Jack of All Sports',
-                      desc: 'Competitive by nature. Whether it&apos;s badminton, cricket, or table tennis — I show up to compete and learn.',
+                      desc: 'Competitive by nature. Whether it&apos;s badminton, cricket, or table tennis, I show up to compete and learn.',
                     },
                   ].map(({ icon, label, desc }) => (
                     <div

@@ -53,7 +53,7 @@ export default async function ContactPage() {
               {"Let's build something together."}
             </h1>
             <p className="text-base text-muted-foreground max-w-2xl leading-relaxed text-pretty">
-              {"I'm actively exploring PM opportunities at AI-first B2B SaaS companies, growth-stage startups, and Big Tech. If you're building in customer analytics, AI, or enterprise SaaS — I'd love to talk."}
+              {"I'm actively exploring PM opportunities at AI-first B2B SaaS companies, growth-stage startups, and Big Tech. If you're building in customer analytics, AI, or enterprise SaaS, I'd love to talk."}
             </p>
           </div>
         </section>

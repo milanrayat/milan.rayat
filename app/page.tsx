@@ -219,19 +219,12 @@ export default async function HomePage() {
         >
           <div className="max-w-6xl mx-auto">
             <div className="mb-10">
-              <p className="text-xs font-semibold uppercase tracking-widest text-venture mb-2">
-                Outside the Day Job
-              </p>
               <h2
                 id="independent-work-heading"
                 className="font-heading font-bold text-2xl lg:text-3xl text-foreground"
               >
                 Independent Work
               </h2>
-              <p className="text-sm text-muted-foreground mt-3 max-w-2xl text-pretty">
-                A product I&rsquo;m building with two others — no company, no roadmap handed down,
-                no data to lean on. Different kind of story, told on purpose.
-              </p>
             </div>
 
             {INDEPENDENT.map((p, i) => (

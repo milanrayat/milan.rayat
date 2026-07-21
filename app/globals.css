@@ -30,8 +30,6 @@
   --color-ring: var(--ring);
   --color-electric-blue: var(--electric-blue);
   --color-electric-blue-foreground: var(--electric-blue-foreground);
-  --color-venture: var(--venture);
-  --color-venture-foreground: var(--venture-foreground);
   --color-slate-mid: var(--slate-mid);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -81,20 +79,6 @@
   --electric-blue-foreground: oklch(0.98 0 0);
   /* Slate mid for dividers / labels */
   --slate-mid: oklch(0.56 0.022 252);
-
-  /* Venture: warm amber — marks independent work, distinct from the
-     electric blue used across the Sprinklr case studies */
-  --venture: oklch(0.78 0.15 72);
-  --venture-foreground: oklch(0.18 0.04 72);
-}
-
-/* Independent-work pages re-map the accent locally, so every shared
-   component (section labels, tags, side nav) reads as a different
-   category without forking a single one of them. */
-.theme-venture {
-  --accent: var(--venture);
-  --accent-foreground: var(--venture-foreground);
-  --ring: var(--venture);
 }
 
 @layer base {
