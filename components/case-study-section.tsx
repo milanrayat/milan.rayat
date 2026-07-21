@@ -76,6 +76,8 @@ export interface CaseStudySectionData {
   insightShifts?: InsightShift[]
   impactCards?: ImpactCard[]
   bullets?: string[]
+  /** Same treatment as `quote`, but rendered last — for closing a section. */
+  closingQuote?: string
 }
 
 export function CaseStudySection({ section }: { section: CaseStudySectionData }) {
@@ -95,6 +97,7 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
     insightShifts,
     impactCards,
     bullets,
+    closingQuote,
   } = section
 
   return (
@@ -338,6 +341,14 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
               </li>
             ))}
           </ul>
+        )}
+
+        {closingQuote && (
+          <blockquote className="border-l-2 border-accent pl-6 mt-10">
+            <p className="text-lg lg:text-xl font-heading text-foreground/85 leading-snug text-pretty">
+              &ldquo;{closingQuote}&rdquo;
+            </p>
+          </blockquote>
         )}
       </div>
     </section>

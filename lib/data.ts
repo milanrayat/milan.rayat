@@ -1102,3 +1102,191 @@ export const CASE_STUDIES = [
     ],
   },
 ]
+
+/**
+ * Independent work — self-funded / founder projects, kept deliberately separate
+ * from CASE_STUDIES so they never read as employer work. No metric cards and no
+ * Outcome section: pre-launch products have no traction data, and inventing some
+ * would undercut the only thing this story has going for it.
+ */
+export const INDEPENDENT_PROJECTS = [
+  {
+    id: 'ctrl',
+    slug: 'ctrl',
+    kind: 'independent' as const,
+    company: 'Ctrl',
+    role: 'Head of Product · Co-founder',
+    duration: 'Started 2026 · Launching Fall 2026',
+    teamSize: '3 people · India + US',
+    stageBadge: 'Launching Fall 2026',
+    website: 'https://getctrl.in',
+    websiteLabel: 'getctrl.in',
+    title: 'Ctrl',
+    cardTitle: 'A physical tap-to-focus device, built India-first',
+    tagline:
+      'A physical tap-to-focus device for people who keep losing hours to their phones — built India-first, priced for India, and designed by me from the ground up.',
+    oneLiner:
+      'An NFC metal card that locks your distracting apps on a tap. Co-founded with a friend, currently pre-launch: first production batch built, packaging and go-to-market in motion.',
+    metaDescription:
+      'Ctrl is a physical NFC card that locks distracting apps on a tap — built India-first and priced for India. My founder case study: the problem, the form-factor pivot from magnet to metal card, the app UX I own, and where it goes next.',
+    infoChips: [
+      'Head of Product',
+      '0-to-1 physical + software',
+      'NFC — tap to lock',
+      'India-first, building toward Europe',
+    ],
+    tags: ['Consumer Hardware', 'iOS + Android', 'Pre-launch'],
+    heroQuote:
+      "I'd sit down to study or start a work block, get through ten minutes, and then just pick up my phone — not even meaning to, just a reflex. A minute on Instagram became twenty. That's the moment Ctrl came from: not a market report, just watching my own thumb do the same thing every day and deciding to build something that would physically get in its way.",
+    sections: [
+      {
+        id: 'problem',
+        number: '01',
+        label: 'The Problem',
+        heading: 'A reflex, not a decision — and nothing on the shelf built for India.',
+        paragraphs: [
+          "Long stretches of study or focused work kept getting fractured by short reflexive checks — Instagram, Snapchat, YouTube. Not planned breaks. A few minutes of \"just checking\" routinely turned into a much longer detour, and it was happening every day, to a student and a working professional alike. Screen-time settings and app timers already existed and were already being ignored: anything you can dismiss with a tap gets dismissed with a tap.",
+          'Physical anti-distraction devices did exist — but they were designed, priced, and distributed for US and European buyers. For an Indian student or an early-career professional, the price alone put them out of reach, and none of them had a local go-to-market behind them. That gap was the opening: bring the same category of solution natively to India, at a price India would actually pay.',
+        ],
+        pills: [
+          {
+            title: 'The personal pain',
+            body: 'Reflexive phone checks fracturing every study or work block — a habit loop that software timers were too easy to dismiss to break.',
+          },
+          {
+            title: 'The market gap',
+            body: 'Existing focus devices were built and priced for US and European consumers, with no India distribution and no India price point.',
+          },
+          {
+            title: 'Why it is hard',
+            body: 'It only works if both halves ship in lockstep — an object small and durable enough to carry everywhere, and an app where setting a restriction takes seconds, not a settings maze.',
+          },
+        ],
+      },
+      {
+        id: 'origin',
+        number: '02',
+        label: 'Origin & The Team',
+        heading: 'Three people, no design function, no QA function.',
+        paragraphs: [
+          "The idea came from a friend, who brought me the concept; I joined to build it with him. It's been roughly three to four months since we started, and in that time we've gone from a printed prototype to a first production batch.",
+          "We're three people, and none of us has the luxury of a narrow job description. There's no dedicated designer and no dedicated QA — which means product and engineering roles blur by necessity. That's worth naming plainly rather than smoothing over, because it's what building lean actually looks like: I write the product spec, design the screens, and test the builds, and the boundaries only exist where they're useful.",
+        ],
+        pills: [
+          {
+            title: 'CEO — my co-founder',
+            body: 'Company operations, manufacturing coordination, and go-to-market execution.',
+          },
+          {
+            title: 'Me — Head of Product',
+            body: 'The product and UX layer: the analytics experience, settings and app-selection flow, and the overall navigation and information architecture.',
+          },
+          {
+            title: 'Engineering partner — remote, US',
+            body: 'The underlying software logic connecting the NFC tap to the app-locking mechanism, across both iOS and Android.',
+          },
+        ],
+      },
+      {
+        id: 'build',
+        number: '03',
+        label: 'The Build',
+        heading: 'The product changed shape before it changed features.',
+        paragraphs: [
+          'Version one of Ctrl was a 3D-printed fridge magnet. Tap your phone against it and your chosen set of apps locked for a set duration, with a lock animation confirming it on screen; tap again to unlock everything. It worked, and it proved the core mechanic — but it had a limitation baked into its form factor. A fridge magnet lives on a fridge. It served the at-home use case well and nothing else.',
+          "Rather than assume the form factor needed to change, we tested it. We ran an informal market survey — friends, colleagues, people we met on trips — with one specific question: does the magnet work once you leave the house? The answer came back consistent. A magnet is genuinely awkward to carry, easy to leave behind, and easy to lose. But everyone was already carrying a card-shaped object everywhere they went. A card wouldn't have to fight an existing habit; it could ride on one.",
+          'So Ctrl became a metal card — credit-card sized, with an NFC tag embedded inside. The interaction is identical: tap the card with the app open, your chosen apps lock, tap again to unlock. What changed is that it now travels naturally in a wallet or a pocket, for a student between classes or a professional at a desk. We didn\'t discard the magnet; it still serves the original at-home case. The card just became the primary product.',
+        ],
+        decisions: [
+          {
+            number: '01',
+            tag: 'Form factor',
+            title: 'Change the object, not the interaction',
+            chose:
+              'Redesigned the device from a 3D-printed fridge magnet into a credit-card-sized metal card with an embedded NFC tag — while keeping the tap-to-lock mechanic exactly as it was.',
+            result:
+              'The habit loop that already worked stayed untouched; only the constraint that limited it to one room got removed.',
+          },
+          {
+            number: '02',
+            tag: 'Validation',
+            title: 'Test the pivot before paying for it',
+            chose:
+              'Ran an informal qualitative survey with friends, colleagues, and people met on trips specifically to probe portability — before committing to a manufacturing run.',
+            result:
+              'A form-factor decision made on direct user signal rather than a hunch, at a stage where getting it wrong would have meant a batch of unsellable inventory.',
+          },
+        ],
+        insightShifts: [
+          {
+            number: '01',
+            title: 'Where the magnet actually failed',
+            insight:
+              'The magnet was never rejected for how it worked — every person we spoke to understood the tap instantly. It failed on where it could be. Distraction does not stay at home, so a device that does is only ever solving part of the problem.',
+            shiftTitle: 'Stop designing an object, start designing for a pocket',
+            shift:
+              'The design constraint stopped being "what shape holds an NFC tag" and became "what shape do people already carry without thinking about it."',
+          },
+        ],
+      },
+      {
+        id: 'my-role',
+        number: '04',
+        label: 'My Role',
+        heading: 'Designing an app that makes you want to keep the streak.',
+        paragraphs: [
+          "I own the product and UX layer of the Ctrl app — the analytics experience, the settings and app-selection flow, and the overall navigation and information architecture. Both the iOS and Android builds are ready.",
+          'The stats section was designed around one question: does seeing your own focus data make you want to keep going? That question decided the information architecture. Rather than dumping every statistic onto one screen, the app layers data the way a habit actually gets reinforced — a single glanceable streak number first, a personal-records card for the proud-of-yourself moments second, and a full historical drill-down for anyone who wants to dig.',
+        ],
+        pills: [
+          {
+            title: 'Streaks & personal records',
+            body: 'Current streak and longest streak as the two headline numbers, a monthly roll-up beneath them, and a records card surfacing longest session, best day, and best week.',
+          },
+          {
+            title: 'Monthly trend',
+            body: 'Every month broken down by total focused time and session count — so progress reads month over month, not just day to day.',
+          },
+          {
+            title: 'Weekly view',
+            body: 'A day-by-day bar chart plus a calendar heatmap with a three-tier intensity legend, drilling into a per-week daily breakdown with the current day highlighted.',
+          },
+        ],
+        bullets: [
+          'Every number in the app is computed and stored on the device — the analytics you see are never sent anywhere.',
+        ],
+      },
+      {
+        id: 'vision',
+        number: '05',
+        label: 'The Vision',
+        heading: 'Ship India first. Let the move to Paris open Europe.',
+        paragraphs: [
+          'The first production batch of the physical card exists. Packaging and distribution logistics are being finalised, and the website is live in an early form at getctrl.in with a design refresh underway — the positioning holds, the visual design changes.',
+          "On price, Ctrl sits at roughly a quarter to a third of what Brick and Bloom charge. That isn't a discount strategy; it's the direct product of designing, sourcing, and manufacturing for India instead of importing a US price point into an Indian market.",
+          "And the part that could read as a pause isn't one. As I move to Paris for my MBA, that move becomes the on-ramp for Ctrl's entry into Europe — a founder on the ground in the market we want next, rather than a venture on hold.",
+        ],
+        pills: [
+          {
+            title: 'College students',
+            body: 'The primary wedge — reached directly through top colleges\' technical fests and existing student networks rather than cold marketing.',
+          },
+          {
+            title: 'Corporate professionals',
+            body: 'A second segment still being shaped, with short-form Instagram content the leading channel under consideration.',
+          },
+          {
+            title: 'Everyone else',
+            body: 'Individual buyers are expected to arrive alongside those two organically — real, but deliberately not a targeted bracket at this stage.',
+          },
+        ],
+        bullets: [
+          'Offline and private by construction: Ctrl works through a local NFC tap with no cloud dependency, so no usage data is collected or transmitted anywhere. That is a deliberate design principle, not a gap in the roadmap — and it is a genuine advantage heading into a European market where GDPR and data-privacy expectations are front of mind.',
+          'Priced at roughly one-quarter to one-third of international competitors Brick and Bloom, because the product was designed for the Indian market rather than adapted to it.',
+        ],
+        closingQuote:
+          "There's no traction data in this case study yet, and I'm not going to manufacture any. What there is: a real problem I had, a pivot we tested before we paid for it, and a product that exists in a box.",
+      },
+    ],
+  },
+]

@@ -1,17 +1,22 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { CaseStudyCard } from '@/components/case-study-card'
-import { getCaseStudies } from '@/lib/db'
+import {
+  IndependentProjectCard,
+  MoreBuildsCard,
+} from '@/components/independent-project-card'
+import { getCaseStudies, getIndependentProjects } from '@/lib/db'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Case Studies — Milan Rayat | Senior AI PM',
   description:
-    'A deep dive into shipping screen recording for customer service quality review at Sprinklr — playback, access control, and reporting, end to end.',
+    'Enterprise product deep dives from Sprinklr — AI quality management, calibration, PII masking, and screen recording — plus Ctrl, the NFC focus device I am building independently.',
 }
 
 export default async function CaseStudiesPage() {
   const CASE_STUDIES = await getCaseStudies()
+  const INDEPENDENT = await getIndependentProjects()
 
   return (
     <>
@@ -39,8 +44,19 @@ export default async function CaseStudiesPage() {
         </section>
 
         {/* Grid */}
-        <section className="py-16 px-6 lg:px-8" aria-label="Case studies list">
+        <section className="py-16 px-6 lg:px-8" aria-labelledby="professional-work-heading">
           <div className="max-w-6xl mx-auto">
+            <div className="mb-10">
+              <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-2">
+                Sprinklr
+              </p>
+              <h2
+                id="professional-work-heading"
+                className="font-heading font-bold text-2xl lg:text-3xl text-foreground"
+              >
+                Professional Work
+              </h2>
+            </div>
             <div
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
               role="list"
@@ -62,6 +78,57 @@ export default async function CaseStudiesPage() {
                   />
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Independent work */}
+        <section
+          className="py-16 px-6 lg:px-8 border-t border-border/30"
+          aria-labelledby="independent-work-heading"
+        >
+          <div className="max-w-6xl mx-auto">
+            <div className="mb-10">
+              <p className="text-xs font-semibold uppercase tracking-widest text-venture mb-2">
+                Outside the Day Job
+              </p>
+              <h2
+                id="independent-work-heading"
+                className="font-heading font-bold text-2xl lg:text-3xl text-foreground"
+              >
+                Independent Work
+              </h2>
+              <p className="text-sm text-muted-foreground mt-3 max-w-2xl text-pretty">
+                Products I&rsquo;m building outside of Sprinklr — no company behind them, no
+                roadmap handed down, and no traction data to lean on yet.
+              </p>
+            </div>
+
+            <div
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+              role="list"
+              aria-label="Independent projects"
+            >
+              {/* A lone project spans two columns so the row reads deliberate
+                  rather than half-empty; drops to a normal card once there are more. */}
+              {INDEPENDENT.map((p, i) => (
+                <div
+                  key={p.id}
+                  role="listitem"
+                  className={INDEPENDENT.length === 1 ? 'lg:col-span-2' : undefined}
+                >
+                  <IndependentProjectCard
+                    slug={p.slug}
+                    title={p.cardTitle}
+                    oneLiner={p.oneLiner}
+                    stageBadge={p.stageBadge}
+                    infoChips={p.infoChips}
+                    variant={INDEPENDENT.length === 1 ? 'spotlight' : 'grid'}
+                    index={i}
+                  />
+                </div>
+              ))}
+              <MoreBuildsCard index={INDEPENDENT.length} />
             </div>
           </div>
         </section>

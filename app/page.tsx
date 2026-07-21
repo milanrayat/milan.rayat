@@ -4,19 +4,22 @@ import { ArrowRight } from 'lucide-react'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { CaseStudyCard } from '@/components/case-study-card'
+import { IndependentProjectCard } from '@/components/independent-project-card'
 import { RotatingWord } from '@/components/rotating-word'
 import { ScrollProgressDots } from '@/components/scroll-progress-dots'
-import { getProfile, getCaseStudies } from '@/lib/db'
+import { getProfile, getCaseStudies, getIndependentProjects } from '@/lib/db'
 
 const SECTIONS = [
   { id: 'hero', label: 'Home' },
   { id: 'case-studies', label: 'Case Studies' },
+  { id: 'independent-work', label: 'Independent Work' },
   { id: 'cta', label: 'Get in Touch' },
 ]
 
 export default async function HomePage() {
   const PERSON = await getProfile()
   const CASE_STUDIES = await getCaseStudies()
+  const INDEPENDENT = await getIndependentProjects()
 
   return (
     <>
@@ -205,6 +208,44 @@ export default async function HomePage() {
                 <ArrowRight size={14} aria-hidden="true" />
               </Link>
             </div>
+          </div>
+        </section>
+
+        {/* ── INDEPENDENT WORK ──────────────────────────────── */}
+        <section
+          id="independent-work"
+          className="py-16 px-6 lg:px-8 border-t border-border/30"
+          aria-labelledby="independent-work-heading"
+        >
+          <div className="max-w-6xl mx-auto">
+            <div className="mb-10">
+              <p className="text-xs font-semibold uppercase tracking-widest text-venture mb-2">
+                Outside the Day Job
+              </p>
+              <h2
+                id="independent-work-heading"
+                className="font-heading font-bold text-2xl lg:text-3xl text-foreground"
+              >
+                Independent Work
+              </h2>
+              <p className="text-sm text-muted-foreground mt-3 max-w-2xl text-pretty">
+                A product I&rsquo;m building with two others — no company, no roadmap handed down,
+                no data to lean on. Different kind of story, told on purpose.
+              </p>
+            </div>
+
+            {INDEPENDENT.map((p, i) => (
+              <IndependentProjectCard
+                key={p.id}
+                slug={p.slug}
+                title={p.cardTitle}
+                oneLiner={p.oneLiner}
+                stageBadge={p.stageBadge}
+                infoChips={p.infoChips}
+                variant="spotlight"
+                index={i}
+              />
+            ))}
           </div>
         </section>
 
