@@ -3,7 +3,7 @@ import { getProfile } from '@/lib/db'
 
 const FOOTER_LINKS = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'My Story' },
+  { href: '/my-story', label: 'My Story' },
   { href: '/case-studies', label: 'Case Studies' },
   { href: '/contact', label: "Let's Connect" },
 ]

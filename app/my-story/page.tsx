@@ -6,7 +6,7 @@ import type { Metadata } from 'next'
 import { Sparkles, Building2, Wrench, Users, type LucideIcon } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'About — Milan Rayat | Senior AI PM',
+  title: 'About — Milan Rayat | AI Product Manager',
   description:
     'IIT Guwahati Mechanical Engineer turned Senior Product Manager. Four years building enterprise AI products at Sprinklr, now at HEC Paris for an MBA.',
 }
