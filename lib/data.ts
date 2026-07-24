@@ -71,7 +71,22 @@ export const HIGHLIGHTS = [
 ]
 
 export const SKILLS = {
-  technical: [
+  aiProduct: [
+    'AI Evals & Quality Scoring',
+    'Prompt Engineering',
+    'Speech & NLP Analytics',
+    'LLM Fundamentals',
+    'Human-in-the-Loop Design',
+    'AI Product Trust & Adoption',
+  ],
+  domain: [
+    'Contact Center Quality Management',
+    'Call Analytics',
+    'EU & GDPR Compliance',
+    'B2B SaaS Enterprise',
+    '0 to 1 Product Development',
+  ],
+  tools: [
     'SQL',
     'Python',
     'Power BI',
@@ -82,24 +97,16 @@ export const SKILLS = {
     'Lucid',
     'Claude',
     'Cursor',
-    'Lovable',
     'v0',
   ],
-  domain: [
-    'Contact Center QM',
-    'Call Analytics',
-    'Speech Intelligence',
-    'AI-Powered QA Workflows',
-    'EU & GDPR Compliance',
-    'B2B SaaS Enterprise',
-    'Govt. Digital Transformation',
-  ],
-  softSkills: [
+  workingStyle: [
     'Cross-functional Leadership',
     'Stakeholder Management',
     'Executive Communication',
-    'Mentoring & Enablement',
     'Data-driven Decisions',
+    'Roadmapping',
+    'Agile & Scrum',
+    'Mentoring & Enablement',
   ],
 }
 

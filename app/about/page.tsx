@@ -1,51 +1,108 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
-import { SkillTag } from '@/components/skill-tag'
+import { JourneyTimeline, type JourneyEntry } from '@/components/journey-timeline'
 import { getSkills } from '@/lib/db'
 import type { Metadata } from 'next'
+import { Sparkles, Building2, Wrench, Users, type LucideIcon } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About — Milan Rayat | Senior AI PM',
   description:
-    'IIT Guwahati Mechanical Engineer turned Senior Product Manager. 5+ years building enterprise B2B SaaS at Sprinklr. Deep expertise in AI-powered contact center quality management.',
+    'IIT Guwahati Mechanical Engineer turned Senior Product Manager. Four years building enterprise AI products at Sprinklr, now at HEC Paris for an MBA.',
 }
 
-const CAREER_TIMELINE = [
+const JOURNEY: JourneyEntry[] = [
   {
-    period: '2020 — Present',
-    role: 'Senior Product Manager',
-    company: 'Sprinklr',
-    type: 'Enterprise B2B SaaS',
-    highlights: [
-      'Owned quality monitoring and call analytics products for the contact center suite',
-      'Led 14-member cross-functional teams across India and the US',
-      'Drove $20M+ ARR, 10x customer growth, and org-wide adoption',
-      'Spearheaded AI-powered QA features and EU regulatory compliance integrations',
+    label: 'Education',
+    period: '2017 — 2021',
+    title: 'B.Tech, Mechanical Engineering',
+    subtitle: 'IIT Guwahati, Minor in Product Design',
+    logo: { src: '/logos/iit-guwahati.png', alt: 'IIT Guwahati logo' },
+  },
+  {
+    label: 'EXL Services',
+    period: '2021 — 2022',
+    title: 'Consultant',
+    subtitle: 'Analytics and process optimization for enterprise clients',
+    logo: { src: '/logos/exl.svg', alt: 'EXL logo' },
+  },
+  {
+    label: 'Sprinklr',
+    period: '2022 — 2026',
+    title: 'Product Manager',
+    subtitle: 'Enterprise B2B SaaS',
+    logo: { src: '/logos/sprinklr.png', alt: 'Sprinklr logo' },
+    bullets: [
+      'Product Analyst to Senior Product Analyst to Associate PM to Product Manager',
+      'Owned quality monitoring and AI-powered call analytics for the contact center suite',
+      'Led cross-functional teams of 14, across India, the US, Europe and the Middle East',
+      '$20M+ ARR and 10x customer growth, across 100+ enterprise customers',
+      '30% faster delivery, 3.6K hours and $80K saved annually',
     ],
   },
   {
-    period: 'Earlier',
-    role: 'Analytics & Product Roles',
-    company: 'Enterprise B2B',
-    type: 'Data & Product Analytics',
-    highlights: [
-      'Built large-scale data pipelines and analytics solutions',
-      'Collaborated with C-suite stakeholders on data-driven roadmap decisions',
-      'Laid the technical foundation for a PM career grounded in quantitative thinking',
-    ],
-  },
-  {
-    period: '2015 — 2019',
-    role: 'B.Tech, Mechanical Engineering',
-    company: 'IIT Guwahati',
-    type: 'Education',
-    highlights: [
-      'Core engineering and systems thinking fundamentals',
-      'Quantitative reasoning, analytical problem-solving',
-      'Diverse technical foundation that informs product architecture decisions',
-    ],
+    label: 'HEC Paris',
+    period: '2026 — 2028',
+    title: 'MBA',
+    subtitle: 'Paris, France',
+    logo: { src: '/logos/hec-paris.svg', alt: 'HEC Paris logo' },
+    paragraph:
+      "Four years of running cross-border teams and shipping AI products end to end taught me a lot on the job. What I wanted next was the formal side of it, real grounding in AI strategy and leadership, rather than only what I'd picked up by doing. That's what brought me to HEC Paris.",
+    bullets: ['Focus: AI strategy, leadership, scaling technology-led businesses'],
+    isNow: true,
   },
 ]
+
+const PHILOSOPHY = [
+  {
+    label: 'Better as a team',
+    body: "The best work I've shipped came from genuinely building with the people around me. I'd rather slow down to get a team aligned than move fast by myself.",
+  },
+  {
+    label: 'Ownership changes how you work',
+    body: 'When something is truly mine end to end, I care about it differently, and it shows in the outcome. I try to give that same ownership to the people on my team.',
+  },
+  {
+    label: 'Feedback early, not eventually',
+    body: "I'd rather have an uncomfortable conversation early than a bigger problem later. That goes both ways, I want people to tell me when I'm wrong too.",
+  },
+  {
+    label: 'Curious by design',
+    body: "I trained as an engineer before I ever wrote a PRD, and that habit of taking a problem apart to see how it actually works never left. Going back to a classroom for an MBA wasn't a step back, it was choosing to stay a beginner on purpose.",
+  },
+]
+
+const CAPABILITY_ICONS: Record<string, LucideIcon> = {
+  'AI & Product': Sparkles,
+  Domain: Building2,
+  Tools: Wrench,
+  'Working Style': Users,
+}
+
+function CapabilityGroup({ label, items }: { label: string; items: string[] }) {
+  const Icon = CAPABILITY_ICONS[label]
+  return (
+    <div className="rounded-lg border border-border/50 bg-card p-6 flex flex-col gap-4">
+      <div className="flex items-center gap-3">
+        <div className="w-9 h-9 rounded-md bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
+          <Icon className="w-4 h-4 text-accent" aria-hidden="true" />
+        </div>
+        <p className="text-sm font-heading font-semibold text-foreground">{label}</p>
+      </div>
+      <div className="flex flex-wrap gap-2" role="list" aria-label={label}>
+        {items.map((item) => (
+          <span
+            key={item}
+            role="listitem"
+            className="inline-flex items-center rounded-full border border-border/50 px-3 py-1 text-xs text-muted-foreground transition-colors hover:border-accent/40 hover:text-accent"
+          >
+            {item}
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default async function AboutPage() {
   const SKILLS = await getSkills()
@@ -54,7 +111,7 @@ export default async function AboutPage() {
     <>
       <Navbar />
       <main className="pt-24">
-        {/* ── HEADER ──────────────────────────────────────── */}
+        {/* ── HERO ─────────────────────────────────────────── */}
         <section
           className="py-16 px-6 lg:px-8 border-b border-border/30"
           aria-labelledby="about-heading"
@@ -67,48 +124,35 @@ export default async function AboutPage() {
               id="about-heading"
               className="font-heading font-bold text-4xl lg:text-5xl text-foreground mb-6 text-balance"
             >
-              Engineer. Strategist. Builder.
+              Analyst. Strategist. Builder.
             </h1>
             <p className="text-base lg:text-lg text-muted-foreground max-w-3xl leading-relaxed text-pretty">
-              I started my career as a Mechanical Engineering graduate from IIT Guwahati, one of India&apos;s premier technical institutes. That foundation in first-principles thinking and systems design became the bedrock of everything I&apos;ve built since.
+              I started as a Mechanical Engineer at IIT Guwahati. Four years at Sprinklr took
+              that problem-solving mindset and pointed it at enterprise AI products, contact
+              center quality, call analytics, the kind of problems where the stakes are real
+              and the systems get messy fast. I&apos;m now at HEC Paris for my MBA, sharpening
+              the strategy and leadership side of that same thread. Here&apos;s how it happened.
             </p>
           </div>
         </section>
 
-        {/* ── PROFESSIONAL STORY ──────────────────────────── */}
+        {/* ── MY JOURNEY ───────────────────────────────────── */}
         <section
           className="py-16 px-6 lg:px-8 border-b border-border/30"
-          aria-labelledby="story-heading"
+          aria-labelledby="journey-heading"
         >
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-              <div className="lg:col-span-5">
-                <h2
-                  id="story-heading"
-                  className="font-heading font-semibold text-xl text-foreground mb-6 sticky top-28"
-                >
-                  The Journey
-                </h2>
-              </div>
-              <div className="lg:col-span-7 flex flex-col gap-6 text-muted-foreground leading-relaxed">
-                <p>
-                  After IIT Guwahati, I gravitated toward the intersection of data and product decisions. Before formal PM roles, I built and owned large-scale analytics pipelines, learning to translate raw data into executive-level narratives. That combination of engineering rigor and business fluency became my edge.
-                </p>
-                <p>
-                  At Sprinklr, I stepped into product ownership of the <strong className="text-foreground font-medium">contact center quality monitoring</strong> suite, a complex, high-stakes domain where enterprise customers evaluate thousands of agent interactions daily. I owned everything: vision, roadmap, delivery, go-to-market, and customer adoption.
-                </p>
-                <p>
-                  Over five years, I&apos;ve shipped products adopted by 100+ enterprise customers, generated $20M+ ARR, and closed a $10M deal for Europe&apos;s largest telecom provider through rigorous EU compliance work. I&apos;ve run 14-member cross-functional teams across India and the US, presented roadmaps to C-suite stakeholders, and earned a CTO Award for delivery quality.
-                </p>
-                <p>
-                  Today, I&apos;m focused on the next frontier: <strong className="text-foreground font-medium">AI-powered product experiences</strong> that transform how enterprises evaluate quality, coach agents, and derive insight from unstructured conversational data.
-                </p>
-              </div>
-            </div>
+            <h2
+              id="journey-heading"
+              className="font-heading font-semibold text-xl text-foreground mb-10"
+            >
+              My Journey
+            </h2>
+            <JourneyTimeline entries={JOURNEY} />
           </div>
         </section>
 
-        {/* ── PM PHILOSOPHY ───────────────────────────────── */}
+        {/* ── MY PHILOSOPHY ───────────────────────────────── */}
         <section
           className="py-16 px-6 lg:px-8 border-b border-border/30"
           aria-labelledby="philosophy-heading"
@@ -120,29 +164,12 @@ export default async function AboutPage() {
                   id="philosophy-heading"
                   className="font-heading font-semibold text-xl text-foreground mb-6 sticky top-28"
                 >
-                  PM Philosophy
+                  My Philosophy
                 </h2>
               </div>
               <div className="lg:col-span-7">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {[
-                    {
-                      label: 'Outcomes over output',
-                      body: 'I measure success in ARR, customer adoption, and time saved, not features shipped. Every roadmap decision maps to a business metric.',
-                    },
-                    {
-                      label: 'Data before opinion',
-                      body: "I run structured discovery before writing a single line of PRD. Customer interviews, usage data, and competitive signals inform every decision.",
-                    },
-                    {
-                      label: 'Ship to learn',
-                      body: 'Iterative delivery beats waterfall perfection. I scope for the smallest testable version, ship it, and build from validated learning.',
-                    },
-                    {
-                      label: 'Executive-ready by default',
-                      body: 'Every PM is a spokesperson for the product. I write and present at C-suite level: clear, crisp, and tied to the business case.',
-                    },
-                  ].map(({ label, body }) => (
+                  {PHILOSOPHY.map(({ label, body }) => (
                     <div
                       key={label}
                       className="flex flex-col gap-2 rounded-lg border border-border/50 bg-card p-5"
@@ -157,153 +184,28 @@ export default async function AboutPage() {
           </div>
         </section>
 
-        {/* ── AI SPECIALIZATION ───────────────────────────── */}
+        {/* ── MY CAPABILITIES ─────────────────────────────── */}
         <section
           className="py-16 px-6 lg:px-8 border-b border-border/30"
-          aria-labelledby="ai-heading"
-        >
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-              <div className="lg:col-span-5">
-                <h2
-                  id="ai-heading"
-                  className="font-heading font-semibold text-xl text-foreground mb-2 sticky top-28"
-                >
-                  AI Product Specialization
-                </h2>
-                <p className="text-sm text-accent font-medium">
-                  Beyond the buzzword
-                </p>
-              </div>
-              <div className="lg:col-span-7 flex flex-col gap-6">
-                <div className="rounded-lg border border-accent/25 bg-accent/5 p-6">
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                    My AI product thinking goes beyond &quot;add LLM to feature.&quot; I work with structured prompt engineering workflows, understand LLM evaluation frameworks, and have hands-on experience integrating speech analytics and AI-driven quality scoring into enterprise contact center workflows.
-                  </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    I use AI tooling daily (Claude for structured analysis, Cursor and v0 for rapid prototyping) and bring that operator-level understanding to every AI product decision.
-                  </p>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {[
-                    { label: 'AI Evals & Quality Scoring', desc: 'Designing rubrics and automated evaluation frameworks for LLM-generated outputs.' },
-                    { label: 'Prompt Engineering', desc: 'Structured prompt workflows for consistent, auditable AI behavior in enterprise settings.' },
-                    { label: 'Speech & NLP Analytics', desc: 'Contact center intelligence: sentiment, intent, topic classification at scale.' },
-                    { label: 'LLM Fine-tuning Parameters', desc: 'Understanding temperature, sampling, context windows, and their product-level tradeoffs.' },
-                  ].map(({ label, desc }) => (
-                    <div
-                      key={label}
-                      className="flex flex-col gap-1.5 rounded-lg border border-border/40 bg-card p-4"
-                    >
-                      <p className="text-xs font-semibold text-accent uppercase tracking-wider">{label}</p>
-                      <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── CAREER TIMELINE ─────────────────────────────── */}
-        <section
-          className="py-16 px-6 lg:px-8 border-b border-border/30"
-          aria-labelledby="timeline-heading"
+          aria-labelledby="capabilities-heading"
         >
           <div className="max-w-6xl mx-auto">
             <h2
-              id="timeline-heading"
+              id="capabilities-heading"
               className="font-heading font-semibold text-xl text-foreground mb-10"
             >
-              Career Timeline
+              My Capabilities
             </h2>
-            <div className="flex flex-col gap-6" role="list" aria-label="Career timeline">
-              {CAREER_TIMELINE.map((item) => (
-                <div
-                  key={item.period}
-                  role="listitem"
-                  className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-6 border-b border-border/30 last:border-0"
-                >
-                  <div className="md:col-span-3">
-                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">
-                      {item.period}
-                    </p>
-                  </div>
-                  <div className="md:col-span-9">
-                    <div className="flex items-start justify-between gap-4 mb-3">
-                      <div>
-                        <h3 className="font-heading font-semibold text-foreground text-base">
-                          {item.role}
-                        </h3>
-                        <p className="text-sm text-accent mt-0.5">{item.company}</p>
-                      </div>
-                      <span className="text-xs text-muted-foreground border border-border/50 rounded px-2 py-0.5 shrink-0">
-                        {item.type}
-                      </span>
-                    </div>
-                    <ul className="flex flex-col gap-1.5" role="list">
-                      {item.highlights.map((h) => (
-                        <li key={h} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <span className="text-accent mt-1.5 shrink-0 text-xs" aria-hidden="true">—</span>
-                          {h}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              <CapabilityGroup label="AI & Product" items={SKILLS.aiProduct} />
+              <CapabilityGroup label="Domain" items={SKILLS.domain} />
+              <CapabilityGroup label="Tools" items={SKILLS.tools} />
+              <CapabilityGroup label="Working Style" items={SKILLS.workingStyle} />
             </div>
           </div>
         </section>
 
-        {/* ── SKILLS MATRIX ───────────────────────────────── */}
-        <section
-          className="py-16 px-6 lg:px-8 border-b border-border/30"
-          aria-labelledby="skills-heading"
-        >
-          <div className="max-w-6xl mx-auto">
-            <h2
-              id="skills-heading"
-              className="font-heading font-semibold text-xl text-foreground mb-10"
-            >
-              Skills Matrix
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">
-                  Technical
-                </p>
-                <div className="flex flex-wrap gap-2" role="list" aria-label="Technical skills">
-                  {SKILLS.technical.map((s) => (
-                    <SkillTag key={s} label={s} variant="accent" role="listitem" />
-                  ))}
-                </div>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">
-                  Domain Expertise
-                </p>
-                <div className="flex flex-wrap gap-2" role="list" aria-label="Domain expertise">
-                  {SKILLS.domain.map((s) => (
-                    <SkillTag key={s} label={s} variant="default" role="listitem" />
-                  ))}
-                </div>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">
-                  Soft Skills
-                </p>
-                <div className="flex flex-wrap gap-2" role="list" aria-label="Soft skills">
-                  {SKILLS.softSkills.map((s) => (
-                    <SkillTag key={s} label={s} variant="ghost" role="listitem" />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── PERSONAL ────────────────────────────────────── */}
+        {/* ── BEYOND THE ROADMAP ──────────────────────────── */}
         <section
           className="py-16 px-6 lg:px-8"
           aria-labelledby="personal-heading"
