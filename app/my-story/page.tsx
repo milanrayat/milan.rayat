@@ -244,7 +244,7 @@ export default async function AboutPage() {
                     {
                       icon: '🎯',
                       label: 'Jack of All Sports',
-                      desc: 'Competitive by nature. Whether it&apos;s badminton, cricket, or table tennis, I show up to compete and learn.',
+                      desc: "Competitive by nature. Whether it's badminton, cricket, or table tennis, I show up to compete and learn.",
                     },
                   ].map(({ icon, label, desc }) => (
                     <div
