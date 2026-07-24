@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Briefcase, GraduationCap, type LucideIcon } from 'lucide-react'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { CaseStudyCard } from '@/components/case-study-card'
@@ -14,6 +14,28 @@ const SECTIONS = [
   { id: 'case-studies', label: 'Case Studies' },
   { id: 'independent-work', label: 'Independent Work' },
   { id: 'cta', label: 'Get in Touch' },
+]
+
+type SnapshotItem = { title: string; org: string; isNow?: boolean }
+type SnapshotSection = { label: string; icon: LucideIcon; items: SnapshotItem[] }
+
+const SNAPSHOT: SnapshotSection[] = [
+  {
+    label: 'Professional Experience',
+    icon: Briefcase,
+    items: [
+      { title: 'Product Manager', org: 'Sprinklr' },
+      { title: 'Consultant', org: 'EXL' },
+    ],
+  },
+  {
+    label: 'Education',
+    icon: GraduationCap,
+    items: [
+      { title: 'MBA', org: 'HEC Paris', isNow: true },
+      { title: 'B.Tech, Mechanical Engineering', org: 'IIT Guwahati' },
+    ],
+  },
 ]
 
 export default async function HomePage() {
@@ -80,68 +102,32 @@ export default async function HomePage() {
                 </div>
 
                 {/* Snapshot: experience + education */}
-                <div className="w-64 lg:w-72 rounded-xl border border-border/50 bg-card p-4 flex flex-col gap-3 transition-all duration-200 hover:border-accent/30 hover:-translate-y-0.5">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-md bg-secondary flex items-center justify-center shrink-0 p-1.5">
-                      <Image
-                        src="/logos/sprinklr.png"
-                        alt="Sprinklr logo"
-                        width={32}
-                        height={32}
-                        className="w-full h-full object-contain"
-                      />
+                <div className="w-64 lg:w-72 rounded-xl border border-border/50 bg-card p-4 flex flex-col gap-4 transition-all duration-200 hover:border-accent/30 hover:-translate-y-0.5">
+                  {SNAPSHOT.map((section) => (
+                    <div key={section.label} className="flex flex-col gap-2">
+                      <div className="flex items-center gap-1.5">
+                        <section.icon className="w-3.5 h-3.5 text-muted-foreground" aria-hidden="true" />
+                        <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                          {section.label}
+                        </p>
+                      </div>
+                      <div className="flex flex-col gap-2.5">
+                        {section.items.map((item) => (
+                          <div key={item.title} className="flex flex-col gap-0.5">
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <p className="text-sm font-medium text-foreground">{item.title}</p>
+                              {item.isNow && (
+                                <span className="inline-flex items-center rounded-full border border-accent/40 bg-accent/10 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-widest text-accent">
+                                  Now
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-xs text-muted-foreground">{item.org}</p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-sm font-medium text-foreground">Product Manager</p>
-                      <p className="text-xs text-muted-foreground">Sprinklr &middot; 2022 — Present</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-md bg-secondary flex items-center justify-center shrink-0 p-1.5">
-                      <Image
-                        src="/logos/exl.svg"
-                        alt="EXL logo"
-                        width={32}
-                        height={32}
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-foreground">Consultant</p>
-                      <p className="text-xs text-muted-foreground">EXL &middot; 2021 — 2022</p>
-                    </div>
-                  </div>
-                  <div className="h-px bg-border/50" aria-hidden="true" />
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-md bg-secondary flex items-center justify-center shrink-0 p-1.5">
-                      <Image
-                        src="/logos/hec-paris.svg"
-                        alt="HEC Paris logo"
-                        width={32}
-                        height={32}
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-foreground">MBA</p>
-                      <p className="text-xs text-muted-foreground">HEC Paris &middot; 2026 — 2028</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-md bg-secondary flex items-center justify-center shrink-0 p-1 overflow-hidden">
-                      <Image
-                        src="/logos/iit-guwahati.png"
-                        alt="IIT Guwahati logo"
-                        width={32}
-                        height={32}
-                        className="w-full h-full object-contain rounded-full"
-                      />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-foreground">Bachelors of Engineering</p>
-                      <p className="text-xs text-muted-foreground">IIT Guwahati &middot; 2015 — 2019</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
