@@ -6,7 +6,7 @@ import { getCaseStudies, getIndependentProjects } from '@/lib/db'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Case Studies — Milan Rayat | Senior AI PM',
+  title: 'Case Studies — Milan Rayat | AI Product Manager',
   description:
     'Enterprise product deep dives from Sprinklr, covering AI quality management, calibration, PII masking, and screen recording, plus Ctrl, the NFC focus device I am building independently.',
 }
@@ -91,7 +91,11 @@ export default async function CaseStudiesPage() {
               </h2>
             </div>
 
-            <div className="flex flex-col gap-6" role="list" aria-label="Independent projects">
+            <div
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+              role="list"
+              aria-label="Independent projects"
+            >
               {INDEPENDENT.map((p, i) => (
                 <div key={p.id} role="listitem">
                   <IndependentProjectCard
@@ -100,7 +104,7 @@ export default async function CaseStudiesPage() {
                     oneLiner={p.oneLiner}
                     stageBadge={p.stageBadge}
                     infoChips={p.infoChips}
-                    variant="spotlight"
+                    variant="grid"
                     index={i}
                   />
                 </div>

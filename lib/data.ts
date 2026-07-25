@@ -2,7 +2,7 @@ export const PERSON = {
   name: 'Milan Rayat',
   title: 'Product Manager · AI & Enterprise B2B SaaS',
   tagline: 'IIT Guwahati Engineer turned Product Manager.',
-  uvp: 'PM at Sprinklr. Shipped AI products that drive $20M+ ARR and 10x customer growth.',
+  uvp: 'PM at Sprinklr. Shipped AI products for teams that collectively drive $20M+ ARR and 10x customer growth.',
   email: 'milanrayat99@gmail.com',
   linkedin: 'https://www.linkedin.com/in/milan-rayat/',
   calendly: 'https://calendly.com/milanrayat99/30min',
@@ -24,7 +24,7 @@ export const HIGHLIGHTS = [
     id: 'quality-monitoring',
     category: 'Revenue Impact',
     headline: '$20M ARR · 10x Customer Growth',
-    body: 'Led quality monitoring product strategy for a 14-member India-US team; drove 10x customer growth and $20M ARR with 120% YoY growth, adopted org-wide at Sprinklr.',
+    body: 'Led quality monitoring product strategy for a 14-member India-US team; helped drive 10x customer growth and $20M ARR with 120% YoY growth, adopted org-wide at Sprinklr.',
   },
   {
     id: 'redaction-compliance',
@@ -60,7 +60,7 @@ export const HIGHLIGHTS = [
     id: 'delivery-velocity',
     category: 'Operational Efficiency',
     headline: '30% Faster Delivery · $80K Saved',
-    body: 'Owned sprint planning and backlog for a 14-member team; improved delivery velocity 30%, saving 3,600 hours annually and $80K in costs.',
+    body: 'Owned sprint planning and backlog for a 14-member team; improved delivery velocity 30%, saving 3.6K hours annually and $80K in costs.',
   },
   {
     id: 'training',
@@ -130,7 +130,7 @@ export const CASE_STUDIES = [
     coverImageCaption:
       "The case review screen: the AI Insights panel breaking a conversation down by parameter, with the evidence behind each score (here, why Agent Introduction scored low) surfaced right next to the transcript.",
     heroQuote:
-      "Before this existed, quality evaluation lived entirely in human hands, and human hands could only reach about 5% of conversations. Early AI scores didn't fix that trust gap on their own: when even simple parameters came back inconsistent, managers drew an obvious conclusion. If the AI struggles here, how can I trust it on judgment calls that affect coaching, reviews, and pay? That question became the real problem to solve.",
+      "Before this existed, quality evaluation lived entirely in human hands, and human hands could only reach ~5% of conversations. Early AI scores didn't fix that trust gap on their own: when even simple parameters came back inconsistent, managers drew an obvious conclusion. If the AI struggles here, how can I trust it on judgment calls that affect coaching, reviews, and pay? That question became the real problem to solve.",
     heroStats: [
       { value: '100%', label: 'Interaction coverage, up from ~5%' },
       { value: '50+', label: 'Enterprise customers using AQM' },
@@ -149,7 +149,7 @@ export const CASE_STUDIES = [
         beforeAfter: {
           beforeTitle: 'Before',
           beforeItems: [
-            'Quality evaluation done entirely by humans, reviewing roughly 5% of daily conversations',
+            'Quality evaluation done entirely by humans, reviewing ~5% of daily conversations',
             'Even well-trained evaluators introduced bias and inconsistency interpreting the same criterion',
             '95% of interactions carried zero quality visibility, with no signal on agent performance or emerging issues',
             "The first version's scoring logic lived in the backend only, deployed manually and hard to configure",
@@ -159,7 +159,7 @@ export const CASE_STUDIES = [
             'A no-code configuration layer where managers define scoring criteria and pick the right AI method per criterion',
             'An evidence layer showing exactly why the AI scored what it scored: proof messages, voice-signal timelines, plain-language explanations',
             'A structured override-and-feedback loop that routes human disagreement into prompt tuning and model retraining',
-            'A gated accuracy-validation pipeline, where no parameter ships below an 80% threshold',
+            'A gated accuracy-validation pipeline, where no parameter ships below the required ≥80% threshold',
           ],
         },
       },
@@ -172,7 +172,7 @@ export const CASE_STUDIES = [
           {
             title: 'For Quality Managers',
             items: [
-              'Only about 5% of daily conversations could ever be reviewed, the industry-standard ceiling',
+              'Only ~5% of daily conversations could ever be reviewed, the industry-standard ceiling',
               'Bias and drift crept in even with a hard rubric, and no two evaluators scored identically',
               'An underperforming agent could go months without a low-scoring call landing in the sample',
               'Manual review meant delayed feedback, with issues surfacing days or weeks after a call closed',
@@ -296,7 +296,7 @@ export const CASE_STUDIES = [
             tag: 'Validation Gate vs. Ship-and-Iterate',
             title: 'Enforce a hard ≥80% per-parameter accuracy threshold before anything reaches a client.',
             chose:
-              'Built a gated pipeline: bulk validation across 200+ diverse cases, manual accuracy review of ~50 cases per parameter, a hard 80% pass/fail gate, then continuous post-launch sampling of up to ~1,000 conversations per parameter to catch drift.',
+              'Built a gated pipeline: bulk validation across 200+ diverse cases, manual accuracy review of ~50 cases per parameter, a hard ≥80% pass/fail gate, then continuous post-launch sampling of up to ~1,000 conversations per parameter to catch drift.',
             result:
               "Any parameter below the threshold doesn't ship, full stop. Accuracy became a repeating, enforced pipeline instead of a number stamped once at launch.",
           },
@@ -399,7 +399,7 @@ export const CASE_STUDIES = [
     tagline:
       'Customer service agents handle thousands of calls and chats every day. When quality teams reviewed those interactions, they had audio and message logs but no way to see what the agent was doing on screen. I led product strategy and delivery for the feature that changed that.',
     metaDescription:
-      'Customer service agents handle thousands of calls and chats every day. When quality teams reviewed those interactions, they had audio and message logs but no way to see what the agent was doing on screen. I led product strategy and delivery for the feature that changed that.',
+      'Quality reviewers had audio and transcripts but no way to see what an agent did on screen. I led the product work that added synchronized screen recording to the review workflow, with role-based access controls and day-one reporting. 10+ enterprise clients onboarded, $5M in contract value tied to the feature.',
     coverImage: '/screen-recording-case-study.png',
     heroQuote:
       'A quality reviewer would open an interaction, listen to the audio of the call, read through the transcript, and score the agent. But if the agent had navigated to the wrong help article, skipped a required compliance step, or spent three minutes on the wrong screen entirely, the reviewer had no way of knowing. The call audio sounded fine. The problem was invisible.',

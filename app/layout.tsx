@@ -23,9 +23,9 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Milan Rayat — Senior AI Product Manager | Enterprise B2B SaaS',
+  title: 'Milan Rayat — AI Product Manager | Enterprise B2B SaaS',
   description:
-    'Senior PM & AI PM with 5+ years building enterprise contact center solutions at Sprinklr. IIT Guwahati engineer. $20M+ ARR, 10x customer growth, 100+ enterprise clients.',
+    'AI Product Manager with 5+ years building enterprise contact center solutions at Sprinklr. IIT Guwahati engineer. PM on AI products contributing to $20M+ ARR and 10x customer growth across 100+ enterprise clients.',
   generator: 'v0.app',
   keywords: [
     'Product Manager',
@@ -38,18 +38,18 @@ export const metadata: Metadata = {
     'Call Analytics',
   ],
   openGraph: {
-    title: 'Milan Rayat — Senior AI Product Manager',
+    title: 'Milan Rayat — AI Product Manager',
     description:
-      'Building enterprise contact center solutions. $20M+ ARR. 10x customer growth. AI-powered QA.',
+      'Building enterprise contact center solutions. PM on AI products driving $20M+ ARR and 10x customer growth.',
     type: 'website',
     url: 'https://milanrayat.vercel.app',
     siteName: 'Milan Rayat',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Milan Rayat — Senior AI Product Manager',
+    title: 'Milan Rayat — AI Product Manager',
     description:
-      'Building enterprise contact center solutions. $20M+ ARR. 10x customer growth. AI-powered QA.',
+      'Building enterprise contact center solutions. PM on AI products driving $20M+ ARR and 10x customer growth.',
   },
 }
 

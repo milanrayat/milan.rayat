@@ -6,7 +6,7 @@ import { getProfile } from '@/lib/db'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Contact — Milan Rayat | Senior AI PM',
+  title: 'Contact — Milan Rayat | AI Product Manager',
   description:
     "Get in touch with Milan Rayat. Open to Senior PM and AI PM roles at AI-first B2B SaaS companies. Schedule a call, send a message, or connect on LinkedIn.",
 }

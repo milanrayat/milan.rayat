@@ -93,7 +93,7 @@ export default async function HomePage() {
                 <div className="relative w-64 h-64 lg:w-72 lg:h-72 rounded-2xl overflow-hidden border border-border/50 bg-card">
                   <Image
                     src="/milan-rayat.jpg"
-                    alt="Milan Rayat — Senior PM at Sprinklr"
+                    alt="Milan Rayat — Product Manager at Sprinklr"
                     fill
                     sizes="(max-width: 1024px) 256px, 288px"
                     className="object-cover"

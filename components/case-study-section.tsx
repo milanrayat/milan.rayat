@@ -120,7 +120,7 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
         {paragraphs && (
           <div className="flex flex-col gap-4">
             {paragraphs.map((p, i) => (
-              <p key={i} className="text-base text-muted-foreground leading-relaxed text-pretty">
+              <p key={i} className="text-base text-muted-foreground leading-relaxed text-pretty max-w-prose">
                 {p}
               </p>
             ))}

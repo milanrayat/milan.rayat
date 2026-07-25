@@ -8,7 +8,7 @@ import { Sparkles, Building2, Wrench, Users, type LucideIcon } from 'lucide-reac
 export const metadata: Metadata = {
   title: 'About — Milan Rayat | AI Product Manager',
   description:
-    'IIT Guwahati Mechanical Engineer turned Senior Product Manager. Four years building enterprise AI products at Sprinklr, now at HEC Paris for an MBA.',
+    'IIT Guwahati Mechanical Engineer turned Product Manager. Four years building enterprise AI products at Sprinklr, now at HEC Paris for an MBA.',
 }
 
 const JOURNEY: JourneyEntry[] = [
@@ -36,7 +36,7 @@ const JOURNEY: JourneyEntry[] = [
       'Product Analyst to Senior Product Analyst to Associate PM to Product Manager',
       'Owned quality monitoring and AI-powered call analytics for the contact center suite',
       'Led cross-functional teams of 14, across India, the US, Europe and the Middle East',
-      '$20M+ ARR and 10x customer growth, across 100+ enterprise customers',
+      'Contributed to $20M+ ARR and 10x customer growth, across 100+ enterprise customers',
       '30% faster delivery, 3.6K hours and $80K saved annually',
     ],
   },
@@ -56,15 +56,15 @@ const JOURNEY: JourneyEntry[] = [
 const PHILOSOPHY = [
   {
     label: 'Better as a team',
-    body: "The best work I've shipped came from genuinely building with the people around me. I'd rather slow down to get a team aligned than move fast by myself.",
+    body: 'On Screen Recording, six teams across two pods, India, Singapore, and the US, had to ship one feature together. No single team could own playback, access control, and reporting alone, so the coordination itself was the job, not overhead around it.',
   },
   {
     label: 'Ownership changes how you work',
-    body: 'When something is truly mine end to end, I care about it differently, and it shows in the outcome. I try to give that same ownership to the people on my team.',
+    body: "On Ctrl, there's no dedicated designer or QA function, so I write the product spec, design the screens, and test the builds myself. Owning something end to end, even messily, changes how carefully you build it.",
   },
   {
     label: 'Feedback early, not eventually',
-    body: "I'd rather have an uncomfortable conversation early than a bigger problem later. That goes both ways, I want people to tell me when I'm wrong too.",
+    body: "On AQM, the trust problem in the AI scores only became visible after they went in front of customers, not before. I'd rather build in a checkpoint that surfaces disagreement early than find out later that a manager quietly stopped trusting the tool.",
   },
   {
     label: 'Curious by design',

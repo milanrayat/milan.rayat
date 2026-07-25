@@ -7,6 +7,7 @@ import { Footer } from '@/components/footer'
 import { CaseStudySection } from '@/components/case-study-section'
 import { CaseStudySideNav } from '@/components/case-study-side-nav'
 import { getCaseStudies, getIndependentProjects, getProfile } from '@/lib/db'
+import { getReadingStats } from '@/lib/reading-time'
 import type { Metadata } from 'next'
 
 interface Props {
@@ -42,6 +43,8 @@ export default async function CaseStudyDetailPage({ params }: Props) {
 
   const cs = CASE_STUDIES.find((c) => c.slug === slug)
   if (!cs) notFound()
+
+  const { minutes, sectionCount } = getReadingStats(cs.sections)
 
   const currentIndex = CASE_STUDIES.findIndex((c) => c.slug === slug)
   const prevCs = currentIndex > 0 ? CASE_STUDIES[currentIndex - 1] : null
@@ -81,7 +84,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
               {cs.title}
             </h1>
             <p className="text-sm text-muted-foreground mb-6">
-              {cs.role} &middot; {cs.duration}
+              {cs.role} &middot; {cs.duration} &middot; ~{minutes} min read &middot; {sectionCount} sections
             </p>
             <p className="text-base lg:text-lg text-muted-foreground max-w-2xl leading-relaxed text-pretty">
               {cs.tagline}
