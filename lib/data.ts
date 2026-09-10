@@ -1181,7 +1181,7 @@ export const INDEPENDENT_PROJECTS = [
         ],
         pills: [
           {
-            title: 'CEO',
+            title: 'Founder',
             body: 'Company operations, manufacturing coordination, and go-to-market execution.',
           },
           {
@@ -1199,40 +1199,39 @@ export const INDEPENDENT_PROJECTS = [
         number: '03',
         label: 'The Build',
         heading: 'The product changed shape before it changed features.',
-        paragraphs: [
-          'Version one of Ctrl was a 3D-printed fridge magnet. Tap your phone against it and your chosen set of apps locked for a set duration, with a lock animation confirming it on screen; tap again to unlock everything. It worked, and it proved the core mechanic, but it had a limitation baked into its form factor. A fridge magnet lives on a fridge. It served the at-home use case well and nothing else.',
-          "Rather than assume the form factor needed to change, we tested it. We ran an informal market survey with friends, colleagues, and people we met on trips, all asking one specific question: does the magnet work once you leave the house? The answer came back consistent. A magnet is genuinely awkward to carry, easy to leave behind, and easy to lose. But everyone was already carrying a card-shaped object everywhere they went. A card wouldn't have to fight an existing habit; it could ride on one.",
-          'So Ctrl became a metal card, credit-card sized, with an NFC tag embedded inside. The interaction is identical: tap the card with the app open, your chosen apps lock, tap again to unlock. What changed is that it now travels naturally in a wallet or a pocket, for a student between classes or a professional at a desk. We didn\'t discard the magnet; it still serves the original at-home case. The card just became the primary product.',
-        ],
-        decisions: [
+        timeline: [
           {
-            number: '01',
-            tag: 'Form factor',
-            title: 'Change the object, not the interaction',
-            chose:
-              'Redesigned the device from a 3D-printed fridge magnet into a credit-card-sized metal card with an embedded NFC tag, while keeping the tap-to-lock mechanic exactly as it was.',
-            result:
-              'The habit loop that already worked stayed untouched; only the constraint that limited it to one room got removed.',
+            stage: 'V1',
+            title: 'The fridge magnet',
+            summary: 'Tap your phone against it to lock your chosen apps. It worked, but it never left the fridge.',
+            detail: {
+              context:
+                'Version one of Ctrl was a 3D-printed fridge magnet. Tap your phone against it and your chosen set of apps locked for a set duration, with a lock animation confirming it on screen. Tap again to unlock everything.',
+              takeaway:
+                'It proved the core mechanic, but the form factor limited it to one room. A fridge magnet lives on a fridge, so it only ever served the at-home case.',
+            },
           },
           {
-            number: '02',
-            tag: 'Validation',
-            title: 'Test the pivot before paying for it',
-            chose:
-              'Ran an informal qualitative survey with friends, colleagues, and people met on trips specifically to probe portability, before committing to a manufacturing run.',
-            result:
-              'A form-factor decision made on direct user signal rather than a hunch, at a stage where getting it wrong would have meant a batch of unsellable inventory.',
+            stage: 'Signal',
+            title: 'What the survey said',
+            summary: 'Everyone found the magnet awkward to carry, but everyone already carried a card.',
+            detail: {
+              context:
+                'Rather than assume the form factor needed to change, we tested it. We ran an informal survey with friends, colleagues, and people met on trips, asking one question: does the magnet work once you leave the house?',
+              takeaway:
+                "The answer was consistent. A magnet is awkward to carry and easy to lose, but everyone already carries a card-shaped object everywhere. Testing this before committing to a manufacturing run meant a wrong guess cost a survey, not a batch of unsellable inventory.",
+            },
           },
-        ],
-        insightShifts: [
           {
-            number: '01',
-            title: 'Where the magnet actually failed',
-            insight:
-              'The magnet was never rejected for how it worked. Every person we spoke to understood the tap instantly. It failed on where it could be. Distraction does not stay at home, so a device that does is only ever solving part of the problem.',
-            shiftTitle: 'Stop designing an object, start designing for a pocket',
-            shift:
-              'The design constraint stopped being "what shape holds an NFC tag" and became "what shape do people already carry without thinking about it."',
+            stage: 'V2',
+            title: 'The NFC card',
+            summary: 'Same tap-to-lock mechanic, now credit-card sized and pocket-ready.',
+            detail: {
+              context:
+                'Ctrl became a metal card, credit-card sized, with an NFC tag embedded inside. The interaction stayed identical: tap the card with the app open, your chosen apps lock, tap again to unlock.',
+              takeaway:
+                "The card now travels naturally in a wallet or pocket. The magnet wasn't discarded; it still serves the at-home case, but the card became the primary product. The habit loop stayed untouched, only the constraint limiting it to one room was removed.",
+            },
           },
         ],
       },
@@ -1259,13 +1258,64 @@ export const INDEPENDENT_PROJECTS = [
             body: 'A day-by-day bar chart plus a calendar heatmap with a three-tier intensity legend, drilling into a per-week daily breakdown with the current day highlighted.',
           },
         ],
-        bullets: [
+        highlight:
           'Every number in the app is computed and stored on the device. The analytics you see are never sent anywhere.',
+      },
+      {
+        id: 'design',
+        number: '05',
+        label: 'Design & Architecture',
+        heading: 'PLACEHOLDER — a one-line hook tying the screens to the mechanism',
+        paragraphs: [
+          'PLACEHOLDER — 1–2 sentence bridge from "My Role"\'s reasoning into "here is what it looks like, and here is what actually happens on a tap."',
+        ],
+        architecture: {
+          nodes: [
+            {
+              layer: 'Hardware',
+              title: 'NFC Tag',
+              body: 'PLACEHOLDER — passive tag embedded in the card, unpowered until tapped.',
+            },
+            {
+              layer: 'Hardware',
+              title: 'Phone NFC Reader',
+              body: "PLACEHOLDER — wakes on tap, reads the tag's ID.",
+            },
+            {
+              layer: 'App',
+              title: 'Ctrl App',
+              body: 'PLACEHOLDER — matches the tag ID to the active session and chosen app list.',
+            },
+            {
+              layer: 'OS',
+              title: 'PLACEHOLDER — exact OS enforcement API (e.g. Android UsageStatsManager/Accessibility, iOS Screen Time API)',
+              body: 'PLACEHOLDER — enforces the actual app lock.',
+            },
+          ],
+          onDeviceFrom: 2,
+          note: 'PLACEHOLDER — confirm and state plainly: no network call at any point; matches the "offline and private by construction" claim already made in the Vision section.',
+        },
+        screens: [
+          {
+            src: '/placeholder.jpg',
+            alt: 'PLACEHOLDER — Ctrl streaks and personal-records screen',
+            caption: 'PLACEHOLDER — ties to the "Streaks & personal records" pill in My Role.',
+          },
+          {
+            src: '/placeholder.jpg',
+            alt: 'PLACEHOLDER — Ctrl monthly trend screen',
+            caption: 'PLACEHOLDER — ties to the "Monthly trend" pill in My Role.',
+          },
+          {
+            src: '/placeholder.jpg',
+            alt: 'PLACEHOLDER — Ctrl weekly view screen',
+            caption: 'PLACEHOLDER — ties to the "Weekly view" pill in My Role.',
+          },
         ],
       },
       {
         id: 'vision',
-        number: '05',
+        number: '06',
         label: 'The Vision',
         heading: 'Ship India first. Let the move to Paris open Europe.',
         paragraphs: [
