@@ -1,8 +1,9 @@
 'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
-import { MapPin } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { MapPin, ChevronDown, ArrowRight, ArrowDown, ShieldCheck } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const fadeInUp = (index: number) => ({
   initial: { opacity: 0, y: 16 },
@@ -54,10 +55,32 @@ interface InsightShift {
   shift: string
 }
 
+interface TimelineStep {
+  stage: string
+  title: string
+  summary: string
+  detail: {
+    context: string
+    takeaway: string
+  }
+}
+
 interface SectionImage {
   src: string
   alt: string
   caption?: string
+}
+
+interface ArchitectureNode {
+  layer: string
+  title: string
+  body: string
+}
+
+interface ArchitectureDiagram {
+  nodes: ArchitectureNode[]
+  onDeviceFrom: number
+  note: string
 }
 
 export interface CaseStudySectionData {
@@ -74,8 +97,13 @@ export interface CaseStudySectionData {
   decisions?: Decision[]
   team?: TeamMember[]
   insightShifts?: InsightShift[]
+  timeline?: TimelineStep[]
+  architecture?: ArchitectureDiagram
+  screens?: SectionImage[]
   impactCards?: ImpactCard[]
   bullets?: string[]
+  /** A single standout claim, rendered as an emphasized callout rather than a plain bullet. */
+  highlight?: string
   /** Same treatment as `quote`, but rendered last, for closing a section. */
   closingQuote?: string
 }
@@ -95,10 +123,28 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
     decisions,
     team,
     insightShifts,
+    timeline,
+    architecture,
+    screens,
     impactCards,
     bullets,
+    highlight,
     closingQuote,
   } = section
+
+  const [expandedSteps, setExpandedSteps] = useState<Set<number>>(new Set())
+
+  const toggleStep = (i: number) => {
+    setExpandedSteps((prev) => {
+      const next = new Set(prev)
+      if (next.has(i)) {
+        next.delete(i)
+      } else {
+        next.add(i)
+      }
+      return next
+    })
+  }
 
   return (
     <section
@@ -290,6 +336,154 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
           </div>
         )}
 
+        {timeline && (
+          <div className="mt-8">
+            <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-2">
+              {timeline.map((step, i) => {
+                const isOpen = expandedSteps.has(i)
+                const isLast = i === timeline.length - 1
+                const detailId = `${id}-timeline-detail-${i}`
+                return (
+                  <div key={step.stage} className="contents">
+                    <motion.div
+                      {...fadeInUp(i)}
+                      className="flex-1 min-w-0 rounded-lg border border-border/50 bg-card p-5"
+                    >
+                      <p className="text-[11px] font-bold uppercase tracking-widest text-accent mb-1">
+                        {step.stage}
+                      </p>
+                      <p className="font-heading font-semibold text-foreground text-base leading-snug text-pretty mb-1.5">
+                        {step.title}
+                      </p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{step.summary}</p>
+                      <button
+                        type="button"
+                        onClick={() => toggleStep(i)}
+                        aria-expanded={isOpen}
+                        aria-controls={detailId}
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-accent mt-2.5 hover:text-accent/80 transition-colors"
+                      >
+                        {isOpen ? 'Show less' : 'Read the full story'}
+                        <ChevronDown
+                          size={14}
+                          aria-hidden="true"
+                          className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                        />
+                      </button>
+                      <AnimatePresence initial={false}>
+                        {isOpen && (
+                          <motion.div
+                            id={detailId}
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.25, ease: 'easeOut' }}
+                            className="overflow-hidden"
+                          >
+                            <div className="flex flex-col gap-3 pt-3">
+                              <div className="flex flex-col gap-1.5">
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                                  What happened
+                                </span>
+                                <p className="text-sm text-muted-foreground leading-relaxed">
+                                  {step.detail.context}
+                                </p>
+                              </div>
+                              <div className="flex flex-col gap-1.5 pt-3 border-t border-border/30">
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-accent">
+                                  Why it mattered
+                                </span>
+                                <p className="text-sm text-foreground/90 leading-relaxed">
+                                  {step.detail.takeaway}
+                                </p>
+                              </div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
+                    {!isLast && (
+                      <>
+                        <ArrowRight
+                          className="hidden sm:block text-accent/60 shrink-0 self-start mt-14"
+                          size={18}
+                          aria-hidden="true"
+                        />
+                        <ArrowDown
+                          className="sm:hidden text-accent/60 shrink-0 mx-auto"
+                          size={18}
+                          aria-hidden="true"
+                        />
+                      </>
+                    )}
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        )}
+
+        {architecture && (
+          <div className="mt-8">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-2">
+              {architecture.nodes.slice(0, architecture.onDeviceFrom).map((node) => (
+                <div key={node.title} className="contents">
+                  <div className="flex-1 min-w-0 rounded-lg border border-border/50 bg-card p-4">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1">
+                      {node.layer}
+                    </p>
+                    <p className="font-heading font-semibold text-foreground text-sm mb-1">{node.title}</p>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{node.body}</p>
+                  </div>
+                  <ArrowRight
+                    className="hidden sm:block text-muted-foreground/50 shrink-0"
+                    size={16}
+                    aria-hidden="true"
+                  />
+                  <ArrowDown
+                    className="sm:hidden text-muted-foreground/50 shrink-0 mx-auto"
+                    size={16}
+                    aria-hidden="true"
+                  />
+                </div>
+              ))}
+              <div className="relative flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-2 border border-dashed border-accent/30 rounded-lg p-4 sm:p-3 flex-1">
+                <span className="absolute -top-2.5 left-3 bg-background px-2 text-[10px] font-bold uppercase tracking-widest text-accent">
+                  On-device
+                </span>
+                {architecture.nodes.slice(architecture.onDeviceFrom).map((node, i, arr) => (
+                  <div key={node.title} className="contents">
+                    <div className="flex-1 min-w-0 rounded-lg border border-border/50 bg-card p-4">
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1">
+                        {node.layer}
+                      </p>
+                      <p className="font-heading font-semibold text-foreground text-sm mb-1">{node.title}</p>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{node.body}</p>
+                    </div>
+                    {i < arr.length - 1 && (
+                      <>
+                        <ArrowRight
+                          className="hidden sm:block text-muted-foreground/50 shrink-0"
+                          size={16}
+                          aria-hidden="true"
+                        />
+                        <ArrowDown
+                          className="sm:hidden text-muted-foreground/50 shrink-0 mx-auto"
+                          size={16}
+                          aria-hidden="true"
+                        />
+                      </>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+            {architecture.note && (
+              <p className="text-xs text-muted-foreground leading-relaxed mt-4">{architecture.note}</p>
+            )}
+          </div>
+        )}
+
         {image && (
           <figure className="mt-8 mb-2">
             <div className="relative w-full rounded-xl border border-border/50 overflow-hidden bg-card">
@@ -307,6 +501,29 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
               </figcaption>
             )}
           </figure>
+        )}
+
+        {screens && (
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+            {screens.map((screen, i) => (
+              <motion.figure key={`${screen.src}-${i}`} {...fadeInUp(i)}>
+                <div className="relative w-full rounded-xl border border-border/50 overflow-hidden bg-card">
+                  <Image
+                    src={screen.src}
+                    alt={screen.alt}
+                    width={640}
+                    height={1280}
+                    className="w-full h-auto"
+                  />
+                </div>
+                {screen.caption && (
+                  <figcaption className="text-sm text-muted-foreground mt-3 text-pretty">
+                    {screen.caption}
+                  </figcaption>
+                )}
+              </motion.figure>
+            ))}
+          </div>
         )}
 
         {impactCards && (
@@ -341,6 +558,15 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
               </li>
             ))}
           </ul>
+        )}
+
+        {highlight && (
+          <div className="flex items-start gap-3 rounded-lg border border-accent/30 bg-accent/10 px-5 py-4 mt-6">
+            <ShieldCheck className="shrink-0 text-accent mt-0.5" size={20} aria-hidden="true" />
+            <p className="font-heading font-semibold text-accent text-base leading-snug text-pretty">
+              {highlight}
+            </p>
+          </div>
         )}
 
         {closingQuote && (
