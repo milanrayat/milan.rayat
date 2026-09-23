@@ -1265,53 +1265,73 @@ export const INDEPENDENT_PROJECTS = [
         id: 'design',
         number: '05',
         label: 'Design & Architecture',
-        heading: 'PLACEHOLDER — a one-line hook tying the screens to the mechanism',
+        heading: 'What locking in looks like, and what actually locks it.',
         paragraphs: [
-          'PLACEHOLDER — 1–2 sentence bridge from "My Role"\'s reasoning into "here is what it looks like, and here is what actually happens on a tap."',
+          'Here is the actual loop, from an idle phone to checking what you got back afterward, next to the mechanism that makes the lock itself real.',
+        ],
+        screenJourney: [
+          {
+            number: '01',
+            label: 'Idle',
+            src: '/ctrl-home-idle-screen.png',
+            alt: 'Ctrl home screen in the idle state, showing unlocked and a lock in button',
+            caption: 'Nothing pulls your eye until you tap lock in.',
+          },
+          {
+            number: '02',
+            label: 'Tap to lock',
+            src: '/ctrl-nfc-scan-screen.png',
+            alt: 'Ctrl NFC scan sheet prompting the user to hold their card near the phone',
+            caption: 'The scan stays in-app instead of handing off to a system sheet.',
+          },
+          {
+            number: '03',
+            label: 'Choose your apps',
+            src: '/ctrl-edit-mode-screen.png',
+            alt: 'Ctrl edit mode screen with twelve apps selected to block for the focus mode',
+            caption: 'Pick which apps get blocked for this mode, and save it for next time.',
+          },
+          {
+            number: '04',
+            label: 'Locked in',
+            src: '/ctrl-in-session-screen.png',
+            alt: 'Ctrl home screen in an active session with a countdown timer running',
+            caption: 'The timer is the brightest thing on screen. Ending early is deliberately the quietest.',
+          },
+          {
+            number: '05',
+            label: 'Check the pattern',
+            src: '/ctrl-monthly-trend-screen.png',
+            alt: 'Ctrl monthly stats screen showing a daily bar chart and calendar heatmap',
+            caption: 'Afterward, the monthly view turns sessions into a pattern, not a pile of numbers.',
+          },
         ],
         architecture: {
           nodes: [
             {
               layer: 'Hardware',
               title: 'NFC Tag',
-              body: 'PLACEHOLDER — passive tag embedded in the card, unpowered until tapped.',
+              body: 'A passive tag embedded in the card. It carries no power and holds only an identifier until a phone taps it.',
             },
             {
               layer: 'Hardware',
               title: 'Phone NFC Reader',
-              body: "PLACEHOLDER — wakes on tap, reads the tag's ID.",
+              body: "Wakes on tap and reads the tag's ID through Apple's Core NFC framework.",
             },
             {
               layer: 'App',
               title: 'Ctrl App',
-              body: 'PLACEHOLDER — matches the tag ID to the active session and chosen app list.',
+              body: 'Matches the tag ID to the active session and the app list chosen for that mode.',
             },
             {
               layer: 'OS',
-              title: 'PLACEHOLDER — exact OS enforcement API (e.g. Android UsageStatsManager/Accessibility, iOS Screen Time API)',
-              body: 'PLACEHOLDER — enforces the actual app lock.',
+              title: 'Screen Time API',
+              body: "Apple's Family Controls and Managed Settings frameworks enforce the restriction on the chosen apps.",
             },
           ],
           onDeviceFrom: 2,
-          note: 'PLACEHOLDER — confirm and state plainly: no network call at any point; matches the "offline and private by construction" claim already made in the Vision section.',
+          note: 'No network call happens anywhere in this chain, the same on-device claim made in the Vision section.',
         },
-        screens: [
-          {
-            src: '/placeholder.jpg',
-            alt: 'PLACEHOLDER — Ctrl streaks and personal-records screen',
-            caption: 'PLACEHOLDER — ties to the "Streaks & personal records" pill in My Role.',
-          },
-          {
-            src: '/placeholder.jpg',
-            alt: 'PLACEHOLDER — Ctrl monthly trend screen',
-            caption: 'PLACEHOLDER — ties to the "Monthly trend" pill in My Role.',
-          },
-          {
-            src: '/placeholder.jpg',
-            alt: 'PLACEHOLDER — Ctrl weekly view screen',
-            caption: 'PLACEHOLDER — ties to the "Weekly view" pill in My Role.',
-          },
-        ],
       },
       {
         id: 'vision',

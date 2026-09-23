@@ -10,7 +10,7 @@ import { PERSON } from '@/lib/data'
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/my-story', label: 'My Story' },
-  { href: '/case-studies', label: 'Case Studies' },
+  { href: '/case-studies', label: 'My Work' },
   { href: '/contact', label: "Let's Connect" },
 ]
 
