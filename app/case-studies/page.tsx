@@ -6,7 +6,7 @@ import { getCaseStudies, getIndependentProjects } from '@/lib/db'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Case Studies — Milan Rayat | AI Product Manager',
+  title: 'My Work — Milan Rayat | AI Product Manager',
   description:
     'Enterprise product deep dives from Sprinklr, covering AI quality management, calibration, PII masking, and screen recording, plus Ctrl, the NFC focus device I am building independently.',
 }
@@ -32,7 +32,7 @@ export default async function CaseStudiesPage() {
               id="cs-index-heading"
               className="font-heading font-bold text-4xl lg:text-5xl text-foreground mb-6 text-balance"
             >
-              Case Studies
+              My Work
             </h1>
             <p className="text-base text-muted-foreground max-w-2xl leading-relaxed text-pretty">
               An enterprise product challenge, end to end. Every detail is real: the constraints, the trade-offs, and what shipped.
@@ -54,7 +54,7 @@ export default async function CaseStudiesPage() {
             <div
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
               role="list"
-              aria-label="Case studies"
+              aria-label="My Work"
             >
               {CASE_STUDIES.map((cs, i) => (
                 <div key={cs.id} role="listitem">

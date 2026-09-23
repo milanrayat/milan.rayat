@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { MapPin, ChevronDown, ArrowRight, ArrowDown, ShieldCheck } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -83,6 +83,14 @@ interface ArchitectureDiagram {
   note: string
 }
 
+interface JourneyStep {
+  number: string
+  label: string
+  src: string
+  alt: string
+  caption: string
+}
+
 export interface CaseStudySectionData {
   id: string
   number: string
@@ -99,6 +107,7 @@ export interface CaseStudySectionData {
   insightShifts?: InsightShift[]
   timeline?: TimelineStep[]
   architecture?: ArchitectureDiagram
+  screenJourney?: JourneyStep[]
   screens?: SectionImage[]
   impactCards?: ImpactCard[]
   bullets?: string[]
@@ -125,6 +134,7 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
     insightShifts,
     timeline,
     architecture,
+    screenJourney,
     screens,
     impactCards,
     bullets,
@@ -133,6 +143,20 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
   } = section
 
   const [expandedSteps, setExpandedSteps] = useState<Set<number>>(new Set())
+  const [journeyProgress, setJourneyProgress] = useState({ ratio: 0, visible: 1 })
+  const journeyRef = useRef<HTMLDivElement | null>(null)
+
+  const updateJourneyProgress = (el: HTMLDivElement) => {
+    const max = el.scrollWidth - el.clientWidth
+    setJourneyProgress({
+      ratio: max > 0 ? el.scrollLeft / max : 0,
+      visible: el.scrollWidth > 0 ? el.clientWidth / el.scrollWidth : 1,
+    })
+  }
+
+  useEffect(() => {
+    if (journeyRef.current) updateJourneyProgress(journeyRef.current)
+  }, [section])
 
   const toggleStep = (i: number) => {
     setExpandedSteps((prev) => {
@@ -170,6 +194,67 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
                 {p}
               </p>
             ))}
+          </div>
+        )}
+
+        {screenJourney && (
+          <div className="mt-8">
+            <div className="relative">
+              {journeyProgress.ratio > 0.02 && (
+                <div
+                  className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-background to-transparent z-10"
+                  aria-hidden="true"
+                />
+              )}
+              {journeyProgress.ratio < 0.98 && (
+                <div
+                  className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-background to-transparent z-10"
+                  aria-hidden="true"
+                />
+              )}
+              <div
+                ref={journeyRef}
+                onScroll={(e) => updateJourneyProgress(e.currentTarget)}
+                className="flex items-start overflow-x-auto snap-x snap-mandatory gap-6 pb-2 [&::-webkit-scrollbar]:hidden"
+                style={{ scrollbarWidth: 'none' }}
+                role="region"
+                aria-label="Ctrl app screen journey"
+                tabIndex={0}
+              >
+                {screenJourney.map((step, i) => (
+                  <motion.figure
+                    key={step.number}
+                    {...fadeInUp(i)}
+                    className="shrink-0 w-[220px] sm:w-[260px] snap-start"
+                  >
+                    <p className="text-[11px] font-bold uppercase tracking-widest text-accent mb-2">
+                      {step.number} &middot; {step.label}
+                    </p>
+                    <div className="relative w-full rounded-xl border border-border/50 overflow-hidden bg-card">
+                      <Image
+                        src={step.src}
+                        alt={step.alt}
+                        width={628}
+                        height={1364}
+                        className="w-full h-auto"
+                      />
+                    </div>
+                    <figcaption className="text-sm text-muted-foreground leading-relaxed mt-3 text-pretty">
+                      {step.caption}
+                    </figcaption>
+                  </motion.figure>
+                ))}
+              </div>
+            </div>
+            <div className="mt-3 h-1 rounded-full bg-border/40 overflow-hidden" aria-hidden="true">
+              <div
+                className="h-full bg-accent rounded-full"
+                style={{
+                  width: `${Math.max(journeyProgress.visible * 100, 10)}%`,
+                  marginLeft: `${journeyProgress.ratio * (100 - Math.max(journeyProgress.visible * 100, 10))}%`,
+                }}
+              />
+            </div>
           </div>
         )}
 

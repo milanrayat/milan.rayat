@@ -11,7 +11,7 @@ import { getProfile, getCaseStudies, getIndependentProjects } from '@/lib/db'
 
 const SECTIONS = [
   { id: 'hero', label: 'Home' },
-  { id: 'case-studies', label: 'Case Studies' },
+  { id: 'case-studies', label: 'My Work' },
   { id: 'independent-work', label: 'Independent Work' },
   { id: 'cta', label: 'Get in Touch' },
 ]
@@ -150,7 +150,7 @@ export default async function HomePage() {
                   id="case-studies-heading"
                   className="font-heading font-bold text-2xl lg:text-3xl text-foreground"
                 >
-                  Case Studies
+                  My Work
                 </h2>
               </div>
               <Link
@@ -165,7 +165,7 @@ export default async function HomePage() {
             <div
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
               role="list"
-              aria-label="Case studies"
+              aria-label="My Work"
             >
               {CASE_STUDIES.map((cs, i) => (
                 <div key={cs.id} role="listitem">
@@ -190,7 +190,7 @@ export default async function HomePage() {
                 href="/case-studies"
                 className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
               >
-                View All Case Studies
+                View All My Work
                 <ArrowRight size={14} aria-hidden="true" />
               </Link>
             </div>
