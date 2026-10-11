@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import { Menu, X, Calendar, FileDown } from 'lucide-react'
+import { Menu, X, Calendar, FileText } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { PERSON } from '@/lib/data'
 
@@ -91,11 +91,12 @@ export function NavbarClient({ name }: { name: string }) {
         <div className="hidden lg:flex items-center gap-3">
           <a
             href={PERSON.resumeUrl}
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 border border-border text-foreground text-sm font-semibold px-4 py-2 rounded-md hover:border-accent/50 hover:bg-card transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            aria-label="Download resume"
+            aria-label="View resume (opens in new tab)"
           >
-            <FileDown size={15} aria-hidden="true" />
+            <FileText size={15} aria-hidden="true" />
             Resume
           </a>
           <a
@@ -161,11 +162,12 @@ export function NavbarClient({ name }: { name: string }) {
           <div className="mt-auto flex flex-col gap-3">
             <a
               href={PERSON.resumeUrl}
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 border border-border text-foreground text-base font-semibold px-6 py-3 rounded-md hover:border-accent/50 hover:bg-card transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              aria-label="Download resume"
+              aria-label="View resume (opens in new tab)"
             >
-              <FileDown size={18} aria-hidden="true" />
+              <FileText size={18} aria-hidden="true" />
               Resume
             </a>
             <a

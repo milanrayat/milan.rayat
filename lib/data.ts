@@ -6,7 +6,7 @@ export const PERSON = {
   email: 'milanrayat99@gmail.com',
   linkedin: 'https://www.linkedin.com/in/milan-rayat/',
   calendly: 'https://calendly.com/milanrayat99/30min',
-  resumeUrl: '/resume.pdf',
+  resumeUrl: 'https://drive.google.com/file/d/1c4EW5wSBATIP6F16yG9RwmCEb5pvzand/view?usp=sharing',
   company: 'Sprinklr',
 }
 
@@ -1337,7 +1337,7 @@ export const INDEPENDENT_PROJECTS = [
         id: 'vision',
         number: '06',
         label: 'The Vision',
-        heading: 'Ship India first. Let the move to Paris open Europe.',
+        heading: 'Ship India first.',
         paragraphs: [
           'The first production batch of the physical card exists. Packaging and distribution logistics are being finalised, and the website is live in an early form at getctrl.in with a design refresh underway. The positioning holds, the visual design changes.',
           "On price, Ctrl sits at roughly a quarter to a third of what Brick and Bloom charge. That isn't a discount strategy; it's the direct product of designing, sourcing, and manufacturing for India instead of importing a US price point into an Indian market.",
