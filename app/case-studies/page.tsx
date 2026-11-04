@@ -1,5 +1,6 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
+import { PageGlow } from '@/components/page-glow'
 import { CaseStudyCard } from '@/components/case-study-card'
 import { IndependentProjectCard } from '@/components/independent-project-card'
 import { getCaseStudies, getIndependentProjects } from '@/lib/db'
@@ -18,10 +19,11 @@ export default async function CaseStudiesPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24">
+      <main className="relative isolate pt-24">
+        <PageGlow />
         {/* Header */}
         <section
-          className="py-16 px-6 lg:px-8 border-b border-border/30"
+          className="py-16 px-6 lg:px-8"
           aria-labelledby="cs-index-heading"
         >
           <div className="max-w-6xl mx-auto">
@@ -78,7 +80,7 @@ export default async function CaseStudiesPage() {
 
         {/* Independent work */}
         <section
-          className="py-16 px-6 lg:px-8 border-t border-border/30"
+          className="py-16 px-6 lg:px-8"
           aria-labelledby="independent-work-heading"
         >
           <div className="max-w-6xl mx-auto">

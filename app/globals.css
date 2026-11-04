@@ -28,9 +28,13 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-electric-blue: var(--electric-blue);
-  --color-electric-blue-foreground: var(--electric-blue-foreground);
-  --color-slate-mid: var(--slate-mid);
+  --color-highlight: var(--highlight);
+  --color-cta: var(--cta);
+  --color-cta-foreground: var(--cta-foreground);
+  --color-nav-cta: var(--nav-cta);
+  --color-nav-cta-foreground: var(--nav-cta-foreground);
+  --shadow-glow: 0 0 0 1px color-mix(in oklch, var(--accent) 15%, transparent),
+    0 8px 30px -8px color-mix(in oklch, var(--accent) 25%, transparent);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -38,47 +42,71 @@
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  /* Deep Navy #0F172A as primary background */
-  --background: oklch(0.13 0.021 252);
-  /* Off-white foreground */
-  --foreground: oklch(0.96 0.005 250);
+  /* Marshmallow White #F0F0F0 page, near-black ink */
+  --background: #f0f0f0;
+  --foreground: #0d0a0e;
 
-  /* Card: slightly lighter than bg */
-  --card: oklch(0.17 0.018 252);
-  --card-foreground: oklch(0.96 0.005 250);
+  /* Cards: pure white over the marshmallow page */
+  --card: #ffffff;
+  --card-foreground: #0d0a0e;
 
-  --popover: oklch(0.17 0.018 252);
-  --popover-foreground: oklch(0.96 0.005 250);
+  --popover: #ffffff;
+  --popover-foreground: #0d0a0e;
 
-  /* Primary: bright white-ish for primary actions */
-  --primary: oklch(0.96 0.005 250);
-  --primary-foreground: oklch(0.13 0.021 252);
+  --primary: #0d0a0e;
+  --primary-foreground: #ffffff;
 
-  /* Secondary: slate card surface */
-  --secondary: oklch(0.21 0.018 252);
-  --secondary-foreground: oklch(0.96 0.005 250);
+  --secondary: #e6e3ec;
+  --secondary-foreground: #0d0a0e;
 
-  /* Muted: Slate Gray #64748B */
-  --muted: oklch(0.21 0.018 252);
-  --muted-foreground: oklch(0.56 0.022 252);
+  --muted: #e6e3ec;
+  --muted-foreground: #5c5866;
 
-  /* Accent: Electric Blue #2563EB */
-  --accent: oklch(0.51 0.22 262);
-  --accent-foreground: oklch(0.98 0 0);
+  /* Accent: Electric Violet #5B2EFF — labels, links, focus */
+  --accent: #5b2eff;
+  --accent-foreground: #ffffff;
 
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(1 0 0 / 8%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.51 0.22 262);
+  --border: rgb(13 10 14 / 10%);
+  --input: rgb(13 10 14 / 14%);
+  --ring: #5b2eff;
   --radius: 0.5rem;
 
-  /* Custom: Electric Blue */
-  --electric-blue: oklch(0.51 0.22 262);
-  --electric-blue-foreground: oklch(0.98 0 0);
-  /* Slate mid for dividers / labels */
-  --slate-mid: oklch(0.56 0.022 252);
+  /* Impact numbers: deep magenta (Hot Pink #FF3EC8 is too light for text on white) */
+  --highlight: #c4078e;
+  /* Primary buttons: Hot Pink #FF3EC8; nav button is a black pill */
+  --cta: #ff3ec8;
+  --cta-foreground: #0d0a0e;
+  --nav-cta: #0d0a0e;
+  --nav-cta-foreground: #ffffff;
+
+  /* Pink → violet washes */
+  --hero-bg: radial-gradient(ellipse 58% 62% at 0% 80%, rgb(255 62 200 / 1), transparent 70%),
+    radial-gradient(ellipse 52% 54% at 32% 84%, rgb(91 46 255 / 0.85), transparent 70%);
+  --header-bg: radial-gradient(ellipse 45% 70% at 100% 0%, rgb(255 62 200 / 0.5), transparent 70%),
+    radial-gradient(ellipse 40% 60% at 75% 0%, rgb(91 46 255 / 0.38), transparent 70%);
+  --section-tint: linear-gradient(180deg, transparent, rgb(91 46 255 / 0.12) 25%, rgb(255 62 200 / 0.14) 75%, transparent);
+  --cover-gradient: linear-gradient(135deg, #5b2eff 0%, #b03cff 50%, #ff3ec8 100%);
+  --timeline-line: linear-gradient(to bottom, #5b2eff, #ff3ec8);
+  /* Page-wide glows, tiled every 1600px: violet on the right, then pink on the left.
+     Each glow fades out well inside its tile, so tiles meet with no visible seam. */
+  --aurora: radial-gradient(ellipse 620px 500px at 100% 450px, rgb(91 46 255 / 0.3), transparent 70%),
+    radial-gradient(ellipse 680px 500px at 0% 1150px, rgb(255 62 200 / 0.32), transparent 70%);
+  /* Alternate case-study sections: faint wash that fades in and out, no hard seams */
+  --section-alt: linear-gradient(180deg, transparent, rgb(91 46 255 / 0.09) 18%, rgb(255 62 200 / 0.09) 82%, transparent);
+  --footer-bg: transparent;
+  --card-shadow: 0 1px 2px rgb(13 10 14 / 0.04), 0 12px 32px -16px rgb(91 46 255 / 0.32);
+
+  /* Closing CTA band: pink → violet, white text, black button */
+  --band-bg: linear-gradient(120deg, #f021b4 0%, #9a2cf6 50%, #5b2eff 100%);
+  --band-foreground: #ffffff;
+  --band-muted-foreground: rgb(255 255 255 / 0.88);
+  --band-accent: #ffffff;
+  --band-cta: #0d0a0e;
+  --band-cta-foreground: #ffffff;
+  --band-border: rgb(255 255 255 / 0.25);
 }
 
 @layer base {
@@ -87,6 +115,9 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
+    background-image: var(--aurora);
+    background-size: 100% 1600px;
+    background-repeat: repeat-y;
     font-size: 16px;
     line-height: 1.6;
   }
@@ -94,9 +125,25 @@
     @apply bg-background font-sans;
     scroll-behavior: smooth;
   }
+  .bg-card {
+    box-shadow: var(--card-shadow);
+  }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     line-height: 1.2;
     letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  /* Full-bleed colour band: re-points text/accent/button roles for content on the band */
+  .band {
+    background-image: var(--band-bg);
+    --foreground: var(--band-foreground);
+    --muted-foreground: var(--band-muted-foreground);
+    --accent: var(--band-accent);
+    --cta: var(--band-cta);
+    --cta-foreground: var(--band-cta-foreground);
+    --border: var(--band-border);
   }
 }

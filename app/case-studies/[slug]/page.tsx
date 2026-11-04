@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
+import { PageGlow } from '@/components/page-glow'
 import { CaseStudySection } from '@/components/case-study-section'
 import { CaseStudySideNav } from '@/components/case-study-side-nav'
 import { getCaseStudies, getIndependentProjects, getProfile } from '@/lib/db'
@@ -56,7 +57,8 @@ export default async function CaseStudyDetailPage({ params }: Props) {
       <CaseStudySideNav
         sections={cs.sections.map(({ id, number, label }) => ({ id, number, label }))}
       />
-      <main className="pt-24">
+      <main className="relative isolate pt-24">
+        <PageGlow />
         {/* Breadcrumb */}
         <div className="px-6 lg:px-8 pt-8 pb-0">
           <div className="max-w-3xl mx-auto">
@@ -72,7 +74,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
         </div>
 
         {/* Hero */}
-        <section className="py-12 px-6 lg:px-8 border-b border-border/30" aria-labelledby="cs-heading">
+        <section className="py-12 px-6 lg:px-8" aria-labelledby="cs-heading">
           <div className="max-w-3xl mx-auto">
             <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-3">
               {cs.company} &middot; Case Study
@@ -97,7 +99,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
             >
               {cs.heroStats.map((stat) => (
                 <div key={stat.label} role="listitem" className="rounded-lg border border-border/50 bg-card p-5">
-                  <p className="font-heading font-bold text-2xl text-foreground leading-none">{stat.value}</p>
+                  <p className="font-heading font-bold text-2xl text-highlight leading-none">{stat.value}</p>
                   <p className="text-xs text-muted-foreground mt-2 uppercase tracking-wide">{stat.label}</p>
                 </div>
               ))}
@@ -124,7 +126,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
             )}
 
             {cs.heroQuote && (
-              <blockquote className="border-l-2 border-accent pl-6 mt-10">
+              <blockquote className="border-l-2 border-highlight pl-6 mt-10">
                 <p className="text-base lg:text-lg text-foreground/90 leading-relaxed text-pretty">
                   {cs.heroQuote}
                 </p>
@@ -211,7 +213,8 @@ function IndependentProjectPage({ project }: { project: IndependentProject }) {
       <CaseStudySideNav
         sections={project.sections.map(({ id, number, label }) => ({ id, number, label }))}
       />
-      <main className="pt-24">
+      <main className="relative isolate pt-24">
+        <PageGlow />
         {/* Breadcrumb */}
         <div className="px-6 lg:px-8 pt-8 pb-0">
           <div className="max-w-3xl mx-auto">
@@ -228,7 +231,7 @@ function IndependentProjectPage({ project }: { project: IndependentProject }) {
 
         {/* Hero */}
         <section
-          className="py-12 px-6 lg:px-8 border-b border-border/30"
+          className="py-12 px-6 lg:px-8"
           aria-labelledby="project-heading"
         >
           <div className="max-w-3xl mx-auto">
@@ -287,7 +290,7 @@ function IndependentProjectPage({ project }: { project: IndependentProject }) {
             </ul>
 
             {project.heroQuote && (
-              <blockquote className="border-l-2 border-accent pl-6 mt-10">
+              <blockquote className="border-l-2 border-highlight pl-6 mt-10">
                 <p className="text-base lg:text-lg text-foreground/90 leading-relaxed text-pretty">
                   {project.heroQuote}
                 </p>
@@ -303,7 +306,7 @@ function IndependentProjectPage({ project }: { project: IndependentProject }) {
 
         {/* Closing */}
         <section className="py-14 px-6 lg:px-8" aria-label="See the product">
-          <div className="max-w-3xl mx-auto rounded-xl border border-accent/25 bg-accent/5 p-8 text-center">
+          <div className="band max-w-3xl mx-auto rounded-xl border border-accent/25 bg-accent/5 p-8 text-center">
             <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-3">
               {project.stageBadge}
             </p>
@@ -320,7 +323,7 @@ function IndependentProjectPage({ project }: { project: IndependentProject }) {
                   href={project.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground text-sm font-semibold px-6 py-3 rounded-md hover:bg-accent/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="inline-flex items-center justify-center gap-2 bg-cta text-cta-foreground text-sm font-semibold px-6 py-3 rounded-md hover:bg-cta/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
                   Visit {project.websiteLabel}
                   <ArrowUpRight size={16} aria-hidden="true" />

@@ -35,10 +35,10 @@ export function MetricCard({
       <p
         className={
           size === 'lg'
-            ? 'font-heading font-bold text-4xl lg:text-5xl text-accent leading-none'
+            ? 'font-heading font-bold text-4xl lg:text-5xl text-highlight leading-none'
             : size === 'sm'
-              ? 'font-heading font-bold text-2xl text-accent leading-none'
-              : 'font-heading font-bold text-3xl lg:text-4xl text-accent leading-none'
+              ? 'font-heading font-bold text-2xl text-highlight leading-none'
+              : 'font-heading font-bold text-3xl lg:text-4xl text-highlight leading-none'
         }
         aria-hidden="true"
       >
@@ -46,7 +46,7 @@ export function MetricCard({
       </p>
       <p className="text-sm text-muted-foreground leading-relaxed">{label}</p>
       <div
-        className="absolute bottom-0 left-0 right-0 h-px bg-accent/0 group-hover:bg-accent/20 transition-all duration-300 rounded-b-lg"
+        className="absolute bottom-0 left-0 right-0 h-px bg-highlight/0 group-hover:bg-highlight/20 transition-all duration-300 rounded-b-lg"
         aria-hidden="true"
       />
     </motion.div>

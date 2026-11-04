@@ -15,7 +15,9 @@ export default function OpengraphImage() {
           flexDirection: 'column',
           justifyContent: 'center',
           padding: '80px',
-          background: '#0B1120',
+          background: '#F0F0F0',
+          backgroundImage:
+            'radial-gradient(ellipse 55% 75% at 0% 110%, rgba(255,62,200,0.95), transparent 70%), radial-gradient(ellipse 50% 65% at 35% 115%, rgba(91,46,255,0.7), transparent 70%)',
           fontFamily: 'Arial, Helvetica, sans-serif',
         }}
       >
@@ -35,22 +37,22 @@ export default function OpengraphImage() {
               width: 64,
               height: 64,
               borderRadius: 16,
-              background: '#3B82F6',
-              color: '#0B1120',
+              background: '#5B2EFF',
+              color: '#FFFFFF',
               fontSize: 28,
               fontWeight: 700,
             }}
           >
             MR
           </div>
-          <div style={{ fontSize: 28, fontWeight: 600, color: '#F1F5F9' }}>{PERSON.name}</div>
+          <div style={{ fontSize: 28, fontWeight: 600, color: '#0D0A0E' }}>{PERSON.name}</div>
         </div>
         <div
           style={{
             display: 'flex',
             fontSize: 56,
             fontWeight: 700,
-            color: '#F1F5F9',
+            color: '#0D0A0E',
             lineHeight: 1.15,
             maxWidth: 980,
           }}
@@ -61,7 +63,7 @@ export default function OpengraphImage() {
           style={{
             display: 'flex',
             fontSize: 28,
-            color: '#94A3B8',
+            color: '#5C5866',
             marginTop: 28,
           }}
         >

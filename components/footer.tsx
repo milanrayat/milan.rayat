@@ -13,7 +13,7 @@ export async function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-border/50" role="contentinfo">
+    <footer className="border-t border-border/50 bg-(color:--footer-bg)" role="contentinfo">
       <div className="max-w-6xl mx-auto px-6 lg:px-8 py-10 flex flex-col items-center gap-6">
         <nav aria-label="Footer navigation">
           <ul

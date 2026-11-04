@@ -47,25 +47,21 @@ export default async function HomePage() {
     <>
       <Navbar />
       <ScrollProgressDots sections={SECTIONS} />
-      <main>
+      <main className="relative isolate">
         {/* ── HERO ──────────────────────────────────────────── */}
         <section
           id="hero"
           className="relative min-h-[90vh] flex flex-col justify-center pt-20 pb-16 px-6 lg:px-8"
           aria-labelledby="hero-heading"
         >
-          {/* Subtle grid pattern */}
+          {/* Pink → violet glow, bleeding past the hero and fading out */}
           <div
-            className="absolute inset-0 opacity-[0.03] pointer-events-none"
-            style={{
-              backgroundImage:
-                'linear-gradient(oklch(0.96 0.005 250) 1px, transparent 1px), linear-gradient(90deg, oklch(0.96 0.005 250) 1px, transparent 1px)',
-              backgroundSize: '60px 60px',
-            }}
+            className="absolute inset-x-0 top-0 h-[calc(100%+320px)] -z-10 pointer-events-none [mask-image:linear-gradient(to_bottom,black_70%,transparent)]"
+            style={{ backgroundImage: 'var(--hero-bg)' }}
             aria-hidden="true"
           />
 
-          <div className="max-w-6xl mx-auto w-full">
+          <div className="relative max-w-6xl mx-auto w-full">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               {/* Text content */}
               <div className="lg:col-span-8 flex flex-col gap-6">
@@ -137,7 +133,7 @@ export default async function HomePage() {
         {/* ── CASE STUDIES PREVIEW ──────────────────────────── */}
         <section
           id="case-studies"
-          className="py-16 px-6 lg:px-8 border-t border-border/30"
+          className="py-16 px-6 lg:px-8"
           aria-labelledby="case-studies-heading"
         >
           <div className="max-w-6xl mx-auto">
@@ -200,7 +196,8 @@ export default async function HomePage() {
         {/* ── INDEPENDENT WORK ──────────────────────────────── */}
         <section
           id="independent-work"
-          className="py-16 px-6 lg:px-8 border-t border-border/30"
+          className="py-16 px-6 lg:px-8"
+          style={{ backgroundImage: 'var(--section-tint)' }}
           aria-labelledby="independent-work-heading"
         >
           <div className="max-w-6xl mx-auto">
@@ -231,7 +228,7 @@ export default async function HomePage() {
         {/* ── FINAL CTA ─────────────────────────────────────── */}
         <section
           id="cta"
-          className="py-16 px-6 lg:px-8 border-t border-border/30"
+          className="band py-28 px-6 lg:px-8 [mask-image:linear-gradient(to_bottom,transparent,black_22%,black_78%,transparent)]"
           aria-labelledby="cta-heading"
         >
           <div className="max-w-6xl mx-auto text-center">
@@ -250,7 +247,7 @@ export default async function HomePage() {
             <div className="flex justify-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground text-sm font-semibold px-6 py-3 rounded-md hover:bg-accent/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="inline-flex items-center justify-center gap-2 bg-cta text-cta-foreground text-sm font-semibold px-6 py-3 rounded-md hover:bg-cta/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 {"Let's Connect"}
                 <ArrowRight size={16} aria-hidden="true" />

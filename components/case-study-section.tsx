@@ -173,7 +173,7 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
   return (
     <section
       id={id}
-      className="py-16 px-6 lg:px-8 border-b border-border/30 scroll-mt-24"
+      className="py-16 px-6 lg:px-8 scroll-mt-24 even:bg-(image:--section-alt)"
       aria-labelledby={`${id}-heading`}
     >
       <div className="max-w-3xl mx-auto">
@@ -370,7 +370,7 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
                 {...fadeInUp(i)}
                 className="flex flex-col gap-3 rounded-lg border border-border/50 bg-card p-5 transition-all duration-200 hover:border-accent/40 hover:-translate-y-1"
               >
-                <p className="font-heading font-bold text-3xl text-accent leading-none">{count}</p>
+                <p className="font-heading font-bold text-3xl text-highlight leading-none">{count}</p>
                 <div className="flex gap-1" role="img" aria-label={`${count} people`}>
                   {Array.from({ length: Math.min(count, 8) }).map((_, i) => (
                     <span key={i} className="w-1.5 h-1.5 rounded-full bg-accent" aria-hidden="true" />
@@ -622,7 +622,7 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
                 <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   {category}
                 </span>
-                <p className="font-heading font-bold text-3xl lg:text-4xl text-accent leading-none mt-2">
+                <p className="font-heading font-bold text-3xl lg:text-4xl text-highlight leading-none mt-2">
                   {value}
                 </p>
                 <p className="text-sm font-semibold text-foreground mt-1">{cardLabel}</p>
@@ -655,7 +655,7 @@ export function CaseStudySection({ section }: { section: CaseStudySectionData })
         )}
 
         {closingQuote && (
-          <blockquote className="border-l-2 border-accent pl-6 mt-10">
+          <blockquote className="border-l-2 border-highlight pl-6 mt-10">
             <p className="text-lg lg:text-xl font-heading text-foreground/85 leading-snug text-pretty">
               &ldquo;{closingQuote}&rdquo;
             </p>

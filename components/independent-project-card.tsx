@@ -19,12 +19,12 @@ interface IndependentProjectCardProps {
 /** Stand-in artwork until real product photography lands. */
 function CardArt({ compact = false }: { compact?: boolean }) {
   return (
-    <div className="relative w-full h-full overflow-hidden bg-[oklch(0.19_0.03_262)]">
+    <div className="relative w-full h-full overflow-hidden bg-secondary">
       <div
         className="absolute inset-0 opacity-[0.5]"
         style={{
           backgroundImage:
-            'radial-gradient(circle at 30% 25%, oklch(0.51 0.22 262 / 0.35), transparent 60%)',
+            'radial-gradient(circle at 30% 25%, color-mix(in oklch, var(--accent) 35%, transparent), transparent 60%)',
         }}
         aria-hidden="true"
       />
@@ -32,7 +32,7 @@ function CardArt({ compact = false }: { compact?: boolean }) {
         className="absolute inset-0 opacity-[0.06]"
         style={{
           backgroundImage:
-            'linear-gradient(oklch(0.96 0.005 250) 1px, transparent 1px), linear-gradient(90deg, oklch(0.96 0.005 250) 1px, transparent 1px)',
+            'linear-gradient(var(--foreground) 1px, transparent 1px), linear-gradient(90deg, var(--foreground) 1px, transparent 1px)',
           backgroundSize: '32px 32px',
         }}
         aria-hidden="true"
@@ -42,7 +42,7 @@ function CardArt({ compact = false }: { compact?: boolean }) {
         <div
           className={`relative ${
             compact ? 'w-[58%]' : 'w-[62%]'
-          } aspect-[1.586/1] rounded-xl border border-accent/40 bg-gradient-to-br from-[oklch(0.32_0.07_262)] to-[oklch(0.21_0.04_262)] shadow-[0_18px_40px_-12px_rgba(0,0,0,0.65)] rotate-[-8deg] flex flex-col justify-between p-4`}
+          } aspect-[1.586/1] rounded-xl border border-accent/40 bg-gradient-to-br from-[color-mix(in_oklch,var(--accent)_30%,var(--card))] to-secondary shadow-[0_18px_40px_-12px_rgba(0,0,0,0.65)] rotate-[-8deg] flex flex-col justify-between p-4`}
         >
           <span className="font-heading font-bold text-foreground text-lg leading-none tracking-tight">
             Ctrl
@@ -80,7 +80,7 @@ export function IndependentProjectCard({
     >
       <Link
         href={`/case-studies/${slug}`}
-        className={`group flex h-full rounded-xl border border-border/50 bg-card overflow-hidden transition-all duration-300 hover:border-accent/50 hover:-translate-y-1 hover:shadow-[0_0_0_1px_rgba(59,130,246,0.15),0_8px_30px_-8px_rgba(59,130,246,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+        className={`group flex h-full rounded-xl border border-border/50 bg-card overflow-hidden transition-all duration-300 hover:border-accent/50 hover:-translate-y-1 hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
           isSpotlight ? 'flex-col lg:flex-row' : 'flex-col'
         }`}
         aria-label={`Read the Ctrl independent build case study`}

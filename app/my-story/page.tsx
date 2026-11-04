@@ -1,5 +1,6 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
+import { PageGlow } from '@/components/page-glow'
 import { JourneyTimeline, type JourneyEntry } from '@/components/journey-timeline'
 import { getSkills } from '@/lib/db'
 import type { Metadata } from 'next'
@@ -110,10 +111,11 @@ export default async function AboutPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24">
+      <main className="relative isolate pt-24">
+        <PageGlow />
         {/* ── HERO ─────────────────────────────────────────── */}
         <section
-          className="py-16 px-6 lg:px-8 border-b border-border/30"
+          className="py-16 px-6 lg:px-8"
           aria-labelledby="about-heading"
         >
           <div className="max-w-6xl mx-auto">
@@ -138,7 +140,7 @@ export default async function AboutPage() {
 
         {/* ── MY JOURNEY ───────────────────────────────────── */}
         <section
-          className="py-16 px-6 lg:px-8 border-b border-border/30"
+          className="py-16 px-6 lg:px-8"
           aria-labelledby="journey-heading"
         >
           <div className="max-w-6xl mx-auto">
@@ -154,7 +156,7 @@ export default async function AboutPage() {
 
         {/* ── MY PHILOSOPHY ───────────────────────────────── */}
         <section
-          className="py-16 px-6 lg:px-8 border-b border-border/30"
+          className="py-16 px-6 lg:px-8"
           aria-labelledby="philosophy-heading"
         >
           <div className="max-w-6xl mx-auto">
@@ -186,7 +188,7 @@ export default async function AboutPage() {
 
         {/* ── MY CAPABILITIES ─────────────────────────────── */}
         <section
-          className="py-16 px-6 lg:px-8 border-b border-border/30"
+          className="py-16 px-6 lg:px-8"
           aria-labelledby="capabilities-heading"
         >
           <div className="max-w-6xl mx-auto">

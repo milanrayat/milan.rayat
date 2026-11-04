@@ -44,7 +44,7 @@ export function NavbarClient({ name }: { name: string }) {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         scrolled
-          ? 'bg-background/95 backdrop-blur-md border-b border-border/50'
+          ? 'bg-background/70 backdrop-blur-xl border-b border-border/50'
           : 'bg-background/40 backdrop-blur-sm border-b border-transparent'
       )}
       role="banner"
@@ -103,7 +103,7 @@ export function NavbarClient({ name }: { name: string }) {
             href={PERSON.calendly}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 bg-accent text-accent-foreground text-sm font-semibold px-4 py-2 rounded-md hover:bg-accent/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="inline-flex items-center gap-1.5 bg-nav-cta text-nav-cta-foreground text-sm font-semibold px-4 py-2 rounded-md hover:bg-nav-cta/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             aria-label="Book a call (opens in new tab)"
           >
             <Calendar size={15} aria-hidden="true" />
@@ -174,7 +174,7 @@ export function NavbarClient({ name }: { name: string }) {
               href={PERSON.calendly}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground text-base font-semibold px-6 py-3 rounded-md hover:bg-accent/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="inline-flex items-center justify-center gap-2 bg-nav-cta text-nav-cta-foreground text-base font-semibold px-6 py-3 rounded-md hover:bg-nav-cta/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               aria-label="Book a call (opens in new tab)"
             >
               <Calendar size={18} aria-hidden="true" />

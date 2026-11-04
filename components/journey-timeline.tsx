@@ -17,7 +17,8 @@ export function JourneyTimeline({ entries }: { entries: JourneyEntry[] }) {
     <div className="relative" role="list" aria-label="Career journey timeline">
       <div
         aria-hidden="true"
-        className="absolute left-[4px] top-1 bottom-1 w-[2px] rounded-full bg-gradient-to-b from-muted-foreground/30 via-muted-foreground/20 to-accent"
+        className="absolute left-[4px] top-1 bottom-1 w-[2px] rounded-full"
+        style={{ backgroundImage: 'var(--timeline-line)' }}
       />
       <div className="flex flex-col gap-10">
         {entries.map((entry, i) => (
@@ -25,10 +26,10 @@ export function JourneyTimeline({ entries }: { entries: JourneyEntry[] }) {
             {entry.isNow ? (
               <span aria-hidden="true" className="absolute left-0 top-1.5 flex h-2.5 w-2.5">
                 <span
-                  className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"
+                  className="animate-ping absolute inline-flex h-full w-full rounded-full bg-highlight opacity-75"
                   style={{ animationDuration: '2.2s' }}
                 />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_12px_2px_var(--accent)]" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-highlight shadow-[0_0_12px_2px_var(--highlight)]" />
               </span>
             ) : (
               <span
@@ -41,7 +42,7 @@ export function JourneyTimeline({ entries }: { entries: JourneyEntry[] }) {
               className={cn(
                 'rounded-lg border bg-card p-6 flex flex-col gap-3',
                 entry.isNow
-                  ? 'border-accent/40 shadow-[0_0_50px_-20px_var(--accent)]'
+                  ? 'border-highlight/40 shadow-[0_0_50px_-20px_var(--highlight)]'
                   : 'border-border/50'
               )}
             >
@@ -66,7 +67,7 @@ export function JourneyTimeline({ entries }: { entries: JourneyEntry[] }) {
                   </div>
                 </div>
                 {entry.isNow && (
-                  <span className="inline-flex items-center rounded-full border border-accent/40 bg-accent/10 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-accent">
+                  <span className="inline-flex items-center rounded-full border border-highlight/40 bg-highlight/10 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-highlight">
                     Now
                   </span>
                 )}

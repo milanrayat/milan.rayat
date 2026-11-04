@@ -1,6 +1,7 @@
 import { ExternalLink, Calendar, ArrowUpRight } from 'lucide-react'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
+import { PageGlow } from '@/components/page-glow'
 import { ContactForm } from '@/components/contact-form'
 import { getProfile } from '@/lib/db'
 import type { Metadata } from 'next'
@@ -36,10 +37,11 @@ export default async function ContactPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24">
+      <main className="relative isolate pt-24">
+        <PageGlow />
         {/* Header */}
         <section
-          className="py-16 px-6 lg:px-8 border-b border-border/30"
+          className="py-16 px-6 lg:px-8"
           aria-labelledby="contact-heading"
         >
           <div className="max-w-6xl mx-auto">
@@ -60,7 +62,7 @@ export default async function ContactPage() {
 
         {/* Contact Options */}
         <section
-          className="py-16 px-6 lg:px-8 border-b border-border/30"
+          className="py-16 px-6 lg:px-8"
           aria-labelledby="contact-options-heading"
         >
           <div className="max-w-6xl mx-auto">
@@ -109,7 +111,7 @@ export default async function ContactPage() {
 
         {/* Drop me a Message */}
         <section
-          className="py-16 px-6 lg:px-8 border-b border-border/30"
+          className="py-16 px-6 lg:px-8"
           aria-labelledby="message-heading"
         >
           <div className="max-w-2xl mx-auto">
