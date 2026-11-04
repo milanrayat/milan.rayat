@@ -42,14 +42,23 @@ function CardArt({ compact = false }: { compact?: boolean }) {
         <div
           className={`relative ${
             compact ? 'w-[58%]' : 'w-[62%]'
-          } aspect-[1.586/1] rounded-xl border border-accent/40 bg-gradient-to-br from-[color-mix(in_oklch,var(--accent)_30%,var(--card))] to-secondary shadow-[0_18px_40px_-12px_rgba(0,0,0,0.65)] rotate-[-8deg] flex flex-col justify-between p-4`}
+          } aspect-[1.586/1] overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-[#1c1c1f] via-[#0e0e10] to-[#050506] shadow-[0_18px_40px_-12px_rgba(0,0,0,0.65)] rotate-[-8deg] flex flex-col justify-between p-4`}
         >
-          <span className="font-heading font-bold text-foreground text-lg leading-none tracking-tight">
+          {/* Carbon weave + light sheen */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundImage:
+                'linear-gradient(135deg, rgb(255 255 255 / 0.1), transparent 45%), repeating-linear-gradient(45deg, rgb(255 255 255 / 0.03) 0 2px, transparent 2px 4px)',
+            }}
+            aria-hidden="true"
+          />
+          <span className="relative font-heading font-bold text-[#f5f5f7] text-lg leading-none tracking-tight">
             Ctrl
           </span>
           <Nfc
             size={compact ? 26 : 30}
-            className="text-accent self-end"
+            className="relative text-[#f5f5f7]/70 self-end"
             aria-hidden="true"
           />
         </div>
