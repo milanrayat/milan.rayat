@@ -1,0 +1,75 @@
+# All search criteria live here, never in code.
+# ${VAR} values are read from the environment at runtime (see .env.example).
+
+timezone: Europe/Paris
+
+sheet:
+  spreadsheet_id: ${SHEET_ID}
+  tabs:
+    jobs: Jobs
+    people: People Names
+    companies: Companies
+    run_log: Run Log
+    dedupe_people_sources:        # read-only tabs; column B = LinkedIn URL
+      - {tab: Product Management, column: B}
+      - {tab: Strategy, column: B}
+  companies_state_column: G
+  companies_state_header: Agent Processed
+
+llm:
+  default_model: claude-haiku-5-5
+  escalation_model: claude-sonnet-5-5
+  escalate_below_confidence: 0.7
+  batch_size: 10
+  effort: low                     # extraction is simple; keep cost/latency down
+  max_tokens: 8000
+  cache_dir: .cache/llm           # results cached by job id; reruns never re-pay
+
+europe:
+  # Assumption 1: Europe = EU + UK, CH, NO, IS, LI and other non-EU European countries.
+  include_non_eu: true
+
+job_scout:
+  mode: internship                # internship | job  (job mode: no timeline filter, full-time filters)
+  role_keywords: ["product manager", "product management", "product owner intern", "PM intern", "APM"]
+  exclude_title_keywords:
+    - project manager
+    - program manager
+    - programme manager
+    - product marketing
+    - marketing
+    - sales
+    - engineering manager
+    - product designer
+  locations: [Paris, Berlin, Munich, Amsterdam, Tallinn, London, Dublin, Stockholm, Barcelona, Lisbon, Zurich, Copenhagen, Helsinki, Remote-Europe]
+  lookback_hours: 26              # 24h + 2h overlap; dedupe removes repeats
+  sources: [linkedin_jobs, welcome_to_the_jungle]   # add new adapters here
+  timelines:                      # internship mode only
+    - {type: window, min_months: 2, max_months: 4, start_after: 2027-05-01, end_before: 2027-08-31}
+    - {type: fixed, months: 6, start_month: 2027-06}
+    - {type: fixed, months: 6, start_month: 2027-09}
+  timeline_include_if_unstated: true
+  source_block_threshold: 2       # consecutive 429/403 runs before alerting
+  zero_result_warn_nights: 3
+  weekly_self_check:
+    weekday: sunday
+    sample_size: 10
+
+people_scout:
+  companies_per_night: 10
+  people_per_company: 5
+  india_profile_budget: 6         # profile opens per company for Tier 2 checks
+  tiers: [HEC, India, Senior, PM]
+  exclude_titles: [product owner, product marketing manager, project manager, program manager, programme manager]
+  linkedin:
+    profile_dir: ~/.career-agents/linkedin-profile
+    max_page_loads: 150
+    action_delay_seconds: [6, 20]
+    company_pause_seconds: [60, 120]
+    max_consecutive_bad_pages: 3
+    headless: true
+    run_timeout_minutes: 25
+    block_resources: [image, media, font]
+  mac:
+    skip_on_battery: true
+    lock_dir: ~/.career-agents/locks
