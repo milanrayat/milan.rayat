@@ -1,9 +1,0 @@
-.venv/
-__pycache__/
-*.pyc
-.pytest_cache/
-.cache/
-.env
-*.json.key
-service-account*.json
-evals/out/
